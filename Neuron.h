@@ -34,9 +34,11 @@ class Neuron
         bool czyJestBias;
         double wartoscBiasu;
         double blad;
+        double wyjscieSumatora; // potrzebne bo z niego obliczana pochodna funkcji aktywacji
 
         void obliczWyjscie(Wektor wejscia);
         double funkcjaAktywacji(double x);
+        double pochodnaFunkcjiAktywacji(double x);
         void setWyjscie(double x); // liczy z sumy wartosc funkcji aktywacji i zapisuje do wyjscie
         
         Neuron(int iloscWejsc, bool bias=false);

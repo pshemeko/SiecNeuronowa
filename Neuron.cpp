@@ -44,6 +44,11 @@ double Neuron::funkcjaAktywacji(double x)
 return 1.0/(1 + pow(M_E, -x) );
 }
 
+double Neuron::pochodnaFunkcjiAktywacji(double x)
+{
+    return funkcjaAktywacji(x) * (1.0 - funkcjaAktywacji(x) );
+}
+
 void Neuron::setWyjscie(double x)
 {
     wyjscie = funkcjaAktywacji(x);

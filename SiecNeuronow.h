@@ -44,7 +44,7 @@ class SiecNeuronow
 public:
     void obliczanieWag(vector<int> danaWej);//); //najpierw trzeba obliczyc wagi z danej 
     void obliczanieBledow(vector<int> danaWyj);
-    void algorytmPropagacjiWstecznej();
+    void ZmianaWagSieci(vector<int> daneWej); // przekaz kolejna dana wejsciowa do uczenia sieci
     
     SiecNeuronow(int iloscWarstw, vector<int> iloscNeuronowNaWarstwe2 = {4,2,4});//, int neuronowNaKazdejWarstwieUkrytej);
 

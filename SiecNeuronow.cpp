@@ -93,7 +93,7 @@ void SiecNeuronow::obliczanieWag(vector<int> danaWej) // SPRAWDZAC CZY ILOSC ELE
     // to jest funkcja liczenie wag wyjeta z neuronu i teraz jest liczona tutaj  // mozna ja skasowac z neuronu
     for(int i = 1; i < iloscNeuronowNaWarstwe.size(); ++i)// lece pokolei po warstwach
             // chyba od i=0 ????? bo jest wejscie a to sa neurony w warstwie ukrytej i do size()-1
-        //TODO ZMIENIC CHYBA!!!!!!!!!!!!!!!
+        //TODO ZMIENIC CHYBA!!!!!!!!!!!!!!! NIE NIE, TO JEST DOBRZE - zerknij algorytm propagacji wstecznej lub rozpisz na kartce
     {
         for(int j = 0; j < iloscNeuronowNaWarstwe[i]; ++j) // dla kazdego neuronu w tej warstwie licze jego wyjscie
         {
@@ -165,14 +165,25 @@ void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
         }
 
 }
-
-void SiecNeuronow::algorytmPropagacjiWstecznej()
+// zmienia nam wagi w sieci neuronowej
+void SiecNeuronow::ZmianaWagSieci(vector<int> daneWej) // dane wej to sa dane wejsciowe do uczenia w danym i-tym obrocie epoki 
 {
-    
+    // zmiana wag dla warstwy wejsciowej
     for(int i = 0; i < wejscie.size(); ++i) // zmieniam wagi w wejsciu najpierw
     {
-       // wejscie[i] -> waga[0] = wejscie[i] -> waga[0] + ETA * 
+        //przeniesc te funkcje do neuronu ( zrob w neuronie funkcje zmien wage()
+       wejscie[i] -> wagi[0] = (wejscie[i] -> wagi[0]) + ETA *( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * daneWej[i] ;
     }
+    // zmiana wag dla 0-wej warstwy  ukrytej gdyz ta pobiera wrtosci z warstwy wejsciowej
+    
+     for(int i = 1; i < iloscNeuronowNaWarstwe.size() - 1; ++i) // i - numer warstwy ukrytej od zera bo te dane sa w wektrorze w ktorym 0 pokazuje ile jest neuronow w warstwie wejsciowej
+     {
+         for (int j = 0; iloscNeuronowNaWarstwe[i]; ++j) // j -  ilosc neuronow w warstwie ukrytej
+         {
+         siecNeuronow[i-1][j] -> wagi[0] = (siecNeuronow[i-1][j] -> wagi[0]) + ETA *( siecNeuronow[i-1][j] -> pochodnaFunkcjiAktywacji( siecNeuronow[i-1][j]-> wyjscieSumatora)) * daneWej[i] ;    
+         }
+     }
+    
     
 }
 
