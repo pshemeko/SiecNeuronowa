@@ -65,7 +65,7 @@ SiecNeuronow::~SiecNeuronow()
 }
 
 // obliczamy wyjscia kazdego neuronu
-void SiecNeuronow::obliczanieWag(vector<int> danaWej) // SPRAWDZAC CZY ILOSC ELEMENTOW daneWej JEST TAKA JAK WIELKOSC WARSTWY POCZATKOWEJ
+void SiecNeuronow::obliczanieWyjsciaNeuronow(vector<int> danaWej) // SPRAWDZAC CZY ILOSC ELEMENTOW daneWej JEST TAKA JAK WIELKOSC WARSTWY POCZATKOWEJ
 {
     //losowanie danej wejsciowej
     //vector<int> danaWej = daneWejsciowe[0];

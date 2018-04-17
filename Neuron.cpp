@@ -51,6 +51,7 @@ double Neuron::pochodnaFunkcjiAktywacji(double x)
 
 void Neuron::setWyjscie(double x)
 {
+    wyjscieSumatora = x;
     wyjscie = funkcjaAktywacji(x);
 }
 

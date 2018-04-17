@@ -30,7 +30,7 @@ class Neuron
     public:
         Wektor wagi;
         Wektor stareWagi;   // potrzebne do propagacji wstecznej
-        double wyjscie;
+        double wyjscie; 
         bool czyJestBias;
         double wartoscBiasu;
         double blad;
