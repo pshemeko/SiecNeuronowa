@@ -1,5 +1,13 @@
 # Compiled class file
 *.class
+*.o
+*.exe
+build/
+SiecNeuronowa/dist/
+SiecNeuronowa/build/
+perceptron/
+
+
 
 # Log file
 *.log
