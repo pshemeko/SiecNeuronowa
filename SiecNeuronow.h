@@ -17,16 +17,13 @@
 #include <vector>
 #include "Neuron.h"
 
-int ILOSCWEJSC = 4;
-bool CZY_BIAS = false;
-int ETA = 0.6;
+static int ILOSCWEJSC = 4;
+static bool CZY_BIAS = false;
+static int ETA = 0.6;
 
 
 using namespace std;
 
-//dane wejscieowe
-vector<vector<int> > daneWejsciowe;
-vector<vector<int>> daneWyjsciowe;// = {(0,0,0,1),(0,0,1,0),(0,1,0,0,), (1,0,0,0)};
 
 // iloscNeuronowNaWarstwe- ile mamy warste i neuronow w warstwie kazdy element vektora pokazuje ile jest neuronow w danej warstwie tj
 // iloscNeuronowNaWarstwe[1] = 3  - mowi ze w warstwie 1 mamy 3 neurony
@@ -34,6 +31,10 @@ vector<vector<int>> daneWyjsciowe;// = {(0,0,0,1),(0,0,1,0),(0,1,0,0,), (1,0,0,0
 
 class SiecNeuronow
 {
+    //dane wejscieowe
+vector<vector<int> > daneWejsciowe;
+vector<vector<int>> daneWyjsciowe;// = {(0,0,0,1),(0,0,1,0),(0,1,0,0,), (1,0,0,0)};
+
    //SiecNeuronow:: vector<vector<Neuron> > siec
     vector<Neuron*> wejscie; // warstwa wejsciowa kazdy neuron ma tylko jedno wejscie i jedna wage
     vector<vector<Neuron*> > siecNeuronow; // wartwa ukryta oraz wyjsciowa
@@ -46,7 +47,7 @@ public:
     void obliczanieBledow(vector<int> danaWyj);
     void ZmianaWagSieci(vector<int> daneWej); // przekaz kolejna dana wejsciowa do uczenia sieci
     
-    SiecNeuronow(int iloscWarstw, vector<int> iloscNeuronowNaWarstwe2 = {4,2,4});//, int neuronowNaKazdejWarstwieUkrytej);
+    SiecNeuronow(vector<int> iloscNeuronowNaWarstwe2 = {4,2,4});//, int neuronowNaKazdejWarstwieUkrytej);
 
         virtual ~SiecNeuronow();
 

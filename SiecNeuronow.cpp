@@ -16,7 +16,7 @@
 // tylko dodalem
 //musze testowac gita
 
-SiecNeuronow::SiecNeuronow(int iloscWarstw,vector<int> iloscNeuronowNaWarstwe2)//, int neuronowNaKazdejWarstwieUkrytej)
+SiecNeuronow::SiecNeuronow(vector<int> iloscNeuronowNaWarstwe2)//, int neuronowNaKazdejWarstwieUkrytej)
     : iloscNeuronowNaWarstwe{iloscNeuronowNaWarstwe2}
 {
     // po to by ainicoweac wejscia i wyjscia
