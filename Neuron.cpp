@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Neuron.cpp
  * Author: Przemo
- * 
+ *
  * Created on 15 kwietnia 2018, 10:14
  */
 #include "Neuron.h"
@@ -21,6 +21,8 @@ Neuron::Neuron(int iloscWejsc, bool bias) // nie potrzebuje tego biasu na wejsci
     for(int i = 0; i < iloscWejsc + 1; ++i) // tworze o jedna wage wiecej na bias
     {
         wagi.push_back(Losowanie::get().losuj());
+        stareWagi.push_back(0.0);
+        wejsciaNeuronu.push_back(0.0);
     }
        // bias jest na koncu dodawany
     czyJestBias = bias;
@@ -36,12 +38,12 @@ void Neuron::obliczWyjscie(Wektor wejscie) // popraw bo bias jest 0
         suma += wejscie[i] * wagi[i];
     }
     if(czyJestBias) suma +=wagi[wagi.size()] * wartoscBiasu;
-    
+
     wyjscie = funkcjaAktywacji(suma);
 }
 double Neuron::funkcjaAktywacji(double x)
 {
-return 1.0/(1 + pow(M_E, -x) );
+return 1.0/(1 + pow(3.14, -x) );
 }
 
 double Neuron::pochodnaFunkcjiAktywacji(double x)

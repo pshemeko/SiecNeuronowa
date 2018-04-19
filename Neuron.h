@@ -30,7 +30,8 @@ class Neuron
     public:
         Wektor wagi;
         Wektor stareWagi;   // potrzebne do propagacji wstecznej
-        double wyjscie; 
+        double wyjscie;
+        Wektor wejsciaNeuronu; //to sa wejscia czyli wyjscia z poprzednich warstw
         bool czyJestBias;
         double wartoscBiasu;
         double blad;
@@ -41,7 +42,7 @@ class Neuron
         double pochodnaFunkcjiAktywacji(double x);
         void setWyjscie(double x); // liczy z sumy wartosc funkcji aktywacji i zapisuje do wyjscie
         
-        Neuron(int iloscWejsc, bool bias=false);
+        Neuron(int iloscWejsc,  bool bias=false);
 
 
         virtual ~Neuron();

@@ -1,0 +1,3 @@
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/SiecNeuronowa.dir

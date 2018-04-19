@@ -16,6 +16,8 @@
 
 #include <vector>
 #include "Neuron.h"
+#include <iostream>
+#include <windows.h> // dla funkcji sleep do testu
 
 static int ILOSCWEJSC = 4;
 static bool CZY_BIAS = false;
@@ -32,20 +34,25 @@ using namespace std;
 class SiecNeuronow
 {
     //dane wejscieowe
-vector<vector<int> > daneWejsciowe;
-vector<vector<int>> daneWyjsciowe;// = {(0,0,0,1),(0,0,1,0),(0,1,0,0,), (1,0,0,0)};
+public:
+    vector<vector<int> > daneWejsciowe; /// wywalic
+    vector<vector<int>> daneWyjsciowe;// = {(0,0,0,1),(0,0,1,0),(0,1,0,0,), (1,0,0,0)};
+
 
    //SiecNeuronow:: vector<vector<Neuron> > siec
     vector<Neuron*> wejscie; // warstwa wejsciowa kazdy neuron ma tylko jedno wejscie i jedna wage
     vector<vector<Neuron*> > siecNeuronow; // wartwa ukryta oraz wyjsciowa
-    vector<vector<double> > siecWyjsc;
-    
+    vector<vector<double> > siecWyjsc;  // wyscia wszystkich neuronow tez z warstwy wejsciowej
+
     vector<int> iloscNeuronowNaWarstwe;// = {4,2,4} w konstruktorze inicjuje
     
-public:
+
     void obliczanieWyjsciaNeuronow(vector<int> danaWej);//); //najpierw trzeba obliczyc wagi z danej 
     void obliczanieBledow(vector<int> danaWyj);
     void ZmianaWagSieci(vector<int> daneWej); // przekaz kolejna dana wejsciowa do uczenia sieci
+    double bladCalkowity();
+    
+    vector<int> losujeKolejnosc(int iloscWektorowZDanymi);
     
     SiecNeuronow(vector<int> iloscNeuronowNaWarstwe2 = {4,2,4});//, int neuronowNaKazdejWarstwieUkrytej);
 
