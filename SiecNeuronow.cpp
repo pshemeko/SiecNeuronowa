@@ -194,9 +194,11 @@ void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
             double sumabledow = 0.0;
             for(int k = 0; k < iloscNeuronowNaWarstwe[i+1]; ++k)
             {
+                cout << k ;
                  Sleep(1000);
                 sumabledow += (siecNeuronow[i][k] -> blad) * (siecNeuronow[i][k] ->wagi[j]);
             }
+            Sleep(10000);
             siecNeuronow[i-1][j] -> blad = sumabledow;
         }
         cout<<endl;
