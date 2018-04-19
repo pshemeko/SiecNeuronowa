@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
             siec.obliczanieWyjsciaNeuronow(tmp);
 
             siec.obliczanieBledow(tmp);
-            //siec.ZmianaWagSieci(tmp);
+            siec.ZmianaWagSieci(tmp);
 
             cout << " ILOSC EPOK: " << ILOSCEPOK <<endl;
         }

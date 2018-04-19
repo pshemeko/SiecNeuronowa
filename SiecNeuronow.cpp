@@ -187,18 +187,14 @@ void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
     // teraz trzeba propagowac wstecz
     for (int i = iloscNeuronowNaWarstwe.size() - 2; i > 0; --i) // dla 0 nie licze bo o jest wektor wejscie!!!!!!!!!!!!!!!!!!!!!!!
     {
-        cout<<"i:" <<i;
-        for (int j = 0 ; j< iloscNeuronowNaWarstwe[i]; ++i) // dla kazdego neuronu z warstwy
+        for (int j = 0 ; j< iloscNeuronowNaWarstwe[i]; ++j) // dla kazdego neuronu z warstwy
         {
-            cout<<" j:" <<j << " k:";
             double sumabledow = 0.0;
             for(int k = 0; k < iloscNeuronowNaWarstwe[i+1]; ++k)
             {
-                cout << k ;
-                 Sleep(1000);
                 sumabledow += (siecNeuronow[i][k] -> blad) * (siecNeuronow[i][k] ->wagi[j]);
             }
-            Sleep(10000);
+
             siecNeuronow[i-1][j] -> blad = sumabledow;
         }
         cout<<endl;
@@ -226,15 +222,29 @@ void SiecNeuronow::ZmianaWagSieci(vector<int> daneWej) // dane wej to sa dane we
     for(int i = 0; i < wejscie.size(); ++i) // zmieniam wagi w wejsciu najpierw
     {
         //przeniesc te funkcje do neuronu ( zrob w neuronie funkcje zmien wage()
-       wejscie[i] -> wagi[0] = (wejscie[i] -> wagi[0]) + ETA *( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * daneWej[i] ;
+        wejscie[i] -> stareWagi[0] = wejscie[i] -> wagi[0];
+        wejscie[i] -> wagi[0] = (wejscie[i] -> stareWagi[0]) + ETA *( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * daneWej[i] ;
+       //bias
+        if(CZY_BIAS)
+        {
+            wejscie[i] -> stareWagi[1] = wejscie[i] -> wagi[1];
+            wejscie[i] -> wagi[1] = (wejscie[i] -> stareWagi[1]) + ETA *( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * wejscie[i]->wartoscBiasu ;
+        }
     }
+    cout << "\n\n\n ZROBONA WARSTWA WEJSCIOWA\n\n\n" << endl;
+
     // zmiana wag dla 0-wej warstwy  ukrytej gdyz ta pobiera wrtosci z warstwy wejsciowej
     
      for(int i = 1; i < iloscNeuronowNaWarstwe.size() - 1; ++i) // i - numer warstwy ukrytej od zera bo te dane sa w wektrorze w ktorym 0 pokazuje ile jest neuronow w warstwie wejsciowej
      {
          for (int j = 0; iloscNeuronowNaWarstwe[i]; ++j) // j -  ilosc neuronow w warstwie ukrytej
          {
-         siecNeuronow[i-1][j] -> wagi[0] = (siecNeuronow[i-1][j] -> wagi[0]) + ETA *( siecNeuronow[i-1][j] -> pochodnaFunkcjiAktywacji( siecNeuronow[i-1][j]-> wyjscieSumatora)) * daneWej[i] ;    
+             for(int k = 0; k < iloscNeuronowNaWarstwe[i-1]; ++k)
+             {
+                 siecNeuronow[i-1][j] -> stareWagi[k] = siecNeuronow[i-1][j] -> wagi[k];
+                 siecNeuronow[i-1][j] -> wagi[k] = (siecNeuronow[i-1][j] -> stareWagi[k]) + ETA *( siecNeuronow[i-1][j] -> pochodnaFunkcjiAktywacji( siecNeuronow[i-1][j]-> wyjscieSumatora)) * siecWyjsc[i-1][k];//daneWej[i] ;
+
+             }
          }
      }
     

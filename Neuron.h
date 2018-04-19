@@ -31,13 +31,13 @@ class Neuron
         Wektor wagi;
         Wektor stareWagi;   // potrzebne do propagacji wstecznej
         double wyjscie;
-        Wektor wejsciaNeuronu; //to sa wejscia czyli wyjscia z poprzednich warstw
+       // Wektor wejsciaNeuronu; //to sa wejscia czyli wyjscia z poprzednich warstw
         bool czyJestBias;
-        double wartoscBiasu;
+        double wartoscBiasu;    // wywalic jako stala statyczna poza klase
         double blad;
         double wyjscieSumatora; // potrzebne bo z niego obliczana pochodna funkcji aktywacji
 
-        void obliczWyjscie(Wektor wejscia);
+        void obliczWyjscieSumatora(Wektor wejscia);
         double funkcjaAktywacji(double x);
         double pochodnaFunkcjiAktywacji(double x);
         void setWyjscie(double x); // liczy z sumy wartosc funkcji aktywacji i zapisuje do wyjscie

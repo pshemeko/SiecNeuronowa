@@ -22,24 +22,24 @@ Neuron::Neuron(int iloscWejsc, bool bias) // nie potrzebuje tego biasu na wejsci
     {
         wagi.push_back(Losowanie::get().losuj());
         stareWagi.push_back(0.0);
-        wejsciaNeuronu.push_back(0.0);
+        //wejsciaNeuronu.push_back(0.0);
     }
        // bias jest na koncu dodawany
     czyJestBias = bias;
     wartoscBiasu = 1.0;
     blad = 0.0;
 }
-
-void Neuron::obliczWyjscie(Wektor wejscie) // popraw bo bias jest 0
+//??????
+void Neuron::obliczWyjscieSumatora(Wektor wejscie) // popraw bo bias jest 0
 {
     float suma = 0.0;
     for(unsigned int i = 0; i < wejscie.size(); ++i)
     {
         suma += wejscie[i] * wagi[i];
     }
-    if(czyJestBias) suma +=wagi[wagi.size()] * wartoscBiasu;
-
-    wyjscie = funkcjaAktywacji(suma);
+    if(czyJestBias) suma +=wagi[wagi.size()-1] * wartoscBiasu;
+    wyjscieSumatora = suma;
+    //wyjscie = funkcjaAktywacji(suma);
 }
 double Neuron::funkcjaAktywacji(double x)
 {
