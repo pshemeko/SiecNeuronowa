@@ -48,9 +48,9 @@ public:
     vector<int> iloscNeuronowNaWarstwe;// = {4,2,4} w konstruktorze inicjuje
     
 
-    void obliczanieWyjsciaNeuronow(vector<int> danaWej);//); //najpierw trzeba obliczyc wagi z danej 
-    void obliczanieBledow(vector<int> danaWyj);
-    void ZmianaWagSieci(vector<int> daneWej); // przekaz kolejna dana wejsciowa do uczenia sieci
+    void obliczanieWyjsciaNeuronow(vector<double> danaWej);//); //najpierw trzeba obliczyc wagi z danej
+    void obliczanieBledow(vector<double> danaWyj);
+    void ZmianaWagSieci(vector<double> daneWej); // przekaz kolejna dana wejsciowa do uczenia sieci
     double bladCalkowity();
     
     vector<int> losujeKolejnosc(int iloscWektorowZDanymi);

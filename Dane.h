@@ -29,8 +29,8 @@ public:
 
     Dane(int ileLiczbLosowac);  // okresa ile z jakiego zakresu losujemy liczy ile ich bedzie
     //Dane(const Dane& orig);
-    vector<int> pobierzWejscie(int x);
-    vector<int> pobierzWyjscie(int x);
+    vector<double> pobierzWejscie(int x);
+    vector<double> pobierzWyjscie(int x);
 
     vector<int> wylosujKolejnoscPobierania();
     virtual ~Dane();

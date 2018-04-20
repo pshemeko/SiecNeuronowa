@@ -73,7 +73,7 @@ cout<<endl;
         {
 
      //       cout<<"\nwyswietlam wejscie kolejnosci nr:" << kolejnosc[i] << "  jego wektor (wartosc) to: ";
-            vector<int> tmp = dane.pobierzWejscie(kolejnosc[i]);
+            vector<double> tmp = dane.pobierzWejscie(kolejnosc[i]);
             //for(int j=0; j<tmp.size();j++) cout <<tmp[j];
              //cout<<endl;
         //vector<int> * dane = siec.daneWyjsciowe[1];
@@ -97,7 +97,11 @@ cout<<endl;
                         // cout << siec.daneWyjsciowe[kolejnosc[kolejnosc.size()-1]][i];
                         cout << "\tWyjscie: ";
                         //cout << (siec.siecNeuronow[2][i])->wyjscie;
-                        cout << siec.siecNeuronow[1][i]->wyjscie << endl;
+                        cout << siec.siecNeuronow[1][i]->wyjscie ;
+                        cout << "\tWagi: ";
+                        for (int j=0; j<2;j++)
+                        cout << siec.siecNeuronow[1][i]->wagi[j] << "\t";
+                             cout<< endl;
 
                     }
                     cout <<endl;

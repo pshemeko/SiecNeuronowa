@@ -24,12 +24,18 @@ Dane::Dane(int ileLiczbLosowac)
 
 Dane::~Dane() {
 }
-vector<int> Dane::pobierzWejscie(int x)
+vector<double> Dane::pobierzWejscie(int x)
 {
+    /*
     vector<int> wek0 = {1,0,0,0};
     vector<int> wek1 = {0,1,0,0};
     vector<int> wek2 = {0,0,1,0};
     vector<int> wek3 = {0,0,0,1};
+    */
+    vector<double> wek0 = {1.0,0.0,0.0,0.0};
+    vector<double> wek1 = {0.0,1.0,0.0,0.0};
+    vector<double> wek2 = {0.0,0.0,1.0,0.0};
+    vector<double> wek3 = {0.0,0.0,0.0,1.0};
     switch(x)
     {
         case 0:
@@ -50,12 +56,17 @@ vector<int> Dane::pobierzWejscie(int x)
     }
 }
 
-vector<int> Dane::pobierzWyjscie(int x)
-{
+vector<double> Dane::pobierzWyjscie(int x)
+{/*
     vector<int> wek0  = {1,0,0,0};
     vector<int> wek1 = {0,1,0,0};
     vector<int> wek2 = {0,0,1,0};
     vector<int> wek3 = {0,0,0,1};
+*/
+    vector<double> wek0 = {1.0,0.0,0.0,0.0};
+    vector<double> wek1 = {0.0,1.0,0.0,0.0};
+    vector<double> wek2 = {0.0,0.0,1.0,0.0};
+    vector<double> wek3 = {0.0,0.0,0.0,1.0};
     switch(x)
     {
         case 0:
@@ -84,7 +95,7 @@ vector<int> Dane::wylosujKolejnoscPobierania()
     // teraz losowo wyjmujem elementy z wektora wzor i wkladamy do wynik az wektor bedzie pusty
 //for(int i = 0; i< cos; i++)
 
-        for (int i=ileLiczb-1; i > 1; --i)
+        for (int i=ileLiczb; i > 1; --i)
         {
             int wylosowana =  liczbaNaturalna(gen) %i;
 

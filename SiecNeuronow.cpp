@@ -66,7 +66,7 @@ SiecNeuronow::~SiecNeuronow()
 }
 
 // obliczamy wyjscia kazdego neuronu
-void SiecNeuronow::obliczanieWyjsciaNeuronow(vector<int> danaWej) // SPRAWDZAC CZY ILOSC ELEMENTOW daneWej JEST TAKA JAK WIELKOSC WARSTWY POCZATKOWEJ
+void SiecNeuronow::obliczanieWyjsciaNeuronow(vector<double> danaWej) // SPRAWDZAC CZY ILOSC ELEMENTOW daneWej JEST TAKA JAK WIELKOSC WARSTWY POCZATKOWEJ
 {
 /*
     for (int i =0; i<danaWej.size();i++)
@@ -167,7 +167,7 @@ vector<int> SiecNeuronow::losujeKolejnosc(int iloscWektorowZDanymi)
 }
 
 
-void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
+void SiecNeuronow::obliczanieBledow(vector<double> danaWyj)
 {
     int ostWarstwa = iloscNeuronowNaWarstwe.size() - 1;
     //dla kazdego neuronu w warstwie wyjsciowej obliczam jego blad a potem poopaguje te bledy wtecz
@@ -209,7 +209,7 @@ void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
 }
 
 // zmienia nam wagi w sieci neuronowej
-void SiecNeuronow::ZmianaWagSieci(vector<int> daneWej) // dane wej to sa dane wejsciowe do uczenia w danym i-tym obrocie epoki 
+void SiecNeuronow::ZmianaWagSieci(vector<double> daneWej) // dane wej to sa dane wejsciowe do uczenia w danym i-tym obrocie epoki
 {
     // zmiana wag dla warstwy wejsciowej
     for(int i = 0; i < wejscie.size(); ++i) // zmieniam wagi w wejsciu najpierw
