@@ -20,7 +20,7 @@
 #include <windows.h> // dla funkcji sleep do testu
 
 static int ILOSCWEJSC = 4;
-static bool CZY_BIAS = false;
+static bool CZY_BIAS = true;
 static int ETA = 0.6;
 
 

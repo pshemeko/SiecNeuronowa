@@ -15,15 +15,24 @@
 #define DANE_H
 #include <vector>
 
+#include <random>
+
+using namespace std;
 using namespace std;
 
 class Dane {
 public:
-    Dane();
+    uniform_real_distribution<> dist;
+    uniform_int_distribution<> liczbaNaturalna;
+    mt19937 gen;
+    int ileLiczb;
+
+    Dane(int ileLiczbLosowac);  // okresa ile z jakiego zakresu losujemy liczy ile ich bedzie
     //Dane(const Dane& orig);
     vector<int> pobierzWejscie(int x);
     vector<int> pobierzWyjscie(int x);
-    
+
+    vector<int> wylosujKolejnoscPobierania();
     virtual ~Dane();
 private:
 

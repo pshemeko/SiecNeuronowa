@@ -68,23 +68,16 @@ SiecNeuronow::~SiecNeuronow()
 // obliczamy wyjscia kazdego neuronu
 void SiecNeuronow::obliczanieWyjsciaNeuronow(vector<int> danaWej) // SPRAWDZAC CZY ILOSC ELEMENTOW daneWej JEST TAKA JAK WIELKOSC WARSTWY POCZATKOWEJ
 {
-    
-    
+/*
     for (int i =0; i<danaWej.size();i++)
         std::cout <<danaWej[i];
     std::cout <<std::endl;
-    
-
-
+*/
     // podawanie danych na warstwe wejsciowa
     for(unsigned int i = 0; i < iloscNeuronowNaWarstwe[0]; ++i)
     {
-        std::cout << "co tu kurwa nie dziala"<<danaWej[i]<< "wagi " <<std::endl;
-        for (int j =0; j<2; j++)
-            cout <<i <<"-wagiiii:"<< wejscie[i]->wagi[j];
-                   // ->wagi[i] << endl;
-        
-        
+
+
        // double wartosc222 = danaWej[i] *( wejscie[i]->wagi[0]);
        // std::cout << "co tu kuwa nie dziala" << wartosc222<<std::endl;
         double wartosc = danaWej[i] * (wejscie[i]->wagi[0]) + CZY_BIAS * wejscie[i]->wagi[1]; // bias jest ostatnim elem w wektorze
@@ -121,7 +114,7 @@ void SiecNeuronow::obliczanieWyjsciaNeuronow(vector<int> danaWej) // SPRAWDZAC C
                                                                 // waga biasu jest ostatnia w wektorze wag zawze jest o jedna waga wiecej w neuonie gdyby bias byl
             siecNeuronow[i-1][j]->setWyjscie(suma);
             siecWyjsc[i][j] = siecNeuronow[i-1][j]->wyjscie;
-            cout << "i tu huj\n" <<suma<<"suuma" << endl;
+
         }
     }
 }
@@ -182,7 +175,7 @@ void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
     {
         siecNeuronow[ostWarstwa-1][i] -> blad = (siecNeuronow[ostWarstwa-1][i] -> wyjscie) - danaWyj[i];
     }
-    cout << "\n KONIEC OBLICZANIA BLEDOW 111111"  << endl;
+
 
     // teraz trzeba propagowac wstecz
     for (int i = iloscNeuronowNaWarstwe.size() - 2; i > 0; --i) // dla 0 nie licze bo o jest wektor wejscie!!!!!!!!!!!!!!!!!!!!!!!
@@ -197,9 +190,9 @@ void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
 
             siecNeuronow[i-1][j] -> blad = sumabledow;
         }
-        cout<<endl;
+        //cout<<endl;
     }
-    cout << "\n KONIEC OBLICZANIA BLEDOW22222222222" << endl;
+
 
     /// jeszcze dla warstwy wejsciowej
    for (int j = 0 ; j< iloscNeuronowNaWarstwe[0]; ++j) // dla kazdego neuronu z warstwy
@@ -212,7 +205,7 @@ void SiecNeuronow::obliczanieBledow(vector<int> danaWyj)
             wejscie[j] -> blad = sumabledow;
         }
 
-        cout << "\n KONIEC OBLICZANIA BLEDOW" << endl;
+
 }
 
 // zmienia nam wagi w sieci neuronowej
@@ -231,21 +224,35 @@ void SiecNeuronow::ZmianaWagSieci(vector<int> daneWej) // dane wej to sa dane we
             wejscie[i] -> wagi[1] = (wejscie[i] -> stareWagi[1]) + ETA *( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * wejscie[i]->wartoscBiasu ;
         }
     }
-    cout << "\n\n\n ZROBONA WARSTWA WEJSCIOWA\n\n\n" << endl;
+
 
     // zmiana wag dla 0-wej warstwy  ukrytej gdyz ta pobiera wrtosci z warstwy wejsciowej
     
      for(int i = 1; i < iloscNeuronowNaWarstwe.size() - 1; ++i) // i - numer warstwy ukrytej od zera bo te dane sa w wektrorze w ktorym 0 pokazuje ile jest neuronow w warstwie wejsciowej
      {
-         for (int j = 0; iloscNeuronowNaWarstwe[i]; ++j) // j -  ilosc neuronow w warstwie ukrytej
+
+         for (int j = 0; j<iloscNeuronowNaWarstwe[i]; ++j) // j -  ilosc neuronow w warstwie ukrytej
          {
+
+             double PochodnaAktywacjiWyjsciaSumatora = siecNeuronow[i-1][j] -> pochodnaFunkcjiAktywacji( siecNeuronow[i-1][j]-> wyjscieSumatora);
              for(int k = 0; k < iloscNeuronowNaWarstwe[i-1]; ++k)
              {
+
                  siecNeuronow[i-1][j] -> stareWagi[k] = siecNeuronow[i-1][j] -> wagi[k];
-                 siecNeuronow[i-1][j] -> wagi[k] = (siecNeuronow[i-1][j] -> stareWagi[k]) + ETA *( siecNeuronow[i-1][j] -> pochodnaFunkcjiAktywacji( siecNeuronow[i-1][j]-> wyjscieSumatora)) * siecWyjsc[i-1][k];//daneWej[i] ;
+                 siecNeuronow[i-1][j] -> wagi[k] += ETA * PochodnaAktywacjiWyjsciaSumatora * siecWyjsc[i-1][k];//daneWej[i] ; // TODO sprawdzic czy nie minus w wykladzie
 
              }
+             if(CZY_BIAS)
+             {
+                 //cout<<"Jeszcze BIAS: " <<endl;
+                 // todo czy dobrze????
+                 siecNeuronow[i-1][j] -> stareWagi[iloscNeuronowNaWarstwe[i-1]] = siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]];
+                 siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]] += ETA * PochodnaAktywacjiWyjsciaSumatora * siecNeuronow[i-1][j]->wartoscBiasu;
+
+             }
+             //cout << endl;
          }
+
      }
     
     
