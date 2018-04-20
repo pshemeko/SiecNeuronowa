@@ -243,6 +243,47 @@ void SiecNeuronow::uczenie(int iloscEpok, double blad )
 
 void SiecNeuronow::testowanieSieci(vector<double> wejscie, vector<double> wyjscie)
 {
+    obliczanieWyjsciaNeuronow(wejscie);
+    cout.width(18);
+    cout<< "wyliczenia sieci:";
 
+    //cout << "Kolejnosc";
+    cout<<" |";
+    cout.width(9);
+    cout << "Wejscie";
+    cout << " |";
+    cout.width(8);
+    cout << "Wyjscie";
+    cout << " |";
+    cout.width(20);
+    cout<< " Wyliczenie sieci";
+    cout << " |";
+    cout.width(18);
+    cout<< "procent trafienia";
+    int ile = iloscNeuronowNaWarstwe.size() - 1;
+    int ostatnia = iloscNeuronowNaWarstwe[ile];
+    ios_base::fmtflags old = cout.setf(ios_base::fixed, ios_base::adjustfield);
+    for(int i=0; i< ostatnia; i++)
+    {
+        cout <<endl;
+        ostringstream os ;
+        os << "Neuron nr[" <<i <<"]:";
 
+        cout.width(18) ;
+             cout<< os.str();
+             cout<<" |";
+        cout.width(9);
+             cout << wejscie[i]<< " |";
+        cout.width(8) ;
+             cout  <<wyjscie[i];
+        cout << " |";
+        cout.width(20) ;
+        cout.precision(10);
+              cout << siecNeuronow[ile-1][i]-> wyjscie;
+              cout<< " |";
+        cout.precision(3);
+        cout.width(16) ;
+             cout <<  abs( siecNeuronow[ile-1][i]-> wyjscie) *100 <<" %";
+    }
+    cout.setf(old, ios_base::adjustfield);
 }

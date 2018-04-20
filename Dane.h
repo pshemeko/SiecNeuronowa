@@ -16,8 +16,9 @@
 #include <vector>
 
 #include <random>
+#include <iostream>
+#include <stdlib.h>
 
-using namespace std;
 using namespace std;
 
 class Dane {
@@ -34,8 +35,9 @@ public:
 
     vector<int> wylosujKolejnoscPobierania();
     virtual ~Dane();
-private:
 
+    void menu() ;
+    void menuTestowanie();
 };
 
 #endif /* DANE_H */

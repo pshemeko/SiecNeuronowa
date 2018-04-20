@@ -14,7 +14,7 @@
 #include "Dane.h"
 
 Dane::Dane(int ileLiczbLosowac)
-: dist{0, ileLiczbLosowac}, ileLiczb{ileLiczbLosowac},liczbaNaturalna{0,ileLiczbLosowac}
+: dist{0, ileLiczbLosowac}, ileLiczb{ileLiczbLosowac},liczbaNaturalna{0,ileLiczbLosowac} //TODO chyba piwinna by double ileLiczbLosowac
 {
     gen.seed(random_device()());
 }
@@ -112,4 +112,26 @@ vector<int> Dane::wylosujKolejnoscPobierania()
                 wynik.push_back(*it);
         }
     return wynik;
+}
+
+
+void Dane::menu()
+{
+    system("CLS");
+
+
+    cout << " Co chcesz zrobic?"<< endl<<endl;
+    cout << " 1) Tryb nauki?"<< endl;
+    cout << " 2) Tryb testowania "<< endl;
+
+}
+
+void Dane::menuTestowanie()
+{
+    cout <<endl << "Na której danej chcesz testować wynik?"<< endl<<endl;
+    cout << "0. {1, 0, 0, 0}"<<endl;
+    cout << "1. {0, 1, 0, 0}"<<endl;
+    cout << "2. {0, 0, 1, 0}"<<endl;
+    cout << "3. {0, 0, 0, 1}"<<endl;
+    cout << "5. Koniec!"<<endl;
 }

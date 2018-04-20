@@ -15,6 +15,10 @@ vector
 -
 random
 -
+iostream
+-
+stdlib.h
+-
 
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/Losowanie.cpp
 Losowanie.h
@@ -62,6 +66,8 @@ windows.h
 cstdlib
 -
 iostream
+-
+cstdlib
 -
 SiecNeuronow.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/SiecNeuronow.h
