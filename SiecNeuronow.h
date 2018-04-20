@@ -42,16 +42,22 @@ public:
     void obliczanieWyjsciaNeuronow(vector<double> danaWej); //najpierw trzeba obliczyc wagi z danej
     void obliczanieBledow(vector<double> danaWyj);
     void ZmianaWagSieci(vector<double> daneWej);    // przekaz kolejna dana wejsciowa do uczenia sieci
-    double bladCalkowity();
+    double bladCalkowity();     //zle
+    double obliczBladDlaWzorca(vector<double> oczekiwanaWartosc);
     
     vector<int> losujeKolejnosc(int iloscWektorowZDanymi);
 
     void temp();    // tymczasowa by zainicjoac wektory wejscia i wyjscia potem zmienic na odczyt z pliku - chyba juz niepotrzebna
-    
+
+    void testowanieSieci(vector<double> wejscie, vector<double> wyjscie);
+
+    void uczenie(int iloscEpok, double blad = 0.0);
+
     SiecNeuronow(vector<int> iloscNeuronowNaWarstwe2 = {4,2,4});
 
     virtual ~SiecNeuronow()=default;
 
 };
+
 #endif /* SIECNEURONOW_H */
 

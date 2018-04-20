@@ -204,7 +204,7 @@ void SiecNeuronow::ZmianaWagSieci(vector<double> daneWej) // dane wej to sa dane
      }
 }
 
-double SiecNeuronow::bladCalkowity()
+double SiecNeuronow::bladCalkowity() // tu nie mozna liczyc bledu to jest zle
 {
     double bladCaly = 0.0;
     for(int i = 0; i < wejscie.size(); ++i) 
@@ -217,5 +217,32 @@ double SiecNeuronow::bladCalkowity()
              bladCaly += siecNeuronow[i-1][j]->blad;
          }
      }
-    return bladCaly;
+
+
+}
+
+// zwraca wartoscbledu dla danego wzorca uczacego
+double SiecNeuronow::obliczBladDlaWzorca(vector<double> oczekiwanaWartosc)
+{
+    double suma = 0.0;
+    int nr = iloscNeuronowNaWarstwe.size() - 1; // numer ostatniej warstwy tj. wyjsciowej
+    for(int i = 1; i < iloscNeuronowNaWarstwe[nr]; ++i)
+    {
+        double roznica = siecNeuronow[nr-1][i]->wyjscie - oczekiwanaWartosc[i];
+        double wartosc = 0.5 * roznica * roznica;
+        suma += roznica;
+    }
+    suma = suma/ (double)iloscNeuronowNaWarstwe[nr];
+    return suma;// zwraca wartoscbledu dla danego wzorca uczacego
+}
+
+void SiecNeuronow::uczenie(int iloscEpok, double blad )
+{
+
+}
+
+void SiecNeuronow::testowanieSieci(vector<double> wejscie, vector<double> wyjscie)
+{
+
+
 }

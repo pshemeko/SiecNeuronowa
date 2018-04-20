@@ -19,7 +19,7 @@
 using namespace std;
 
 static int ILOSCEPOK = 30000;
-static double BLADOCZEKIWANY = 0.0001;
+static double BLADOCZEKIWANY = 0.00013;
 /*
  * 
  */
@@ -50,12 +50,12 @@ int main(int argc, char** argv) {
     cout <<endl;
     cout << "\tI OBLICZAMY::::::::::::::::::::::::::::::::::::::;::"<<endl<<endl;
 */
-
-    while (ILOSCEPOK)
+    int ktoraEpoka = 0;
+    while (ktoraEpoka < ILOSCEPOK)
     {
 
         vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
-
+        double bladEpoki = 0.0;
         for(int i = 0; i < kolejnosc.size(); i++)
         {
 
@@ -64,6 +64,7 @@ int main(int argc, char** argv) {
             siec.obliczanieWyjsciaNeuronow(tmp);
             siec.obliczanieBledow(tmp);
             siec.ZmianaWagSieci(tmp);
+            bladEpoki += siec.obliczBladDlaWzorca(tmp);
 
             // WYSWIETLANIE DANYCH WYBRANYCH
            // if(i == kolejnosc.size()-1)
@@ -73,7 +74,7 @@ int main(int argc, char** argv) {
 
             if(kolejnosc[i] == 2)
             {
-                if(ILOSCEPOK %500)
+                if(ktoraEpoka %500==0)
                 {
 
                     for(int i = 0; i<siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size()-1]; i++)
@@ -98,13 +99,23 @@ int main(int argc, char** argv) {
 
                     }
                     cout <<endl;
+
+
+
+
                 }
             }
              cout.setf(old, ios_base::adjustfield);// przywracam stare ustwaienia
 
         }
 
-        ILOSCEPOK--;
+        bladEpoki = bladEpoki / (double)(kolejnosc.size()-1);
+        if(ktoraEpoka %500==0)
+        {
+            cout<<"NUMER epoki: " <<ktoraEpoka<<" Blad sieci: " << bladEpoki  <<endl;
+            if(bladEpoki < BLADOCZEKIWANY )  break;
+        }
+        ktoraEpoka++;
     }
 
     cout <<" KONIEC UCZENIA"<<endl;
