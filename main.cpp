@@ -18,7 +18,7 @@
 
 using namespace std;
 
-static int ILOSCEPOK = 1000201;
+static int ILOSCEPOK = 50201;
 static double BLADOCZEKIWANY = 0.0001;
 /*
  * 
@@ -60,7 +60,6 @@ cout<<endl;
     cout << endl;
     }
      */
-    
 
     while (ILOSCEPOK)
     {

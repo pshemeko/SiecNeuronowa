@@ -216,12 +216,12 @@ void SiecNeuronow::ZmianaWagSieci(vector<int> daneWej) // dane wej to sa dane we
     {
         //przeniesc te funkcje do neuronu ( zrob w neuronie funkcje zmien wage()
         wejscie[i] -> stareWagi[0] = wejscie[i] -> wagi[0];
-        wejscie[i] -> wagi[0] = (wejscie[i] -> stareWagi[0]) + ETA *( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * daneWej[i] ;
+        wejscie[i] -> wagi[0] = (wejscie[i] -> stareWagi[0]) - ETA * wejscie[i]->blad * ( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * daneWej[i] ;
        //bias
         if(CZY_BIAS)
         {
             wejscie[i] -> stareWagi[1] = wejscie[i] -> wagi[1];
-            wejscie[i] -> wagi[1] = (wejscie[i] -> stareWagi[1]) + ETA *( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * wejscie[i]->wartoscBiasu ;
+            wejscie[i] -> wagi[1] = (wejscie[i] -> stareWagi[1]) - ETA * wejscie[i]->blad * ( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * wejscie[i]->wartoscBiasu ;
         }
     }
 
@@ -239,7 +239,7 @@ void SiecNeuronow::ZmianaWagSieci(vector<int> daneWej) // dane wej to sa dane we
              {
 
                  siecNeuronow[i-1][j] -> stareWagi[k] = siecNeuronow[i-1][j] -> wagi[k];
-                 siecNeuronow[i-1][j] -> wagi[k] += ETA * PochodnaAktywacjiWyjsciaSumatora * siecWyjsc[i-1][k];//daneWej[i] ; // TODO sprawdzic czy nie minus w wykladzie
+                 siecNeuronow[i-1][j] -> wagi[k] -= ETA * siecNeuronow[i-1][j]->blad * siecWyjsc[i-1][k];//daneWej[i] ; // TODO sprawdzic czy nie minus w wykladzie
 
              }
              if(CZY_BIAS)
@@ -247,7 +247,7 @@ void SiecNeuronow::ZmianaWagSieci(vector<int> daneWej) // dane wej to sa dane we
                  //cout<<"Jeszcze BIAS: " <<endl;
                  // todo czy dobrze????
                  siecNeuronow[i-1][j] -> stareWagi[iloscNeuronowNaWarstwe[i-1]] = siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]];
-                 siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]] += ETA * PochodnaAktywacjiWyjsciaSumatora * siecNeuronow[i-1][j]->wartoscBiasu;
+                 siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]] -= ETA * siecNeuronow[i-1][j]->blad * PochodnaAktywacjiWyjsciaSumatora * siecNeuronow[i-1][j]->wartoscBiasu;
 
              }
              //cout << endl;
