@@ -93,18 +93,16 @@ vector<int> Dane::wylosujKolejnoscPobierania()
     vector<int> wzor;
     for(int i = 0; i < ileLiczb; i++) wzor.push_back(i);
     // teraz losowo wyjmujem elementy z wektora wzor i wkladamy do wynik az wektor bedzie pusty
-//for(int i = 0; i< cos; i++)
 
         for (int i=ileLiczb; i > 1; --i)
         {
             int wylosowana =  liczbaNaturalna(gen) %i;
 
-            //int liczba = rand() % 199; //199 liczba pierwsza
-            //int kierunek = rand() % 100;
-        wynik.push_back(wzor[wylosowana]);
-        wzor.erase(wzor.begin()+wylosowana);
+            wynik.push_back(wzor[wylosowana]);
+            wzor.erase(wzor.begin()+wylosowana);
         }
-    int wylosowana =  liczbaNaturalna(gen);
+
+    int wylosowana =  liczbaNaturalna(gen); // zwiekrza losowosc danych okrsl jak pobierac pozostale elementy czy od konca czy nie
         if (wylosowana%2)
         {
             for(auto x: wzor) wynik.push_back(x);

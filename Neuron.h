@@ -31,29 +31,24 @@ class Neuron
 
     public:
         Wektor wagi;
-        Wektor stareWagi;   // potrzebne do propagacji wstecznej
+        Wektor stareWagi;       // potrzebne do propagacji wstecznej
         double wyjscie;
-       // Wektor wejsciaNeuronu; //to sa wejscia czyli wyjscia z poprzednich warstw
-        bool czyJestBias;
+        bool   czyJestBias;
         double wartoscBiasu;    // wywalic jako stala statyczna poza klase
         double blad;
         double wyjscieSumatora; // potrzebne bo z niego obliczana pochodna funkcji aktywacji
 
-        void obliczWyjscieSumatora(Wektor wejscia);
+        void   obliczWyjscieSumatora(Wektor wejscia);
         double funkcjaAktywacji(double x);
         double pochodnaFunkcjiAktywacji(double x);
-        void setWyjscie(double x); // liczy z sumy wartosc funkcji aktywacji i zapisuje do wyjscie
-        void przepiszDoStarejWagi();
-        
-        Neuron(int iloscWejsc,  bool bias=false);
-
+        void   setWyjscie(double x); // liczy z sumy wartosc funkcji aktywacji i zapisuje do wyjscie
+        void   przepiszDoStarejWagi();
         string wypisz();
 
-        virtual ~Neuron();
+        Neuron(int iloscWejsc,  bool bias=false);
 
-    protected:
+        virtual ~Neuron() = default;
 
-    private:
 };
 
 #endif /* NEURON_H */
