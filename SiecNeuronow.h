@@ -21,8 +21,9 @@
 
 static int ILOSCWEJSC = 4;
 static bool CZY_BIAS = true;
-static int ETA = 0.6;
+static double ETA = 0.6;
 static bool ZMOMENTEM = true;
+static double ALFHA = 0.1; // potrzbne gdy licze z momentem
 
 
 using namespace std;

@@ -18,7 +18,7 @@
 
 using namespace std;
 
-static int ILOSCEPOK = 50201;
+static int ILOSCEPOK = 30000;
 static double BLADOCZEKIWANY = 0.0001;
 /*
  * 
@@ -61,6 +61,26 @@ cout<<endl;
     }
      */
 
+    // wyswietlam poczatek
+    vector<double> tempy = dane.pobierzWejscie((0,1,2,3));
+    cout << "\tSIEC STARTUJE Z WARTOSCIAMI::"<<endl<<endl;
+    for(int i = 0; i<siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size()-1]; i++)
+    {
+        cout << "\tWOczekiwano:" << tempy[i] ;
+        // cout << siec.daneWyjsciowe[kolejnosc[kolejnosc.size()-1]][i];
+        cout << "\tWyjscie: ";
+        //cout << (siec.siecNeuronow[2][i])->wyjscie;
+        cout << siec.siecNeuronow[1][i]->wyjscie ;
+        cout << "\tWagi: ";
+        for (int j=0; j<2;j++)
+            cout << siec.siecNeuronow[1][i]->wagi[j] << "\t";
+        cout<< endl;
+
+    }
+    cout <<endl;
+    cout << "\tI OBLICZAMY::::::::::::::::::::::::::::::::::::::;::"<<endl<<endl;
+
+
     while (ILOSCEPOK)
     {
         //vector<int> kolejnosc = siec.losujeKolejnosc(4);
@@ -87,26 +107,55 @@ cout<<endl;
             siec.ZmianaWagSieci(tmp);
 
 
-            if(i == kolejnosc.size()-1)
+           // if(i == kolejnosc.size()-1)
+            if(kolejnosc[i] == 2)
             {
-                if(ILOSCEPOK %50)
+                if(ILOSCEPOK %500)
                 {
                     for(int i = 0; i<siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size()-1]; i++)
                     {
+                        cout.precision(12);
                         cout << "\tWOczekiwano:" << tmp[i] ;
                         // cout << siec.daneWyjsciowe[kolejnosc[kolejnosc.size()-1]][i];
                         cout << "\tWyjscie: ";
                         //cout << (siec.siecNeuronow[2][i])->wyjscie;
+                        cout.width(17);
                         cout << siec.siecNeuronow[1][i]->wyjscie ;
                         cout << "\tWagi: ";
+                        for (int j=0; j<2;j++){
+                            cout.width(14);
+                            cout << siec.siecNeuronow[1][i]->wagi[j] << " ";
+                        }
+                        cout << "\tStareWagi: ";
                         for (int j=0; j<2;j++)
-                        cout << siec.siecNeuronow[1][i]->wagi[j] << "\t";
+                            cout << siec.siecNeuronow[1][i]->stareWagi[j] << "\t";
+                        //cout<< endl;
                              cout<< endl;
 
                     }
                     cout <<endl;
                 }
             }
+
+/*
+            // wypisze neurony
+            cout <<"\nWEJSCIA:"<<endl;
+            for(int i = 0; i<siec.wejscie.size();i++)
+            {
+                cout <<"Wejscie["<<i<<"]:" << siec.wejscie[i]->wypisz();
+            }
+
+            cout <<"\nWARSTWY UKRYTE I WYJSCIE:"<<endl;
+            for(int i = 0; i<siec.siecNeuronow.size();i++)
+            {
+                for(int k = 0; k < siec.siecNeuronow[i].size(); k++)
+                {
+                    cout << "Neuron["<<i<<"][" <<k<<"]:" <<  siec.siecNeuronow[i][k]->wypisz() <<endl;
+                }
+
+            }
+
+*/
         }
     
 

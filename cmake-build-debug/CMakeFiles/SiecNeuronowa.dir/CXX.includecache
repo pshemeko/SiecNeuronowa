@@ -39,6 +39,10 @@ cmath
 -
 cstdlib
 -
+string
+-
+sstream
+-
 
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/SiecNeuronow.cpp
 SiecNeuronow.h

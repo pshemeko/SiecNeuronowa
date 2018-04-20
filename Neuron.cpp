@@ -43,12 +43,15 @@ void Neuron::obliczWyjscieSumatora(Wektor wejscie) // popraw bo bias jest 0
 }
 double Neuron::funkcjaAktywacji(double x)
 {
-return 1.0/(1 + pow(3.14, -x) );
+return 1.0/(1.0 + pow(M_PI, -x) );
 }
 
 double Neuron::pochodnaFunkcjiAktywacji(double x)
 {
-    return funkcjaAktywacji(x) * (1.0 - funkcjaAktywacji(x) );
+    double wartosc = funkcjaAktywacji(x);
+    return wartosc*(1.0 - wartosc);
+
+   // return funkcjaAktywacji(x) * (1.0 - funkcjaAktywacji(x) );
 }
 
 void Neuron::setWyjscie(double x)
@@ -61,4 +64,23 @@ void Neuron::setWyjscie(double x)
 Neuron::~Neuron()
 {
     //dtor
+}
+
+void Neuron::przepiszDoStarejWagi()
+{
+    for(int i = 0; i< wagi.size(); ++i)
+    {
+        stareWagi[i] = wagi[i];
+    }
+}
+
+string Neuron::wypisz()
+{
+    ostringstream os;
+    os << " Blad: " << blad << "\tWyjscie:" <<wyjscie << "\twyjscieSumator:" <<wyjscieSumatora << "\tWagi:";
+    for(int i = 0; i< wagi.size(); i++) os << wagi[i] << " ";
+    os << "\tStare wagi:";
+    for(int i = 0; i< stareWagi.size(); i++) os << stareWagi[i] << " ";
+    return os.str();
+
 }

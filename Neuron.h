@@ -18,6 +18,8 @@
 #include <vector>
 #include <cmath>
 #include <cstdlib>
+#include <string>
+#include <sstream>
 
 
 using namespace std;
@@ -41,9 +43,11 @@ class Neuron
         double funkcjaAktywacji(double x);
         double pochodnaFunkcjiAktywacji(double x);
         void setWyjscie(double x); // liczy z sumy wartosc funkcji aktywacji i zapisuje do wyjscie
+        void przepiszDoStarejWagi();
         
         Neuron(int iloscWejsc,  bool bias=false);
 
+        string wypisz();
 
         virtual ~Neuron();
 

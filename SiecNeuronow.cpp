@@ -173,7 +173,7 @@ void SiecNeuronow::obliczanieBledow(vector<double> danaWyj)
     //dla kazdego neuronu w warstwie wyjsciowej obliczam jego blad a potem poopaguje te bledy wtecz
     for(int i = 0; i < iloscNeuronowNaWarstwe[ostWarstwa]; ++i)
     {
-        siecNeuronow[ostWarstwa-1][i] -> blad = (siecNeuronow[ostWarstwa-1][i] -> wyjscie) - danaWyj[i];
+        siecNeuronow[ostWarstwa-1][i] -> blad = danaWyj[i] - (siecNeuronow[ostWarstwa-1][i] -> wyjscie) ;
     }
 
 
@@ -212,42 +212,64 @@ void SiecNeuronow::obliczanieBledow(vector<double> danaWyj)
 void SiecNeuronow::ZmianaWagSieci(vector<double> daneWej) // dane wej to sa dane wejsciowe do uczenia w danym i-tym obrocie epoki
 {
     // zmiana wag dla warstwy wejsciowej
+
     for(int i = 0; i < wejscie.size(); ++i) // zmieniam wagi w wejsciu najpierw
     {
         //przeniesc te funkcje do neuronu ( zrob w neuronie funkcje zmien wage()
-        wejscie[i] -> stareWagi[0] = wejscie[i] -> wagi[0];
-        wejscie[i] -> wagi[0] = (wejscie[i] -> stareWagi[0]) - ETA * wejscie[i]->blad * ( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * daneWej[i] ;
-       //bias
+        wejscie[i] -> przepiszDoStarejWagi();
+        //wejscie[i] -> stareWagi[0] = wejscie[i] -> wagi[0];
+        double tmpwaga = (wejscie[i] -> stareWagi[0]);
+        double liczba = ETA * wejscie[i]->blad;
+        double pochodna = ( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora));
+        double wej = daneWej[i] ;
+        double uuu = liczba *pochodna*wej;
+        tmpwaga +=uuu + ZMOMENTEM * ALFHA * (wejscie[i] ->wagi[0] - wejscie[i] -> stareWagi[0]);//TODO albo +
+
+        wejscie[i] -> wagi[0] = tmpwaga;
+        //cout<<"\nstarea:"<< wejscie[i] -> stareWagi[0] <<" eta:"<<ETA<<" blad:"<<wejscie[i]->blad <<" Pochodna:"<<wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)<<" Danawej:"<<daneWej[i] ;
+        //    cout<<" obliczylem wage: " <<tmpwaga<< " nowa waga:" <<wejscie[i] -> wagi[0] << " stara waga:" <<wejscie[i] -> stareWagi[0];
+        //bias
         if(CZY_BIAS)
         {
-            wejscie[i] -> stareWagi[1] = wejscie[i] -> wagi[1];
-            wejscie[i] -> wagi[1] = (wejscie[i] -> stareWagi[1]) - ETA * wejscie[i]->blad * ( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * wejscie[i]->wartoscBiasu ;
+           // wejscie[i] -> stareWagi[1] = wejscie[i] -> wagi[1];
+            wejscie[i] -> wagi[1] = (wejscie[i] -> stareWagi[1]) + ETA * wejscie[i]->blad * ( wejscie[i] -> pochodnaFunkcjiAktywacji( wejscie[i]-> wyjscieSumatora)) * wejscie[i]->wartoscBiasu ;
+            wejscie[i] -> wagi[1] += ZMOMENTEM * ALFHA* (wejscie[i] ->wagi[1] - wejscie[i] -> stareWagi[1]);
         }
     }
 
 
-    // zmiana wag dla 0-wej warstwy  ukrytej gdyz ta pobiera wrtosci z warstwy wejsciowej
+    // zmiana wag dla 0-wej warstwy  ukrytej gdyz ta pobiera wartosci z warstwy wejsciowej
     
-     for(int i = 1; i < iloscNeuronowNaWarstwe.size() - 1; ++i) // i - numer warstwy ukrytej od zera bo te dane sa w wektrorze w ktorym 0 pokazuje ile jest neuronow w warstwie wejsciowej
+     for(int i = 1; i < iloscNeuronowNaWarstwe.size() ; ++i) // i - numer warstwy ukrytej od zera bo te dane sa w wektrorze w ktorym 0 pokazuje ile jest neuronow w warstwie wejsciowej
      {
 
          for (int j = 0; j<iloscNeuronowNaWarstwe[i]; ++j) // j -  ilosc neuronow w warstwie ukrytej
          {
-
+             siecNeuronow[i-1][j]->przepiszDoStarejWagi();
+             //cout << "\tPRZEPISALEM WAGI["<<i-1<<"]["<<j<<"]: :" << siecNeuronow[i-1][j]->wypisz()<<endl;
              double PochodnaAktywacjiWyjsciaSumatora = siecNeuronow[i-1][j] -> pochodnaFunkcjiAktywacji( siecNeuronow[i-1][j]-> wyjscieSumatora);
+
+             double blad = siecNeuronow[i-1][j]->blad;
+             double staleDlaNeuronu = ETA * blad * PochodnaAktywacjiWyjsciaSumatora;
              for(int k = 0; k < iloscNeuronowNaWarstwe[i-1]; ++k)
              {
 
-                 siecNeuronow[i-1][j] -> stareWagi[k] = siecNeuronow[i-1][j] -> wagi[k];
-                 siecNeuronow[i-1][j] -> wagi[k] -= ETA * siecNeuronow[i-1][j]->blad * siecWyjsc[i-1][k];//daneWej[i] ; // TODO sprawdzic czy nie minus w wykladzie
+                // siecNeuronow[i-1][j] -> stareWagi[k] = siecNeuronow[i-1][j] -> wagi[k];
+                 //siecNeuronow[i-1][j] -> wagi[k] -= ETA * siecNeuronow[i-1][j]->blad *PochodnaAktywacjiWyjsciaSumatora* siecWyjsc[i-1][k];//daneWej[i] ; // TODO sprawdzic czy nie minus w wykladzie
+                 double wejscie = staleDlaNeuronu * siecWyjsc[i-1][k];
+                 siecNeuronow[i-1][j] -> wagi[k] = siecNeuronow[i-1][j]->stareWagi[k] + wejscie + ZMOMENTEM * ALFHA *(siecNeuronow[i-1][j]->wagi[k] - siecNeuronow[i-1][j]->stareWagi[k] );
 
+             //    cout << "\twaga stara["<<i-1<<"]["<<j<<"]:"  <<siecNeuronow[i-1][j]->stareWagi[i]<< "\twaga nowa:" <<siecNeuronow[i-1][j]->wagi[i];
              }
+            // cout<<" Wyjscie sumatora ["<<i-1<<"]["<<j<<"]:" << siecNeuronow[i-1][j]->wyjscieSumatora << " Wyjscie :" << siecNeuronow[i-1][j]->wyjscie;
+            // cout<<endl;
              if(CZY_BIAS)
              {
                  //cout<<"Jeszcze BIAS: " <<endl;
                  // todo czy dobrze????
-                 siecNeuronow[i-1][j] -> stareWagi[iloscNeuronowNaWarstwe[i-1]] = siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]];
-                 siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]] -= ETA * siecNeuronow[i-1][j]->blad * PochodnaAktywacjiWyjsciaSumatora * siecNeuronow[i-1][j]->wartoscBiasu;
+
+                 //siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]] -= ETA * siecNeuronow[i-1][j]->blad * PochodnaAktywacjiWyjsciaSumatora * siecNeuronow[i-1][j]->wartoscBiasu;
+                 siecNeuronow[i-1][j] -> wagi[iloscNeuronowNaWarstwe[i-1]]  += staleDlaNeuronu * siecNeuronow[i-1][j]->wartoscBiasu + ZMOMENTEM * ALFHA *(siecNeuronow[i-1][j]->wagi[iloscNeuronowNaWarstwe[i-1]] - siecNeuronow[i-1][j]->stareWagi[iloscNeuronowNaWarstwe[i-1]] );
 
              }
              //cout << endl;
