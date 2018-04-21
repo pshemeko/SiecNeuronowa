@@ -128,7 +128,7 @@ void SiecNeuronow::obliczanieBledow(vector<double> danaWyj)
     //dla kazdego neuronu w warstwie wyjsciowej obliczam jego blad a potem poopaguje te bledy wtecz
     for(int i = 0; i < iloscNeuronowNaWarstwe[ostWarstwa]; ++i)
     {
-        siecNeuronow[ostWarstwa-1][i] -> blad = danaWyj[i] - (siecNeuronow[ostWarstwa-1][i] -> wyjscie) ;
+        siecNeuronow[ostWarstwa-1][i] -> blad += danaWyj[i] - (siecNeuronow[ostWarstwa-1][i] -> wyjscie) ;
     }
 
     // teraz trzeba propagowac wstecz
@@ -142,7 +142,7 @@ void SiecNeuronow::obliczanieBledow(vector<double> danaWyj)
                 sumabledow += (siecNeuronow[i][k] -> blad) * (siecNeuronow[i][k] ->wagi[j]);
             }
 
-            siecNeuronow[i-1][j] -> blad = sumabledow;
+            siecNeuronow[i-1][j] -> blad += sumabledow;
         }
     }
 
@@ -154,7 +154,7 @@ void SiecNeuronow::obliczanieBledow(vector<double> danaWyj)
             {
                 sumabledow += (siecNeuronow[0][k] -> blad) * (siecNeuronow[0][k] ->wagi[j]);
             }
-            wejscie[j] -> blad = sumabledow;
+            wejscie[j] -> blad += sumabledow;
         }
 }
 
@@ -163,7 +163,7 @@ void SiecNeuronow::ZmianaWagSieci(vector<double> daneWej) // dane wej to sa dane
 {
     for(int i = 0; i < wejscie.size(); ++i) // zmieniam wagi w wejsciu najpierw
     {
-        wejscie[i] -> przepiszDoStarejWagi();
+        wejscie[i] -> przepiszDoStarejWagi(); // to do wyjac
 
         double tmpwaga = (wejscie[i] -> stareWagi[0]);
         double liczba = ETA * wejscie[i]->blad;
@@ -286,4 +286,22 @@ void SiecNeuronow::testowanieSieci(vector<double> wejscie, vector<double> wyjsci
              cout <<  abs( siecNeuronow[ile-1][i]-> wyjscie) *100 <<" %";
     }
     cout.setf(old, ios_base::adjustfield);
+}
+
+void SiecNeuronow::zerojBledy() // zeroje bledy potrzebne po skonczonej epoce po policzeniu wag
+{
+    for(int i = 1; i < iloscNeuronowNaWarstwe.size(); ++i)// lece pokolei po warstwach
+    {
+        for (int j = 0; j < iloscNeuronowNaWarstwe[i]; ++j) // dla kazdego neuronu w tej warstwie licze jego wyjscie
+        {
+            siecNeuronow[i - 1][j]->blad = 0.0;
+        }
+    }
+    for(unsigned int i = 0; i < iloscNeuronowNaWarstwe[0]; ++i)
+    {
+
+        wejscie[i]->blad = 0.0;
+
+    }
+
 }

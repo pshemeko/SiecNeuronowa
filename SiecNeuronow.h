@@ -55,6 +55,8 @@ public:
 
     SiecNeuronow(vector<int> iloscNeuronowNaWarstwe2 = {4,2,4});
 
+    void zerojBledy();
+
     virtual ~SiecNeuronow()=default;
 
 };
