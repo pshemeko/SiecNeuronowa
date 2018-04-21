@@ -128,7 +128,7 @@ void Dane::menu()
 
 void Dane::menuTestowanie()
 {
-    cout <<endl << "Na której danej chcesz testować wynik?"<< endl<<endl;
+    cout <<endl<<endl << "Na której danej chcesz testować wynik?"<< endl<<endl;
     cout << "0. {1, 0, 0, 0}"<<endl;
     cout << "1. {0, 1, 0, 0}"<<endl;
     cout << "2. {0, 0, 1, 0}"<<endl;

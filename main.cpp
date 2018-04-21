@@ -115,7 +115,11 @@ bool pierwszeMenu = true;
              bladEpoki = bladEpoki / (double) (kolejnosc.size() - 1);
              if (ktoraEpoka % 500 == 0) {
                  cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << endl;
-                 if (bladEpoki < BLADOCZEKIWANY) break;
+                 if (bladEpoki < BLADOCZEKIWANY)
+                 {
+                     cout <<"Osiagnieto zalozony blad " << endl << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << endl;
+                     break;
+                 }
              }
              ktoraEpoka++;
          }
