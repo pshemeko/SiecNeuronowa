@@ -20,7 +20,7 @@
 
 using namespace std;
 
-int ILOSCEPOK = 30000;
+int ILOSCEPOK = 3;
 double BLADOCZEKIWANY = 0.00013;
 /*
  * 
@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
     string nazwa = "dane.txt";
     ofstream fout(nazwa.c_str());
 
+    dane.wczytajPlik();
 
 
     // wyswietlam poczatek
@@ -56,6 +57,8 @@ int main(int argc, char** argv) {
     cout <<endl;
     cout << "\tI OBLICZAMY::::::::::::::::::::::::::::::::::::::;::"<<endl<<endl;
 */
+
+
 
 bool pierwszeMenu = true;
     while(pierwszeMenu)

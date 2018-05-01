@@ -136,29 +136,51 @@ void Dane::menuTestowanie()
     cout << "5. Koniec!"<<endl;
 }
 
-VEKTORPAR Dane::WczytajPlik(void) // wczytuje dane z pliku iris.data do wektora par
+VEKTORPAR Dane::wczytajPlik(void) // wczytuje dane z pliku iris.data do wektora par
 {
+
+    double raz,dwa,trzy,cztery;
+    char c1;
+    string nazwa;
+
     VEKTORPAR wektorPar;
     ifstream plik;
     plik.open("iris.data", ios_base::in);   // otworz plik w trybie do odczytu
-    double liczba;
-    string nazwa;
-
     if (!plik.is_open())
     {
         cout << "\nBlad otwarcia pliku\n";
     }
 
-    cin.exceptions(ios_base::failbit);
-    try {
+    int licznik =150;
+    while(licznik--) { //cin.peek()!= EOF
+        plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
+        cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
+        vector<double> dana1 ({raz, dwa, trzy, cztery});
+        vector<double> dana2;
 
+        if(nazwa == "Iris-setosa")     dana2 = vector<double>({1.0, 0.0, 0.0});
+        if(nazwa == "Iris-versicolor") dana2 = vector<double>({0.0, 1.0, 0.0});
+        if(nazwa == "Iris-virginica")  dana2 = vector<double>({0.0, 0.0, 1.0});
+        pair<vector<double>, vector<double>> para = std::make_pair(dana1, dana2);
 
-    }catch(ios_base::failure &bf)
-    {
-        cout << bf.what() << endl;
-        cout << "O!!! TRAGEDIA\n";
+        wektorPar.push_back(para);
+
     }
-    cin.clear(); // zeruje stan strumienia by mozna bylo dalej wczytywac
+    /*
+    // SPRAWCDZAM ZCY WCZYTALO DOBRZE
+    for(int i=0; i<wektorPar.size(); i++) {
+        cout << "\n pozycja:[" <<i+1<<"]: ";
+        for (int j = 0; j < wektorPar[i].first.size() ; j++) {
+            cout << wektorPar[i].first[j] <<"\t";
+        }
+        cout << "\tTeraz drugie z pary: ";
+        for (int j = 0; j < wektorPar[i].second.size() ; j++) {
+            cout << wektorPar[i].second[j] <<"\t";
+        }
 
-plik.clear(); // zerowanie stanu strumienia
+    }
+    */
+    cout <<"\njajajajaja\n";
+
+return wektorPar;
 }

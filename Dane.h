@@ -31,7 +31,7 @@ public:
     mt19937 gen;
     int ileLiczb;
 
-    VEKTORPAR WczytajPlik(void); // wczytuje dane z pliku iris.data do wektora par
+    VEKTORPAR wczytajPlik(void); // wczytuje dane z pliku iris.data do wektora par
 
     Dane(int ileLiczbLosowac);  // okresa ile z jakiego zakresu losujemy liczy ile ich bedzie
     //Dane(const Dane& orig);
