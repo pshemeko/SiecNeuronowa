@@ -135,3 +135,30 @@ void Dane::menuTestowanie()
     cout << "3. {0, 0, 0, 1}"<<endl;
     cout << "5. Koniec!"<<endl;
 }
+
+VEKTORPAR Dane::WczytajPlik(void) // wczytuje dane z pliku iris.data do wektora par
+{
+    VEKTORPAR wektorPar;
+    ifstream plik;
+    plik.open("iris.data", ios_base::in);   // otworz plik w trybie do odczytu
+    double liczba;
+    string nazwa;
+
+    if (!plik.is_open())
+    {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+
+    cin.exceptions(ios_base::failbit);
+    try {
+
+
+    }catch(ios_base::failure &bf)
+    {
+        cout << bf.what() << endl;
+        cout << "O!!! TRAGEDIA\n";
+    }
+    cin.clear(); // zeruje stan strumienia by mozna bylo dalej wczytywac
+
+plik.clear(); // zerowanie stanu strumienia
+}

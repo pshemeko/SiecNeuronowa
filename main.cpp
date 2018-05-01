@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include "SiecNeuronow.h"
 #include "Dane.h"
@@ -29,6 +30,10 @@ int main(int argc, char** argv) {
     SiecNeuronow siec;
     Dane dane(4);
     srand(time(NULL));
+    //do pliku
+    string nazwa = "dane.txt";
+    ofstream fout(nazwa.c_str());
+
 
 
     // wyswietlam poczatek
@@ -113,6 +118,10 @@ bool pierwszeMenu = true;
              }
 
              bladEpoki = bladEpoki / (double) (kolejnosc.size() - 1);
+
+             if(ktoraEpoka %100  == 0)
+                     fout << ktoraEpoka <<";"<<bladEpoki<<endl;
+
              if (ktoraEpoka % 500 == 0) {
                  cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << endl;
                  if (bladEpoki < BLADOCZEKIWANY)

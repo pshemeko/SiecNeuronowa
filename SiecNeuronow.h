@@ -21,9 +21,9 @@
 
 static int ILOSCWEJSC = 4;
 static bool CZY_BIAS = true;
-static double ETA = 0.6; // współczynnik nauki(0.6)
+static double ETA = 0.2; // współczynnik nauki(0.6)
 static bool ZMOMENTEM = true;
-static double ALFHA = 0.1; // potrzbne gdy licze z momentem (0.1)
+static double ALFHA = 0.9; // potrzbne gdy licze z momentem (0.1)
 
 using namespace std;
 

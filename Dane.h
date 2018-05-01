@@ -18,6 +18,9 @@
 #include <random>
 #include <iostream>
 #include <stdlib.h>
+#include <fstream>
+
+typedef std::vector<std::pair< std::vector<double>, std::vector<double> > > VEKTORPAR;
 
 using namespace std;
 
@@ -27,6 +30,8 @@ public:
     uniform_int_distribution<> liczbaNaturalna;
     mt19937 gen;
     int ileLiczb;
+
+    VEKTORPAR WczytajPlik(void); // wczytuje dane z pliku iris.data do wektora par
 
     Dane(int ileLiczbLosowac);  // okresa ile z jakiego zakresu losujemy liczy ile ich bedzie
     //Dane(const Dane& orig);
