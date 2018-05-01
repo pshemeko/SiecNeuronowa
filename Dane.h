@@ -30,8 +30,9 @@ public:
     uniform_int_distribution<> liczbaNaturalna;
     mt19937 gen;
     int ileLiczb;
+    VEKTORPAR wektorPar;
 
-    VEKTORPAR wczytajPlik(void); // wczytuje dane z pliku iris.data do wektora par
+    void wczytajPlik(string nazwaPliku = "iris.data", int ilosclinii = 150); // wczytuje dane z pliku iris.data do wektora par
 
     Dane(int ileLiczbLosowac);  // okresa ile z jakiego zakresu losujemy liczy ile ich bedzie
     //Dane(const Dane& orig);
@@ -43,6 +44,7 @@ public:
 
     void menu() ;
     void menuTestowanie();
+    void menuNaglowek();
 };
 
 #endif /* DANE_H */

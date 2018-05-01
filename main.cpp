@@ -20,177 +20,187 @@
 
 using namespace std;
 
-int ILOSCEPOK = 3;
-double BLADOCZEKIWANY = 0.00013;
+int ILOSCEPOK = 70000;
+double BLADOCZEKIWANY = 0.000000013;
 /*
  * 
  */
 int main(int argc, char** argv) {
 
-    SiecNeuronow siec;
-    Dane dane(4);
+    SiecNeuronow siec({4,8,8,3});
+
+    Dane dane(150);   // losuje z 150 elementow wektroraPar danych wejsciowych
     srand(time(NULL));
     //do pliku
     string nazwa = "dane.txt";
-    ofstream fout(nazwa.c_str());
+    ofstream fout(nazwa.c_str());   // do wypisywania danych
 
-    dane.wczytajPlik();
-
-
-    // wyswietlam poczatek
-    vector<double> tempy = dane.pobierzWejscie((0,1,2,3));
-/*
-    cout << "\tSIEC STARTUJE Z WARTOSCIAMI::"<<endl<<endl;
-    for(int i = 0; i<siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size()-1]; i++)
-    {
-        cout << "\tWOczekiwano:" << tempy[i] ;
-        // cout << siec.daneWyjsciowe[kolejnosc[kolejnosc.size()-1]][i];
-        cout << "\tWyjscie: ";
-        //cout << (siec.siecNeuronow[2][i])->wyjscie;
-        cout << siec.siecNeuronow[1][i]->wyjscie ;
-        cout << "\tWagi: ";
-        for (int j=0; j<2;j++)
-            cout << siec.siecNeuronow[1][i]->wagi[j] << "\t";
-        cout<< endl;
-
-    }
-    cout <<endl;
-    cout << "\tI OBLICZAMY::::::::::::::::::::::::::::::::::::::;::"<<endl<<endl;
-*/
-
+    // wyswietlam poczatek jest blad
+    //vector<double> tempy = dane.pobierzWejscie((0,1,2,3));
 
 
 bool pierwszeMenu = true;
-    while(pierwszeMenu)
-    {
+    while(pierwszeMenu) {
 
-    dane.menu();
-    int wybor;
-    cin >>wybor;
+        dane.menu();
+        int wybor;
+        cin >> wybor;
 
-     if(wybor ==1) {
-         int ktoraEpoka = 0;
-         while (ktoraEpoka < ILOSCEPOK) {
+        if (wybor == 1) {    // nauka
 
-             vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
-             double bladEpoki = 0.0;
-             for (int i = 0; i < kolejnosc.size(); i++) {
+            dane.wczytajPlik("iris.data", 150);
+            int ktoraEpoka = 0;
+            while (ktoraEpoka < ILOSCEPOK) {
 
-                 vector<double> tmp = dane.pobierzWejscie(kolejnosc[i]);
+                vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
+                double bladEpoki = 0.0;
+                for (int i = 0; i < kolejnosc.size(); i++) {
 
-                 siec.obliczanieWyjsciaNeuronow(tmp);
-                 siec.obliczanieBledow(tmp);
-                 siec.ZmianaWagSieci(tmp);
-                 bladEpoki += siec.obliczBladDlaWzorca(tmp);
+                    vector<double> wej = dane.pobierzWejscie(kolejnosc[i]);
+                    vector<double> wyj = dane.pobierzWyjscie(kolejnosc[i]);
 
-                 // WYSWIETLANIE DANYCH WYBRANYCH
-                 // if(i == kolejnosc.size()-1)
-                 //manipulowanie wyswietlaniem
-                 ios_base::fmtflags old = cout.setf(ios_base::left, ios_base::adjustfield);
-                 // cout.setf( ios_base::showpos); //pokazuje znak + zawsze
+                    siec.obliczanieWyjsciaNeuronow(wej);
+                    siec.obliczanieBledow(wyj);
+                    siec.ZmianaWagSieci(wej);
+                    bladEpoki += siec.obliczBladDlaWzorca(wyj);
 
-                 if (kolejnosc[i] == 2) {
-                     if (ktoraEpoka % 500 == 0) {
+                    // WYSWIETLANIE DANYCH WYBRANYCH
+                    // if(i == kolejnosc.size()-1)
+                    //manipulowanie wyswietlaniem
+                    ios_base::fmtflags old = cout.setf(ios_base::left, ios_base::adjustfield);
+                    // cout.setf( ios_base::showpos); //pokazuje znak + zawsze
 
-                         for (int i = 0; i < siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size() - 1]; i++) {
-                             cout.precision(12);
-                             cout << "\tWOczekiwano:" << tmp[i];
-                             cout << "\tWyjscie: ";
-                             cout.width(17);
-                             cout << siec.siecNeuronow[1][i]->wyjscie;
-                             cout << "\tWagi: ";
-                             for (int j = 0; j < 2; j++) {
-                                 cout.width(14);
-                                 cout << siec.siecNeuronow[1][i]->wagi[j] << "  ";
-                             }
-                             cout << "\tStareWagi: ";
-                             for (int j = 0; j < 2; j++) {
-                                 cout.width(14);
-                                 cout << siec.siecNeuronow[1][i]->stareWagi[j] << "\t";
-                             }
-                             cout << endl;
+                    if (kolejnosc[i] == 2) {
+                        if (ktoraEpoka % 500 == 0) {
 
-                         }
-                         cout << endl;
+                            for (int i = 0;
+                                 i < siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size() - 1]; i++) {
+                                cout.precision(12);
+                                cout << "\tWOczekiwano:" << wyj[i];
+                                cout << "\tWyjscie: ";
+                                cout.width(17);
+                                cout << siec.siecNeuronow[1][i]->wyjscie;
+                                cout << "\tWagi: ";
+                                for (int j = 0; j < 2; j++) {
+                                    cout.width(161);
+                                    cout << siec.siecNeuronow[1][i]->wagi[j] << "  ";
+                                }
+                                cout << "\tStareWagi: ";
+                                for (int j = 0; j < 2; j++) {
+                                    cout.width(14);
+                                    cout << siec.siecNeuronow[1][i]->stareWagi[j] << "\t";
+                                }
+                                cout << endl;
 
-
-                     }
-                 }
-                 cout.setf(old, ios_base::adjustfield);// przywracam stare ustwaienia
-
-             }
-
-             bladEpoki = bladEpoki / (double) (kolejnosc.size() - 1);
-
-             if(ktoraEpoka %100  == 0)
-                     fout << ktoraEpoka <<";"<<bladEpoki<<endl;
-
-             if (ktoraEpoka % 500 == 0) {
-                 cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << endl;
-                 if (bladEpoki < BLADOCZEKIWANY)
-                 {
-                     cout <<"Osiagnieto zalozony blad " << endl << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << endl;
-                     break;
-                 }
-             }
-             ktoraEpoka++;
-         }
-
-         cout << " KONIEC UCZENIA" << endl;
-     } else
-     {
-         pierwszeMenu = false; // by juz nie pytal czy uczyć czy testowac
-        // dane.menuTestowanie();
-         bool koniec = true;
+                            }
+                            cout << endl;
 
 
-         while(koniec)
-         {
-                dane.menuTestowanie();
-             int wybor;
-             cin >>wybor;
-                system("pause");
-                system("clear");
-
-                //cout << " Testowanie:" << endl;
-
-             vector<double> tes;
-
-             switch(wybor)
-                {
-                    case 0:
-                        tes = dane.pobierzWejscie(0);
-                    break;
-                    case 1:
-                        tes = dane.pobierzWejscie(1);
-                    break;
-                    case 2:
-                        tes = dane.pobierzWejscie(2);
-                    break;
-                    case 3:
-                        tes = dane.pobierzWejscie(3);
-                    break;
-                    case 5:
-                        koniec = false;
-                        break;
-                    default:
-                        throw "NIepoprawna wartosc nie ma tylu wektorow WYJjsciowych!!!!!!!!!!!!!!!!!!!!!!!/n\n";
-                    break;
+                        }
+                    }
+                    cout.setf(old, ios_base::adjustfield);// przywracam stare ustwaienia
 
                 }
 
+                bladEpoki = bladEpoki / (double) (kolejnosc.size() - 1);
+
+                if (ktoraEpoka % 100 == 0)
+                    fout << ktoraEpoka << ";" << bladEpoki << endl;
+
+                if (ktoraEpoka % 500 == 0) {
+                    cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << " Balad zadany:" << BLADOCZEKIWANY << endl;
+                    if (bladEpoki < BLADOCZEKIWANY) {
+                        cout << "Osiagnieto zalozony blad " << endl << "NUMER epoki: " << ktoraEpoka << " Blad sieci: "
+                             << bladEpoki << endl;
+                       //break;
+                    }
+                }
+                ktoraEpoka++;
+            }
+
+            cout << " KONIEC UCZENIA" << endl;
+        } else {
+            pierwszeMenu = false; // by juz nie pytal czy uczyć czy testowac
+            // dane.menuTestowanie();
+
+            cout << "\nTestuje na danych podanych w pliku, blende dane to 31 oraz 38" << endl;
+
+            dane.wczytajPlik("bezdekIris.data", 150);
+
+            //vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
+            vector<int> kolejnosc;
+            for(int i = 1; i<151; i++)
+            kolejnosc.push_back(i);
 
 
-             //vector <double> tes = {0.0, 0.0, 0.0 , 1.0};
-             siec.testowanieSieci(tes, tes);
+            dane.menuNaglowek();
 
+            for (int i = 0; i < kolejnosc.size(); i++) {
+
+                cout << "dana[" << i << "]";
+                vector<double> wej = dane.pobierzWejscie(kolejnosc[i]);
+                vector<double> wyj = dane.pobierzWyjscie(kolejnosc[i]);
+
+                siec.obliczanieWyjsciaNeuronow(wej);
+                siec.obliczanieBledow(wyj);
+                //siec.ZmianaWagSieci(wej);
+                //bladEpoki += siec.obliczBladDlaWzorca(wyj);
+
+                //vector <double> tes = {0.0, 0.0, 0.0 , 1.0};
+
+                siec.testowanieSieci(wej, wyj);
+
+
+            }
+            /*
+             bool koniec = true;
+             while(koniec)
+             {
+                   // dane.menuTestowanie();
+
+
+                 int wybor;
+                 cin >>wybor;
+                    system("pause");
+                    system("clear");
+                    //cout << " Testowanie:" << endl;
+                 vector<double> tes;
+                 switch(wybor)
+                    {
+                        case 0:
+                            tes = dane.pobierzWejscie(0);
+                        break;
+                        case 1:
+                            tes = dane.pobierzWejscie(1);
+                        break;
+                        case 2:
+                            tes = dane.pobierzWejscie(2);
+                        break;
+                        case 3:
+                            tes = dane.pobierzWejscie(3);
+                        break;
+                        case 5:
+                            koniec = false;
+                            break;
+                        default:
+                            throw "NIepoprawna wartosc nie ma tylu wektorow WYJjsciowych!!!!!!!!!!!!!!!!!!!!!!!/n\n";
+                        break;
+
+                    }
+
+
+
+                 //vector <double> tes = {0.0, 0.0, 0.0 , 1.0};
+                 siec.testowanieSieci(tes, tes);
+
+             }
 
          }
+        */
 
-     }
+        }
 
- }
-
+    }
     return 0;
 }
 

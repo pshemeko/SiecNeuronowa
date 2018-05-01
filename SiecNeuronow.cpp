@@ -244,22 +244,7 @@ void SiecNeuronow::uczenie(int iloscEpok, double blad )
 void SiecNeuronow::testowanieSieci(vector<double> wejscie, vector<double> wyjscie)
 {
     obliczanieWyjsciaNeuronow(wejscie);
-    cout.width(18);
-    cout<< "wyliczenia sieci:";
 
-    //cout << "Kolejnosc";
-    cout<<" |";
-    cout.width(9);
-    cout << "Wejscie";
-    cout << " |";
-    cout.width(8);
-    cout << "Wyjscie";
-    cout << " |";
-    cout.width(20);
-    cout<< " Wyliczenie sieci";
-    cout << " |";
-    cout.width(18);
-    cout<< "procent trafienia";
     int ile = iloscNeuronowNaWarstwe.size() - 1;
     int ostatnia = iloscNeuronowNaWarstwe[ile];
     ios_base::fmtflags old = cout.setf(ios_base::fixed, ios_base::adjustfield);
@@ -281,9 +266,10 @@ void SiecNeuronow::testowanieSieci(vector<double> wejscie, vector<double> wyjsci
         cout.precision(10);
               cout << siecNeuronow[ile-1][i]-> wyjscie;
               cout<< " |";
-        cout.precision(3);
-        cout.width(16) ;
-             cout <<  abs( siecNeuronow[ile-1][i]-> wyjscie) *100 <<" %";
+        //cout.precision(3);
+        //cout.width(16) ;
+        //     cout <<  abs( siecNeuronow[ile-1][i]-> wyjscie) *100 <<" %";
     }
     cout.setf(old, ios_base::adjustfield);
+    cout<<endl;
 }

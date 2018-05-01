@@ -26,12 +26,14 @@ Dane::~Dane() {
 }
 vector<double> Dane::pobierzWejscie(int x)
 {
+    return wektorPar[x].first;
     /*
     vector<int> wek0 = {1,0,0,0};
     vector<int> wek1 = {0,1,0,0};
     vector<int> wek2 = {0,0,1,0};
     vector<int> wek3 = {0,0,0,1};
     */
+    /*
     vector<double> wek0 = {1.0,0.0,0.0,0.0};
     vector<double> wek1 = {0.0,1.0,0.0,0.0};
     vector<double> wek2 = {0.0,0.0,1.0,0.0};
@@ -54,15 +56,13 @@ vector<double> Dane::pobierzWejscie(int x)
             throw "Niepoprawna wartosc nie ma tylu wektorow wejsciowych!!!!!!!!!!!!!!!!!!!!!!!/n\n";
             break;
     }
+     */
 }
 
 vector<double> Dane::pobierzWyjscie(int x)
-{/*
-    vector<int> wek0  = {1,0,0,0};
-    vector<int> wek1 = {0,1,0,0};
-    vector<int> wek2 = {0,0,1,0};
-    vector<int> wek3 = {0,0,0,1};
-*/
+{
+    return wektorPar[x].second;
+    /*
     vector<double> wek0 = {1.0,0.0,0.0,0.0};
     vector<double> wek1 = {0.0,1.0,0.0,0.0};
     vector<double> wek2 = {0.0,0.0,1.0,0.0};
@@ -85,6 +85,7 @@ vector<double> Dane::pobierzWyjscie(int x)
             throw "NIepoprawna wartosc nie ma tylu wektorow WYJjsciowych!!!!!!!!!!!!!!!!!!!!!!!/n\n";
             break;
     }
+    */
 }
 
 vector<int> Dane::wylosujKolejnoscPobierania()
@@ -94,7 +95,7 @@ vector<int> Dane::wylosujKolejnoscPobierania()
     for(int i = 0; i < ileLiczb; i++) wzor.push_back(i);
     // teraz losowo wyjmujem elementy z wektora wzor i wkladamy do wynik az wektor bedzie pusty
 
-        for (int i=ileLiczb; i > 1; --i)
+        for (int i=ileLiczb; i > 10; --i)
         {
             int wylosowana =  liczbaNaturalna(gen) %i;
 
@@ -136,25 +137,23 @@ void Dane::menuTestowanie()
     cout << "5. Koniec!"<<endl;
 }
 
-VEKTORPAR Dane::wczytajPlik(void) // wczytuje dane z pliku iris.data do wektora par
-{
 
+void Dane::wczytajPlik(string nazwaPliku,int ilosclinii) // wczytuje dane z pliku iris.data do wektora par
+{
     double raz,dwa,trzy,cztery;
     char c1;
     string nazwa;
 
-    VEKTORPAR wektorPar;
     ifstream plik;
-    plik.open("iris.data", ios_base::in);   // otworz plik w trybie do odczytu
+    plik.open(nazwaPliku.c_str(), ios_base::in);   // otworz plik w trybie do odczytu
     if (!plik.is_open())
     {
         cout << "\nBlad otwarcia pliku\n";
     }
 
-    int licznik =150;
-    while(licznik--) { //cin.peek()!= EOF
+    while(ilosclinii--) { //cin.peek()!= EOF
         plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
-        cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
+    //    cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
         vector<double> dana1 ({raz, dwa, trzy, cztery});
         vector<double> dana2;
 
@@ -180,7 +179,27 @@ VEKTORPAR Dane::wczytajPlik(void) // wczytuje dane z pliku iris.data do wektora 
 
     }
     */
-    cout <<"\njajajajaja\n";
+   // cout <<"\njajajajaja\n";
 
-return wektorPar;
+}
+
+void Dane::menuNaglowek()
+{
+
+    cout.width(18);
+    cout<< "wyliczenia sieci:";
+
+    //cout << "Kolejnosc";
+    cout<<" |";
+    cout.width(9);
+    cout << "Wejscie";
+    cout << " |";
+    cout.width(8);
+    cout << "Ma byc";
+    cout << " |";
+    cout.width(20);
+    cout<< " Wyliczenie sieci";
+    cout << " |";
+    cout.width(18);
+    cout<< "procent trafienia";
 }
