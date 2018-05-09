@@ -17,6 +17,7 @@
 #include <cstdlib>
 #include "SiecNeuronow.h"
 #include "Dane.h"
+#include <algorithm>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ double BLADOCZEKIWANY = 0.000000013;
  */
 int main(int argc, char** argv) {
 
-    SiecNeuronow siec({4,8,8,3});
+    SiecNeuronow siec({4,10,10,3});
 
     Dane dane(150);   // losuje z 150 elementow wektroraPar danych wejsciowych
     srand(time(NULL));
@@ -54,7 +55,12 @@ bool pierwszeMenu = true;
 
                 vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
                 double bladEpoki = 0.0;
+                //vector<int> num = kolejnosc;
+                //sort(num.begin(),num.end());
+                //cout <<endl;
                 for (int i = 0; i < kolejnosc.size(); i++) {
+
+                    //cout << num[i]<< ":" <<kolejnosc[i] << " - ";
 
                     vector<double> wej = dane.pobierzWejscie(kolejnosc[i]);
                     vector<double> wyj = dane.pobierzWyjscie(kolejnosc[i]);
@@ -64,38 +70,33 @@ bool pierwszeMenu = true;
                     siec.ZmianaWagSieci(wej);
                     bladEpoki += siec.obliczBladDlaWzorca(wyj);
 
-                    // WYSWIETLANIE DANYCH WYBRANYCH
-                    // if(i == kolejnosc.size()-1)
+
                     //manipulowanie wyswietlaniem
-                    ios_base::fmtflags old = cout.setf(ios_base::left, ios_base::adjustfield);
-                    // cout.setf( ios_base::showpos); //pokazuje znak + zawsze
+                    ios_base::fmtflags old = cout.setf(ios_base::left, ios_base::adjustfield); // cout.setf( ios_base::showpos); //pokazuje znak + zawsze
 
-                    if (kolejnosc[i] == 2) {
+                    //Wyswietlanie
+                    if (kolejnosc[i] == 200) {
                         if (ktoraEpoka % 500 == 0) {
-
+                            cout << endl;
                             for (int i = 0;
                                  i < siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size() - 1]; i++) {
                                 cout.precision(12);
-                                cout << "\tWOczekiwano:" << wyj[i];
+                                cout << "\tWart oczekiwana:" << wyj[i];
                                 cout << "\tWyjscie: ";
                                 cout.width(17);
-                                cout << siec.siecNeuronow[1][i]->wyjscie;
+                                cout << siec.siecNeuronow[siec.iloscNeuronowNaWarstwe.size() - 2][i]->wyjscie;
                                 cout << "\tWagi: ";
-                                for (int j = 0; j < 2; j++) {
-                                    cout.width(161);
-                                    cout << siec.siecNeuronow[1][i]->wagi[j] << "  ";
+                                for (int j = 0; j < siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size() - 2]; j++) {
+                                    cout.width(16);
+                                    cout << siec.siecNeuronow[siec.iloscNeuronowNaWarstwe.size() - 2][i]->wagi[j] << "  ";
                                 }
                                 cout << "\tStareWagi: ";
-                                for (int j = 0; j < 2; j++) {
+                                for (int j = 0; j < siec.iloscNeuronowNaWarstwe[siec.iloscNeuronowNaWarstwe.size() - 2]; j++) {
                                     cout.width(14);
-                                    cout << siec.siecNeuronow[1][i]->stareWagi[j] << "\t";
+                                    cout << siec.siecNeuronow[siec.iloscNeuronowNaWarstwe.size() - 2][i]->stareWagi[j] << "\t";
                                 }
                                 cout << endl;
-
                             }
-                            cout << endl;
-
-
                         }
                     }
                     cout.setf(old, ios_base::adjustfield);// przywracam stare ustwaienia
@@ -108,8 +109,8 @@ bool pierwszeMenu = true;
                     fout << ktoraEpoka << ";" << bladEpoki << endl;
 
                 if (ktoraEpoka % 500 == 0) {
-                    cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << " Balad zadany:" << BLADOCZEKIWANY << endl;
-                    if (bladEpoki < BLADOCZEKIWANY) {
+                    cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << " Blad zadany:" << BLADOCZEKIWANY << endl;
+                    if (abs(bladEpoki) < BLADOCZEKIWANY) {
                         cout << "Osiagnieto zalozony blad " << endl << "NUMER epoki: " << ktoraEpoka << " Blad sieci: "
                              << bladEpoki << endl;
                        //break;
@@ -129,7 +130,7 @@ bool pierwszeMenu = true;
 
             //vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
             vector<int> kolejnosc;
-            for(int i = 1; i<151; i++)
+            for(int i = 0; i<150; i++)
             kolejnosc.push_back(i);
 
 
@@ -137,18 +138,18 @@ bool pierwszeMenu = true;
 
             for (int i = 0; i < kolejnosc.size(); i++) {
 
-                cout << "dana[" << i << "]";
+                cout << "dana[" << kolejnosc[i]+1 << "]";
                 vector<double> wej = dane.pobierzWejscie(kolejnosc[i]);
                 vector<double> wyj = dane.pobierzWyjscie(kolejnosc[i]);
 
-                siec.obliczanieWyjsciaNeuronow(wej);
-                siec.obliczanieBledow(wyj);
+               // siec.obliczanieWyjsciaNeuronow(wej);
+               // siec.obliczanieBledow(wyj);
                 //siec.ZmianaWagSieci(wej);
                 //bladEpoki += siec.obliczBladDlaWzorca(wyj);
 
                 //vector <double> tes = {0.0, 0.0, 0.0 , 1.0};
 
-                siec.testowanieSieci(wej, wyj);
+                siec.testowanieSieci2(wej, wyj);
 
 
             }

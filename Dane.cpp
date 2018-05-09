@@ -201,5 +201,5 @@ void Dane::menuNaglowek()
     cout<< " Wyliczenie sieci";
     cout << " |";
     cout.width(18);
-    cout<< "procent trafienia";
+    cout<< "procent trafienia\n";
 }

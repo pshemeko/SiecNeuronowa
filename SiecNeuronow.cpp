@@ -244,6 +244,7 @@ void SiecNeuronow::uczenie(int iloscEpok, double blad )
 void SiecNeuronow::testowanieSieci(vector<double> wejscie, vector<double> wyjscie)
 {
     obliczanieWyjsciaNeuronow(wejscie);
+    obliczanieBledow(wyjscie);
 
     int ile = iloscNeuronowNaWarstwe.size() - 1;
     int ostatnia = iloscNeuronowNaWarstwe[ile];
@@ -272,4 +273,50 @@ void SiecNeuronow::testowanieSieci(vector<double> wejscie, vector<double> wyjsci
     }
     cout.setf(old, ios_base::adjustfield);
     cout<<endl;
+}
+
+
+
+void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie)
+{
+    obliczanieWyjsciaNeuronow(wejscie);
+    obliczanieBledow(wyjscie);
+
+    int ile = iloscNeuronowNaWarstwe.size() - 1;
+    int ostatnia = iloscNeuronowNaWarstwe[ile];
+    ios_base::fmtflags old = cout.setf(ios_base::fixed, ios_base::adjustfield);
+
+
+    // szukam maximum
+    vector<double> wyj;
+    for(int i=0; i< ostatnia; i++) wyj.push_back( siecNeuronow[ile-1][i]-> wyjscie);
+    double minimalna = *std::max_element(wyj.begin(), wyj.end() ); // TODO albo bez -1
+
+    ostringstream os ;
+
+    for(int i=0; i< ostatnia; i++)
+    {
+        cout <<endl;
+        if(siecNeuronow[ile-1][i]-> wyjscie == minimalna) os << "*";
+            else os << "  \t";
+            ////
+        ostringstream ss ;
+        ss << "Neuron nr[" <<i <<"]:";
+
+        cout.width(18) ;
+        cout<< ss.str();
+        cout<<" |";
+        cout.width(9);
+        cout << wejscie[i]<< " |";
+        cout.width(8) ;
+        cout  <<wyjscie[i];
+        cout << " |";
+        cout.width(20) ;
+        cout.precision(10);
+        cout << siecNeuronow[ile-1][i]-> wyjscie;
+        cout<< " |";
+
+    }
+    cout.setf(old, ios_base::adjustfield);
+    cout << " " << cout.width(9) << minimalna <<"  .." << os.str() << " ,," << endl;
 }

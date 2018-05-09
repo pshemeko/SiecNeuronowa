@@ -18,8 +18,9 @@
 #include "Neuron.h"
 #include <iostream>
 #include <windows.h> // dla funkcji sleep do testu
+#include <algorithm>
 
-static int ILOSCWEJSC = 4;
+//static int ILOSCWEJSC = 4;
 static bool CZY_BIAS = true;
 static double ETA = 0.6; // współczynnik nauki(0.6)
 static bool ZMOMENTEM = true;
@@ -50,6 +51,7 @@ public:
     void temp();    // tymczasowa by zainicjoac wektory wejscia i wyjscia potem zmienic na odczyt z pliku - chyba juz niepotrzebna
 
     void testowanieSieci(vector<double> wejscie, vector<double> wyjscie);
+    void testowanieSieci2(vector<double> wejscie, vector<double> wyjscie);
 
     void uczenie(int iloscEpok, double blad = 0.0);
 
