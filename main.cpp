@@ -21,7 +21,7 @@
 
 using namespace std;
 
-int ILOSCEPOK = 70000;
+int ILOSCEPOK = 9000;
 double BLADOCZEKIWANY = 0.000000013;
 /*
  * 
@@ -29,6 +29,9 @@ double BLADOCZEKIWANY = 0.000000013;
 int main(int argc, char** argv) {
 
     SiecNeuronow siec({4,10,10,3});
+
+    siec.wypiszSiebie();
+
 
     Dane dane(150);   // losuje z 150 elementow wektroraPar danych wejsciowych
     srand(time(NULL));
@@ -52,6 +55,8 @@ bool pierwszeMenu = true;
             dane.wczytajPlik("iris.data", 150);
             int ktoraEpoka = 0;
             while (ktoraEpoka < ILOSCEPOK) {
+
+                if(ktoraEpoka == 1) dane.normalizuj();   // po pierwszej epoce normalizuje dane
 
                 vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
                 double bladEpoki = 0.0;
@@ -120,6 +125,12 @@ bool pierwszeMenu = true;
             }
 
             cout << " KONIEC UCZENIA" << endl;
+            siec.wypiszSiebie();
+
+            //cout <<endl;
+           // dane.wypiszWektorPar();
+           // dane.normalizuj();
+            //dane.wypiszWektorPar();
         } else {
             pierwszeMenu = false; // by juz nie pytal czy uczyć czy testowac
             // dane.menuTestowanie();
@@ -133,6 +144,7 @@ bool pierwszeMenu = true;
             for(int i = 0; i<150; i++)
             kolejnosc.push_back(i);
 
+            dane.normalizuj(); // normalizuje dane
 
             dane.menuNaglowek();
 

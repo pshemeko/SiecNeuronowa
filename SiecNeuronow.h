@@ -59,6 +59,8 @@ public:
 
     virtual ~SiecNeuronow()=default;
 
+    void wypiszSiebie();
+
 };
 
 #endif /* SIECNEURONOW_H */

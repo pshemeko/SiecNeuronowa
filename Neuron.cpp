@@ -25,6 +25,8 @@ Neuron::Neuron(int iloscWejsc, bool bias) // nie potrzebuje tego biasu na wejsci
     czyJestBias = bias;
     wartoscBiasu = 1.0;
     blad = 0.0;
+    wyjscie = 0.0;
+    wyjscieSumatora = 0.0;
 }
 
 

@@ -45,6 +45,8 @@ public:
     void menu() ;
     void menuTestowanie();
     void menuNaglowek();
+    void normalizuj();
+    void wypiszWektorPar();
 };
 
 #endif /* DANE_H */

@@ -119,12 +119,9 @@ vector<int> Dane::wylosujKolejnoscPobierania()
 void Dane::menu()
 {
     system("CLS");
-
-
     cout << " Co chcesz zrobic?"<< endl<<endl;
     cout << " 1) Tryb nauki?"<< endl;
     cout << " 2) Tryb testowania "<< endl;
-
 }
 
 void Dane::menuTestowanie()
@@ -202,4 +199,54 @@ void Dane::menuNaglowek()
     cout << " |";
     cout.width(18);
     cout<< "procent trafienia\n";
+}
+
+void Dane::normalizuj()
+{
+    int ileDanych =  wektorPar[0].first.size();
+    vector<double> maksima;
+    vector<double> minima;
+
+    cout <<endl << "Ilosc danych :::::::::::::::::::::::::::::;" <<ileDanych <<endl;
+    for(int i = 0; i < ileDanych; i++) {
+        maksima.push_back(wektorPar[0].first[i]);
+         minima.push_back(wektorPar[0].first[i]);
+    }
+
+    for(int i = 0; i < wektorPar.size(); i++)   //po wszystkich danych wejsciowych
+    {
+        for(int j = 1; j < ileDanych ; j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+        {
+            if( wektorPar[i].first[j] > maksima[j] )  maksima[j] = wektorPar[i].first[j];
+            if( wektorPar[i].first[j] < minima[j] )  minima[j] = wektorPar[i].first[j];
+        }
+    }
+
+    // normalizacja wzorem xij = (xij – colmmin) /(colmmax – colmmin)
+    vector<double> roznica; // zeby uproscic wzor
+    for(int j = 0; j < ileDanych ; j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+    {
+        roznica.push_back(maksima[j] - minima[j]);
+    }
+
+    for(int i = 0; i < wektorPar.size(); i++)   //po wszystkich danych wejsciowych
+    {
+        for(int j = 1; j < ileDanych ; j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+        {
+            wektorPar[i].first[j] = (wektorPar[i].first[j] - minima[j] ) / roznica[j];
+        }
+    }
+
+}
+
+void Dane::wypiszWektorPar()
+{
+    for(int i = 0; i < wektorPar.size(); i++)   //po wszystkich danych wejsciowych
+    {
+        for (int j = 1; j < wektorPar[0].first.size(); j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+        {
+            cout << wektorPar[i].first[j] << "\t";
+        }
+    cout <<endl;
+    }
 }

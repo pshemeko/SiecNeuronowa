@@ -17,7 +17,7 @@ SiecNeuronow::SiecNeuronow(vector<int> iloscNeuronowNaWarstwe2)//, int neuronowN
     : iloscNeuronowNaWarstwe{iloscNeuronowNaWarstwe2}
 {
     // po to by ainicoweac wejscia i wyjscia
-    temp();
+    //temp();
     
     // tworze wektor wejscie
     vector<double> doWyliczenWyjsc;
@@ -290,15 +290,24 @@ void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjsc
     // szukam maximum
     vector<double> wyj;
     for(int i=0; i< ostatnia; i++) wyj.push_back( siecNeuronow[ile-1][i]-> wyjscie);
-    double minimalna = *std::max_element(wyj.begin(), wyj.end() ); // TODO albo bez -1
+    double maksymalna = *std::max_element(wyj.begin(), wyj.end() ); // TODO albo bez -1
 
-    ostringstream os ;
+    //ostringstream os ;
+    int wykryty =1; // ktory kwiatek zostal wykryty kroe wyjscie ma maksymalna wartosc
+    double wartosc = siecNeuronow[ile-1][0]-> wyjscie;
 
     for(int i=0; i< ostatnia; i++)
     {
         cout <<endl;
-        if(siecNeuronow[ile-1][i]-> wyjscie == minimalna) os << "*";
-            else os << "  \t";
+       // if(siecNeuronow[ile-1][i]-> wyjscie == maksymalna) os << "*";
+       //     else os << "  \t";
+        if(siecNeuronow[ile-1][i]-> wyjscie > wartosc)
+        {
+            wartosc = siecNeuronow[ile-1][i]-> wyjscie;
+            wykryty = i+1;
+        }
+
+
             ////
         ostringstream ss ;
         ss << "Neuron nr[" <<i <<"]:";
@@ -306,7 +315,7 @@ void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjsc
         cout.width(18) ;
         cout<< ss.str();
         cout<<" |";
-        cout.width(9);
+        cout.width(12);
         cout << wejscie[i]<< " |";
         cout.width(8) ;
         cout  <<wyjscie[i];
@@ -318,5 +327,42 @@ void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjsc
 
     }
     cout.setf(old, ios_base::adjustfield);
-    cout << " " << cout.width(9) << minimalna <<"  .." << os.str() << " ,," << endl;
+    //cout << " " << cout.width(9) << minimalna <<"  .." << os.str() << " ,," << endl;
+    cout << cout.width(29)<< " Wykryto kwiatek numer: " << wykryty<<endl;
+}
+
+void SiecNeuronow::wypiszSiebie()
+{
+
+    for(int i = 0; i<wejscie.size(); i++)
+    {
+        cout << wejscie[i]->wyjscieSumatora << "\t";
+    }
+    cout <<endl << "TERAZ WARSTWY UKRYTE:"<<endl;
+    for(int i = 0; i<siecNeuronow.size(); i++)
+    {
+
+
+        for(int j = 0; j<siecNeuronow[i].size(); j++)
+        {
+
+
+            cout << siecNeuronow[i][j]->wyjscie << "\t";
+        }
+        cout <<endl <<"warstwa ukryta: "<< i << endl;
+    }
+
+    cout <<endl <<endl << "TERAZ SIEC WYJSC:"<<endl;
+    for(int i = 0; i<siecWyjsc.size(); i++)
+    {
+
+
+        for(int j = 0; j<siecWyjsc[i].size(); j++)
+        {
+
+
+            cout << siecWyjsc[i][j] << "\t";
+        }
+        cout <<endl <<"warstwa ukryta: "<< i << endl;
+    }
 }
