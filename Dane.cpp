@@ -151,7 +151,13 @@ void Dane::wczytajPlik(string nazwaPliku,int ilosclinii) // wczytuje dane z plik
     while(ilosclinii--) { //cin.peek()!= EOF
         plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
     //    cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
-        vector<double> dana1 ({raz, dwa, trzy, cztery});
+        //vector<double> dana1 ({raz, dwa, trzy, cztery});
+        vector<double> dana1;
+        dana1.push_back(raz);
+        dana1.push_back(dwa);
+        dana1.push_back(trzy);
+        dana1.push_back(cztery);
+
         vector<double> dana2;
 
         if(nazwa == "Iris-setosa")     dana2 = vector<double>({1.0, 0.0, 0.0});
@@ -215,7 +221,7 @@ void Dane::normalizuj()
 
     for(int i = 0; i < wektorPar.size(); i++)   //po wszystkich danych wejsciowych
     {
-        for(int j = 1; j < ileDanych ; j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+        for(int j = 0; j < ileDanych ; j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
         {
             if( wektorPar[i].first[j] > maksima[j] )  maksima[j] = wektorPar[i].first[j];
             if( wektorPar[i].first[j] < minima[j] )  minima[j] = wektorPar[i].first[j];
@@ -231,7 +237,7 @@ void Dane::normalizuj()
 
     for(int i = 0; i < wektorPar.size(); i++)   //po wszystkich danych wejsciowych
     {
-        for(int j = 1; j < ileDanych ; j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+        for(int j = 0; j < ileDanych ; j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
         {
             wektorPar[i].first[j] = (wektorPar[i].first[j] - minima[j] ) / roznica[j];
         }
@@ -243,10 +249,18 @@ void Dane::wypiszWektorPar()
 {
     for(int i = 0; i < wektorPar.size(); i++)   //po wszystkich danych wejsciowych
     {
-        for (int j = 1; j < wektorPar[0].first.size(); j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+        cout << i << "\t|";
+        for (int j = 0; j < wektorPar[i].first.size(); j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
         {
             cout << wektorPar[i].first[j] << "\t";
         }
+        cout << "\t Wyjscia-second: ";
+        for (int j = 0; j < wektorPar[i].second.size(); j++) // ile jest danych wejsciowyych w sensie rodzajow pomiarow w kwiatkach sa 4 dane
+        {
+            cout << wektorPar[i].second[j] << "\t";
+        }
+
     cout <<endl;
     }
+    cout << "koniec par!" << endl;
 }

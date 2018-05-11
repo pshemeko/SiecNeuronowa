@@ -27,6 +27,7 @@ Neuron::Neuron(int iloscWejsc, bool bias) // nie potrzebuje tego biasu na wejsci
     blad = 0.0;
     wyjscie = 0.0;
     wyjscieSumatora = 0.0;
+    delta = 0.0;
 }
 
 
@@ -77,4 +78,9 @@ string Neuron::wypisz()
     for(int i = 0; i< stareWagi.size(); i++) os << stareWagi[i] << " ";
     return os.str();
 
+}
+
+double Neuron::obliczPochodnaFunkcjiAktywacji()
+{
+    return pochodnaFunkcjiAktywacji(wyjscieSumatora);
 }

@@ -25,6 +25,7 @@ SiecNeuronow::SiecNeuronow(vector<int> iloscNeuronowNaWarstwe2)//, int neuronowN
     {
         wejscie.push_back( new Neuron(1,CZY_BIAS));
         doWyliczenWyjsc.push_back(1.0);
+        wejscie[i]-> wagi[0]=1.0;   // bo warstwa wejsciowa jest tylko do rozprowadzenia sygnalu wiec tam wag nie ma
     }
     siecWyjsc.push_back(doWyliczenWyjsc);   // dla warstwy wejsciowej
     // tworze siec
@@ -365,4 +366,68 @@ void SiecNeuronow::wypiszSiebie()
         }
         cout <<endl <<"warstwa ukryta: "<< i << endl;
     }
+}
+
+
+void SiecNeuronow::noweObliczanieBledow(vector<double> danaWyj)
+{
+    int ostWarstwa = iloscNeuronowNaWarstwe.size() - 1;
+    //dla kazdego neuronu w warstwie wyjsciowej obliczam jego blad a potem poopaguje te bledy wtecz
+    for(int i = 0; i < iloscNeuronowNaWarstwe[ostWarstwa]; ++i)
+    {
+        siecNeuronow[ostWarstwa-1][i] -> blad = danaWyj[i] - (siecNeuronow[ostWarstwa-1][i] -> wyjscie);
+        siecNeuronow[ostWarstwa-1][i] -> delta = siecNeuronow[ostWarstwa-1][i] -> blad  *  siecNeuronow[ostWarstwa-1][i] -> obliczPochodnaFunkcjiAktywacji();
+    }
+
+    // teraz trzeba propagowac wstecz
+    for (int i = iloscNeuronowNaWarstwe.size() - 2; i > 0; --i) // dla 0 nie licze bo to jest wektor wejscie!!!!!!!!!!!!!!!!!!!!!!!
+    {
+        for (int j = 0 ; j< iloscNeuronowNaWarstwe[i]; ++j) // dla kazdego neuronu z warstwy
+        {
+            double sumabledow = 0.0;
+            for(int k = 0; k < iloscNeuronowNaWarstwe[i+1]; ++k)
+            {
+                // nie zmieniam bledo w neuronach warstwy uktrytej (bo to tylko dla bledu sieci potrzebuje) tylko teraz dzialam na deltach
+                sumabledow += (siecNeuronow[i][k] -> delta) * (siecNeuronow[i][k] ->wagi[j]);
+            }
+
+            siecNeuronow[i-1][j] -> delta = sumabledow * siecNeuronow[ostWarstwa-1][i] -> obliczPochodnaFunkcjiAktywacji(); //TODO czy dzielic przem ilosc neuronow w warstwie nastepnej
+        }
+    }
+    // dla wejsciowej nie bo ona tylko rozprowadza sygnal
+}
+
+void SiecNeuronow::noweZmianaWagSieci(vector<double> daneWej)
+{
+    // zmiana wag dla 0-wej warstwy  ukrytej gdyz ta pobiera wartosci z warstwy wejsciowej
+    for(int i = 1; i < iloscNeuronowNaWarstwe.size() ; ++i) // i - numer warstwy ukrytej od zera bo te dane sa w wektrorze w ktorym 0 pokazuje ile jest neuronow w warstwie wejsciowej
+    {
+        for (int j = 0; j < iloscNeuronowNaWarstwe[i]; ++j) // j -  ilosc neuronow w warstwie ukrytej
+        {
+            siecNeuronow[i-1][j]->przepiszDoStarejWagi();
+
+            for(int k = 0; k < iloscNeuronowNaWarstwe[i-1]; ++k)
+            {
+
+                siecNeuronow[i-1][j] -> wagi[k] = siecNeuronow[i-1][j]->stareWagi[k] - ETA * siecNeuronow[i-1][j] -> delta +  ZMOMENTEM * ALFHA * (siecNeuronow[i-1][j]->wagi[k] - siecNeuronow[i-1][j]->stareWagi[k] );
+
+            }
+
+        }
+
+    }
+}
+
+
+double SiecNeuronow::noweObliczBladSieci(void)
+{
+    int ostWarstwa = iloscNeuronowNaWarstwe.size() - 1;
+    double suma = 0.0;
+    //dla kazdego neuronu w warstwie wyjsciowej obliczam jego blad a potem poopaguje te bledy wtecz
+    for(int i = 0; i < iloscNeuronowNaWarstwe[ostWarstwa]; ++i)
+    {
+        double ile = siecNeuronow[ostWarstwa-1][i] -> blad;
+        suma += 0.5*ile*ile;
+    }
+    return suma/(double)iloscNeuronowNaWarstwe[ostWarstwa];
 }

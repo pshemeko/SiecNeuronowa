@@ -17,7 +17,7 @@
 #include <vector>
 #include "Neuron.h"
 #include <iostream>
-#include <windows.h> // dla funkcji sleep do testu
+//#include <windows.h> // dla funkcji sleep do testu
 #include <algorithm>
 
 //static int ILOSCWEJSC = 4;
@@ -61,6 +61,9 @@ public:
 
     void wypiszSiebie();
 
+    void noweObliczanieBledow(vector<double> danaWyj);
+    void noweZmianaWagSieci(vector<double> daneWej);
+    double noweObliczBladSieci(void);
 };
 
 #endif /* SIECNEURONOW_H */

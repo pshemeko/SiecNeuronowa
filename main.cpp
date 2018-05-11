@@ -21,7 +21,7 @@
 
 using namespace std;
 
-int ILOSCEPOK = 9000;
+int ILOSCEPOK = 4000;
 double BLADOCZEKIWANY = 0.000000013;
 /*
  * 
@@ -70,11 +70,14 @@ bool pierwszeMenu = true;
                     vector<double> wej = dane.pobierzWejscie(kolejnosc[i]);
                     vector<double> wyj = dane.pobierzWyjscie(kolejnosc[i]);
 
+                    //siec.obliczanieWyjsciaNeuronow(wej);
+                    //siec.obliczanieBledow(wyj);
+                    //siec.ZmianaWagSieci(wej);
+                    //bladEpoki += siec.obliczBladDlaWzorca(wyj);
                     siec.obliczanieWyjsciaNeuronow(wej);
-                    siec.obliczanieBledow(wyj);
-                    siec.ZmianaWagSieci(wej);
-                    bladEpoki += siec.obliczBladDlaWzorca(wyj);
-
+                    siec.noweObliczanieBledow(wyj);
+                    siec.noweZmianaWagSieci(wej);
+                    bladEpoki += siec.noweObliczBladSieci();
 
                     //manipulowanie wyswietlaniem
                     ios_base::fmtflags old = cout.setf(ios_base::left, ios_base::adjustfield); // cout.setf( ios_base::showpos); //pokazuje znak + zawsze
@@ -108,7 +111,7 @@ bool pierwszeMenu = true;
 
                 }
 
-                bladEpoki = bladEpoki / (double) (kolejnosc.size() - 1);
+                bladEpoki = bladEpoki / (double) (kolejnosc.size() );
 
                 if (ktoraEpoka % 100 == 0)
                     fout << ktoraEpoka << ";" << bladEpoki << endl;
@@ -122,6 +125,7 @@ bool pierwszeMenu = true;
                     }
                 }
                 ktoraEpoka++;
+                //dane.wypiszWektorPar();
             }
 
             cout << " KONIEC UCZENIA" << endl;
@@ -133,28 +137,35 @@ bool pierwszeMenu = true;
             //dane.wypiszWektorPar();
         } else {
             pierwszeMenu = false; // by juz nie pytal czy uczyć czy testowac
+            Dane dane2(150);
+
             // dane.menuTestowanie();
 
             cout << "\nTestuje na danych podanych w pliku, blende dane to 31 oraz 38" << endl;
 
-            dane.wczytajPlik("bezdekIris.data", 150);
+            dane2.wczytajPlik("bezdekIris.data", 150);
 
             //vector<int> kolejnosc = dane.wylosujKolejnoscPobierania();
             vector<int> kolejnosc;
             for(int i = 0; i<150; i++)
             kolejnosc.push_back(i);
 
-            dane.normalizuj(); // normalizuje dane
+            dane2.normalizuj(); // normalizuje dane
+            dane2.wypiszWektorPar();
 
-            dane.menuNaglowek();
+            dane2.menuNaglowek();
 
-            for (int i = 0; i < kolejnosc.size(); i++) {
+            for (int i = 0; i < 150; i++) {
 
-                cout << "dana[" << kolejnosc[i]+1 << "]";
-                vector<double> wej = dane.pobierzWejscie(kolejnosc[i]);
-                vector<double> wyj = dane.pobierzWyjscie(kolejnosc[i]);
+                cout << "dana[" << i+1 << "]";
+                vector<double> wej = dane2.pobierzWejscie(i);
+                vector<double> wyj = dane2.pobierzWyjscie(i);
+                cout <<endl <<"wejscia testowe:" <<endl;
+                for (int i=0; i<wej.size(); i++) cout <<wej[i] << "|";
+                cout <<endl <<"WYJSCIAa testowe:" <<endl;
+                for (int i=0; i<wyj.size(); i++) cout <<wyj[i]<< "|";
 
-               // siec.obliczanieWyjsciaNeuronow(wej);
+                // siec.obliczanieWyjsciaNeuronow(wej);
                // siec.obliczanieBledow(wyj);
                 //siec.ZmianaWagSieci(wej);
                 //bladEpoki += siec.obliczBladDlaWzorca(wyj);

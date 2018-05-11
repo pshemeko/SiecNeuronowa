@@ -37,6 +37,8 @@ class Neuron
         double wartoscBiasu;    // wywalic jako stala statyczna poza klase
         double blad;
         double wyjscieSumatora; // potrzebne bo z niego obliczana pochodna funkcji aktywacji
+        double delta; // blad * pochodna funkcji aktywacji
+
 
         void   obliczWyjscieSumatora(Wektor wejscia);
         double funkcjaAktywacji(double x);
@@ -48,6 +50,7 @@ class Neuron
         Neuron(int iloscWejsc,  bool bias=false);
 
         virtual ~Neuron() = default;
+        double obliczPochodnaFunkcjiAktywacji();
 
 };
 
