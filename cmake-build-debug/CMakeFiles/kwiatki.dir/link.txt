@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/kwiatki.dir/main.cpp.o CMakeFiles/kwiatki.dir/src/Losowanie.cpp.o CMakeFiles/kwiatki.dir/src/Dane.cpp.o  -o kwiatki.exe -Wl,--out-implib,libkwiatki.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
