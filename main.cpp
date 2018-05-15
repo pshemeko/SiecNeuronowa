@@ -5,7 +5,8 @@
 //#include "headers/Losowanie.h"
 #include "headers/Dane.h"
 #include "headers/Menu.h"
-#include "headers/Neuron.h"
+#include "headers/SiecNeuronow.h"
+
 
 using namespace std;
 

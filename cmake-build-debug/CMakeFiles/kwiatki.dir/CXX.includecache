@@ -28,6 +28,36 @@ random
 math.h
 -
 
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Menu.h
+iostream
+-
+
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Neuron.h
+vector
+-
+cmath
+-
+cstdlib
+-
+string
+-
+sstream
+-
+Neuron.h
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Neuron.h
+Losowanie.h
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Losowanie.h
+
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/SiecNeuronow.h
+vector
+-
+iostream
+-
+algorithm
+-
+Neuron.h
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Neuron.h
+
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/main.cpp
 iostream
 -
@@ -35,6 +65,10 @@ headers/Matematyka.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Matematyka.h
 headers/Dane.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Dane.h
+headers/Menu.h
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Menu.h
+headers/SiecNeuronow.h
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/SiecNeuronow.h
 
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Dane.cpp
 ../headers/Dane.h
@@ -43,4 +77,12 @@ headers/Dane.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Losowanie.cpp
 ../headers/Losowanie.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Losowanie.h
+
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Neuron.cpp
+../headers/Neuron.h
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Neuron.h
+
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/SiecNeuronow.cpp
+../headers/SiecNeuronow.h
+/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/SiecNeuronow.h
 

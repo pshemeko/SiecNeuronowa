@@ -89,6 +89,15 @@
 		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Matematyka.h">
 			<Option target="kwiatki"/>
 		</Unit>
+		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Menu.h">
+			<Option target="kwiatki"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Neuron.h">
+			<Option target="kwiatki"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/SiecNeuronow.h">
+			<Option target="kwiatki"/>
+		</Unit>
 		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Testy.h">
 			<Option target="kwiatki"/>
 		</Unit>
@@ -99,6 +108,12 @@
 			<Option target="kwiatki"/>
 		</Unit>
 		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Losowanie.cpp">
+			<Option target="kwiatki"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Neuron.cpp">
+			<Option target="kwiatki"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/SiecNeuronow.cpp">
 			<Option target="kwiatki"/>
 		</Unit>
 		<Unit filename="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/CMakeLists.txt">

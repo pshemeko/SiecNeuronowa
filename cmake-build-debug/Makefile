@@ -204,6 +204,60 @@ src/Losowanie.cpp.s:
 	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Losowanie.cpp.s
 .PHONY : src/Losowanie.cpp.s
 
+src/Neuron.o: src/Neuron.cpp.o
+
+.PHONY : src/Neuron.o
+
+# target to build an object file
+src/Neuron.cpp.o:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Neuron.cpp.o
+.PHONY : src/Neuron.cpp.o
+
+src/Neuron.i: src/Neuron.cpp.i
+
+.PHONY : src/Neuron.i
+
+# target to preprocess a source file
+src/Neuron.cpp.i:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Neuron.cpp.i
+.PHONY : src/Neuron.cpp.i
+
+src/Neuron.s: src/Neuron.cpp.s
+
+.PHONY : src/Neuron.s
+
+# target to generate assembly for a file
+src/Neuron.cpp.s:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Neuron.cpp.s
+.PHONY : src/Neuron.cpp.s
+
+src/SiecNeuronow.o: src/SiecNeuronow.cpp.o
+
+.PHONY : src/SiecNeuronow.o
+
+# target to build an object file
+src/SiecNeuronow.cpp.o:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o
+.PHONY : src/SiecNeuronow.cpp.o
+
+src/SiecNeuronow.i: src/SiecNeuronow.cpp.i
+
+.PHONY : src/SiecNeuronow.i
+
+# target to preprocess a source file
+src/SiecNeuronow.cpp.i:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.i
+.PHONY : src/SiecNeuronow.cpp.i
+
+src/SiecNeuronow.s: src/SiecNeuronow.cpp.s
+
+.PHONY : src/SiecNeuronow.s
+
+# target to generate assembly for a file
+src/SiecNeuronow.cpp.s:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.s
+.PHONY : src/SiecNeuronow.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +276,12 @@ help:
 	@echo "... src/Losowanie.o"
 	@echo "... src/Losowanie.i"
 	@echo "... src/Losowanie.s"
+	@echo "... src/Neuron.o"
+	@echo "... src/Neuron.i"
+	@echo "... src/Neuron.s"
+	@echo "... src/SiecNeuronow.o"
+	@echo "... src/SiecNeuronow.i"
+	@echo "... src/SiecNeuronow.s"
 .PHONY : help
 
 

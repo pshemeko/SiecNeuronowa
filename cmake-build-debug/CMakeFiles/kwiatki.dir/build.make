@@ -129,11 +129,61 @@ CMakeFiles/kwiatki.dir/src/Dane.cpp.o.provides: CMakeFiles/kwiatki.dir/src/Dane.
 CMakeFiles/kwiatki.dir/src/Dane.cpp.o.provides.build: CMakeFiles/kwiatki.dir/src/Dane.cpp.o
 
 
+CMakeFiles/kwiatki.dir/src/Neuron.cpp.o: CMakeFiles/kwiatki.dir/flags.make
+CMakeFiles/kwiatki.dir/src/Neuron.cpp.o: ../src/Neuron.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kwiatki.dir/src/Neuron.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kwiatki.dir/src/Neuron.cpp.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Neuron.cpp"
+
+CMakeFiles/kwiatki.dir/src/Neuron.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kwiatki.dir/src/Neuron.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Neuron.cpp" > CMakeFiles/kwiatki.dir/src/Neuron.cpp.i
+
+CMakeFiles/kwiatki.dir/src/Neuron.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kwiatki.dir/src/Neuron.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Neuron.cpp" -o CMakeFiles/kwiatki.dir/src/Neuron.cpp.s
+
+CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.requires:
+
+.PHONY : CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.requires
+
+CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.provides: CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.requires
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.provides.build
+.PHONY : CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.provides
+
+CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.provides.build: CMakeFiles/kwiatki.dir/src/Neuron.cpp.o
+
+
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: CMakeFiles/kwiatki.dir/flags.make
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../src/SiecNeuronow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/SiecNeuronow.cpp"
+
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/SiecNeuronow.cpp" > CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.i
+
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/SiecNeuronow.cpp" -o CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.s
+
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.requires:
+
+.PHONY : CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.requires
+
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.provides: CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.provides.build
+.PHONY : CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.provides
+
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.provides.build: CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o
+
+
 # Object files for target kwiatki
 kwiatki_OBJECTS = \
 "CMakeFiles/kwiatki.dir/main.cpp.o" \
 "CMakeFiles/kwiatki.dir/src/Losowanie.cpp.o" \
-"CMakeFiles/kwiatki.dir/src/Dane.cpp.o"
+"CMakeFiles/kwiatki.dir/src/Dane.cpp.o" \
+"CMakeFiles/kwiatki.dir/src/Neuron.cpp.o" \
+"CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o"
 
 # External object files for target kwiatki
 kwiatki_EXTERNAL_OBJECTS =
@@ -141,9 +191,11 @@ kwiatki_EXTERNAL_OBJECTS =
 kwiatki.exe: CMakeFiles/kwiatki.dir/main.cpp.o
 kwiatki.exe: CMakeFiles/kwiatki.dir/src/Losowanie.cpp.o
 kwiatki.exe: CMakeFiles/kwiatki.dir/src/Dane.cpp.o
+kwiatki.exe: CMakeFiles/kwiatki.dir/src/Neuron.cpp.o
+kwiatki.exe: CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o
 kwiatki.exe: CMakeFiles/kwiatki.dir/build.make
 kwiatki.exe: CMakeFiles/kwiatki.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable kwiatki.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable kwiatki.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kwiatki.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +206,8 @@ CMakeFiles/kwiatki.dir/build: kwiatki.exe
 CMakeFiles/kwiatki.dir/requires: CMakeFiles/kwiatki.dir/main.cpp.o.requires
 CMakeFiles/kwiatki.dir/requires: CMakeFiles/kwiatki.dir/src/Losowanie.cpp.o.requires
 CMakeFiles/kwiatki.dir/requires: CMakeFiles/kwiatki.dir/src/Dane.cpp.o.requires
+CMakeFiles/kwiatki.dir/requires: CMakeFiles/kwiatki.dir/src/Neuron.cpp.o.requires
+CMakeFiles/kwiatki.dir/requires: CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o.requires
 
 .PHONY : CMakeFiles/kwiatki.dir/requires
 

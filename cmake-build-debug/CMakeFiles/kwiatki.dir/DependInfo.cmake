@@ -7,6 +7,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/main.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/main.cpp.o"
   "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Dane.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Dane.cpp.o"
   "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Losowanie.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Losowanie.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Neuron.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Neuron.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/SiecNeuronow.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
