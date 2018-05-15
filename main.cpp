@@ -28,9 +28,9 @@ double BLADOCZEKIWANY = 0.000000013;
  */
 int main(int argc, char** argv) {
 
-    SiecNeuronow siec({4,10,10,3});
+    SiecNeuronow siec({4,50,50,3});
 
-    siec.wypiszSiebie();
+    //siec.wypiszSiebie();
 
 
     Dane dane(150);   // losuje z 150 elementow wektroraPar danych wejsciowych
@@ -114,14 +114,16 @@ bool pierwszeMenu = true;
                 bladEpoki = bladEpoki / (double) (kolejnosc.size() );
 
                 if (ktoraEpoka % 100 == 0)
-                    fout << ktoraEpoka << ";" << bladEpoki << endl;
+                    fout << ktoraEpoka << ";" << bladEpoki << endl; //zapis do pliku
 
-                if (ktoraEpoka % 500 == 0) {
-                    cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << " Blad zadany:" << BLADOCZEKIWANY << endl;
+                if (ktoraEpoka % 10 == 0) {
+                    cout << "NUMER epoki: " << ktoraEpoka << " Blad sieci: " << bladEpoki << endl;// << " Blad zadany:" << BLADOCZEKIWANY << endl;
+                    //siec.wypiszSiebie();
                     if (abs(bladEpoki) < BLADOCZEKIWANY) {
                         cout << "Osiagnieto zalozony blad " << endl << "NUMER epoki: " << ktoraEpoka << " Blad sieci: "
                              << bladEpoki << endl;
                        //break;
+
                     }
                 }
                 ktoraEpoka++;
@@ -160,10 +162,10 @@ bool pierwszeMenu = true;
                 cout << "dana[" << i+1 << "]";
                 vector<double> wej = dane2.pobierzWejscie(i);
                 vector<double> wyj = dane2.pobierzWyjscie(i);
-                cout <<endl <<"wejscia testowe:" <<endl;
-                for (int i=0; i<wej.size(); i++) cout <<wej[i] << "|";
-                cout <<endl <<"WYJSCIAa testowe:" <<endl;
-                for (int i=0; i<wyj.size(); i++) cout <<wyj[i]<< "|";
+               // cout <<endl <<"wejscia testowe:" <<endl;
+                //for (int i=0; i<wej.size(); i++) cout <<wej[i] << "|";
+                //cout <<endl <<"WYJSCIAa testowe:" <<endl;
+                //for (int i=0; i<wyj.size(); i++) cout <<wyj[i]<< "|";
 
                 // siec.obliczanieWyjsciaNeuronow(wej);
                // siec.obliczanieBledow(wyj);
