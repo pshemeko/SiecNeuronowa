@@ -4,6 +4,8 @@
 #include "headers/Matematyka.h"
 //#include "headers/Losowanie.h"
 #include "headers/Dane.h"
+#include "headers/Menu.h"
+#include "headers/Neuron.h"
 
 using namespace std;
 
