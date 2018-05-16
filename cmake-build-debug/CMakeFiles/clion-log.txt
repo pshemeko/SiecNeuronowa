@@ -1,4 +1,4 @@
-C:\Users\Przemo\.CLion2018.1\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa"
+/home/pobi/clion-2017.2.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/pobi/Desktop/iad/SiecNeuronowa
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug
+-- Build files have been written to: /home/pobi/Desktop/iad/SiecNeuronowa/cmake-build-debug

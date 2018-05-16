@@ -7,11 +7,14 @@
 #include "headers/Menu.h"
 #include "headers/SiecNeuronow.h"
 
+int ILOSC_EPOK = 7000;
 
 using namespace std;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    srand(time(NULL));
+
 
     //cout << funkcjaAktywacji(10.0,1.0);
 
@@ -45,6 +48,46 @@ int main() {
     for(int i =0; i<50; i++) dodane +=i;
 
     cout <<"\n suma = " << suma <<"  Dodane = " <<dodane;
+
+    ///////////////////  PROGRAM
+
+
+
+    vector<int> warstwy({4,2,4});
+    SiecNeuronow siec(warstwy);
+    Dane dane;
+    int epoka = 0;
+
+    dane.wczytajPlik();
+    dane.normalizuj();
+
+    siec.wypiszSiebie();
+    cout <<endl<<endl;
+    siec.wypiszBledy();
+
+    while(epoka < ILOSC_EPOK)
+    {
+        vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(dane.ileDanychUczenia());
+        double bladEpoki = 0.0;
+        for (int i = 0; i < kolejnosc.size(); i++)
+        {
+            vector<double> wej = dane.pobierzWejscieUczenia(kolejnosc[i]);
+            vector<double> wyj = dane.pobierzWyjscieUczenia(kolejnosc[i]);
+
+            siec.obliczanieWyjsciaNeuronow(wej);
+            siec.obliczanieBledow(wyj);
+            siec.ZmianaWagSieci();
+            bladEpoki += siec.bladSieci();
+
+        }
+       // cout << bladEpoki <<endl;
+
+    epoka ++;
+    }
+siec.wypiszSiebie();
+    cout <<endl<<endl;
+    siec.wypiszBledy();
+
 
     return 0;
 }

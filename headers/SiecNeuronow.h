@@ -15,7 +15,7 @@ static bool CZY_BIAS = true;
 static bool CZY_Z_MOMENTEM = true;
 //wspóczynniki
 static double ETA = 0.1; // współczynnik nauki(0.6)
-static double ALFHA = 0.8; // potrzbne gdy licze z momentem (0.1)
+static double MI = 0.8; // potrzbne gdy licze z momentem (0.1)
 
 
 using namespace std;
@@ -31,6 +31,14 @@ public:
     virtual ~SiecNeuronow() = default;
 
     double bladSieci();
+
+    void obliczanieWyjsciaNeuronow(vector<double> danaWej);
+    void obliczanieBledow(vector<double> danaWyj);
+    void ZmianaWagSieci();
+
+    void wypiszSiebie();
+    void wypiszBledy();
+
 };
 
 

@@ -36,6 +36,9 @@ public:
     //Dane(int ileLiczbLosowac);
     Dane() = default;
     virtual ~Dane();
+    int ileDanychUczenia()      {return daneUczenia.size();     };
+    int ileDanychTestowych()    {return daneTestowe.size();     };
+    int ileDanychWalidacyjnych(){return daneWalidacyjne.size(); };
 
     vector<int> wylosujKolejnoscPobierania(int ileLiczb); // losuje kolejnosc liczb z przedz. [0, ileliczb) bez ileLiczb
 
