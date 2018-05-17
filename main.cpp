@@ -7,7 +7,7 @@
 #include "headers/Menu.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 1200;
+int ILOSC_EPOK = 90000;
 
 using namespace std;
 
@@ -52,47 +52,97 @@ int main() {
 */
     ///////////////////  PROGRAM
 
-
-
-    vector<int> warstwy({4,2,4});
+    vector<int> warstwy({4, 2, 3});
     SiecNeuronow siec(warstwy);
-    Dane dane;
-    int epoka = 0;
 
+    Dane dane;
     dane.wczytajPlik();
     dane.normalizuj();
-    dane.rozdzielDane(30,10);
+    dane.rozdzielDane(30, 10);
 
-    siec.wypiszSiebie();
-    cout <<endl<<endl;
-    siec.wypiszBledy();
+    bool pierwszeMenu = true;
 
-    while(epoka < ILOSC_EPOK)
+    while(pierwszeMenu)
     {
-        vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(dane.ileDanychUczenia());
-        double bladEpoki = 0.0;
-        for (int i = 0; i < kolejnosc.size(); i++)
-        {
-            //cout << "epoka: "<<epoka<<" wewnatrz petli "<<i<<"\n";
-            vector<double> wej = dane.pobierzWejscieUczenia(kolejnosc[i]);
-            vector<double> wyj = dane.pobierzWyjscieUczenia(kolejnosc[i]);
+        menu();
+        int wybor;
+        cin >> wybor;
 
-            siec.obliczanieWyjsciaNeuronow(wej);
-            siec.obliczanieBledow(wyj);
-            siec.ZmianaWagSieci();
-            bladEpoki += siec.bladSieci();
+        if (wybor == 1) {    // nauka
+
+            int epoka = 0;
+
+            //siec.wypiszSiebie();
+            //cout << endl << endl;
+            //siec.wypiszBledy();
+            double bladEpokiStary = 0.0;
+            while (epoka < ILOSC_EPOK) {
+
+                vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(dane.ileDanychUczenia());
+                double bladEpoki = 0.0;
+                for (int i = 0; i < kolejnosc.size(); i++) {
+                    vector<double> wej = dane.pobierzWejscieUczenia(kolejnosc[i]);
+                    vector<double> wyj = dane.pobierzWyjscieUczenia(kolejnosc[i]);
+
+                    siec.obliczanieWyjsciaNeuronow(wej);
+                    siec.obliczanieBledow(wyj);
+                    siec.ZmianaWagSieci();
+                    bladEpoki += siec.bladSieci();
+
+                    //  if (kolejnosc[i] == 200) {
+
+                   // if (epoka % 500 == 0) {
+                    //    siec.wypiszRaz(wyj);
+                   // }
+
+                }
+                bladEpoki /= kolejnosc.size();
+               // if( bladEpoki>bladEpokiStary ) cout << "Epoka: "<<epoka<< " blad wzrosl\t" << bladEpoki << "\t stary blad:" <<bladEpokiStary<<endl;
+                if( 0 == epoka % 100 ) cout <<epoka<< " Blad Epoki: " << bladEpoki << endl;
+
+                //if(epoka == 1) {siec.wypiszSiebie();cout<<"\n dupa\n";}
+                epoka++;
+                bladEpokiStary = bladEpoki;
+
+            }
+            cout << " KONIEC UCZENIA" << endl;
+
+            siec.wypiszSiebie();
+            cout << endl << endl;
+            siec.wypiszBledy();
 
         }
-        bladEpoki /= kolejnosc.size();
-        if(epoka % 10) cout << "Blad Epoki: " << bladEpoki <<endl;
+        else
+        {
+            pierwszeMenu = false; // by juz nie pytal czy uczyć czy testowac
 
-    //if(epoka == 1) {siec.wypiszSiebie();cout<<"\n dupa\n";}
-    epoka ++;
+            cout << "\nTestuje na danych podanych w pliku, blende dane to 31 oraz 38" << endl;
+
+            vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(dane.ileDanychTestowych());
+
+            menuNaglowek();
+
+            double bladEpokiTestowania = 0.0;
+            for (int i = 0; i < kolejnosc.size(); i++) {
+                vector<double> wej = dane.pobierzWejscieTestowania(kolejnosc[i]);
+                vector<double> wyj = dane.pobierzWyjscieTestowania(kolejnosc[i]);
+
+                siec.testowanieSieci2(wej, wyj);
+                bladEpokiTestowania += siec.bladSieci();
+
+                //  if (kolejnosc[i] == 200) {
+
+                // if (epoka % 500 == 0) {
+                //    siec.wypiszRaz(wyj);
+                // }
+
+            }
+            bladEpokiTestowania /= kolejnosc.size();
+            cout <<  endl << "Blad Testowania wyniosl: " << bladEpokiTestowania;
+
+
+            }
     }
-siec.wypiszSiebie();
-    cout <<endl<<endl;
-    siec.wypiszBledy();
-
 
     return 0;
 }

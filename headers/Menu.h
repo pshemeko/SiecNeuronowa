@@ -14,9 +14,29 @@ using namespace std;
 
 static void menu()
 {
-    system("CLS");
+    //system("CLS");
     cout << " Co chcesz zrobic?"<< endl<<endl;
     cout << " 1) Tryb nauki?"<< endl;
     cout << " 2) Tryb testowania "<< endl;
 }
+
+static void menuNaglowek()
+{
+
+    cout.width(18);
+    cout<< "wyliczenia sieci:";
+    cout<<" |";
+    cout.width(13);
+    cout << "Wejscie";
+    cout << " |";
+    cout.width(8);
+    cout << "Ma byc";
+    cout << " |";
+    cout.width(20);
+    cout<< " Wyliczenie sieci";
+    cout << " |";
+    cout.width(18);
+    cout<< "wykryty kwiatek\n";
+}
+
 #endif //KWIATKI_MENU_H

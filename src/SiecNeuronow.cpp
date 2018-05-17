@@ -62,6 +62,8 @@ void SiecNeuronow::obliczanieWyjsciaNeuronow(vector<double> danaWej)
             {
                 suma += siecNeuronow[i][j] -> wagi[k] * siecNeuronow[i-1][k] -> wyjscie;
             }
+            // jeszcze bias
+            suma += CZY_BIAS * siecNeuronow[i][j] -> wagi[iloscNeuronowNaWarstwe[i-1]] * siecNeuronow[i][j] -> wartoscBiasu;
             siecNeuronow[i][j] -> wyjscie = funkcjaAktywacji(suma);
         }
     }
@@ -104,6 +106,11 @@ void SiecNeuronow::ZmianaWagSieci()
                 // gdy momentum wzor z danych mlodego
                 siecNeuronow[i][j] -> wagi[k] += CZY_Z_MOMENTEM * MI * (ETA * siecNeuronow[i][j] -> blad * siecNeuronow[i-1][k] ->wyjscie);
             }
+            // jeszcze wage biasu zmieniam
+            int kk = iloscNeuronowNaWarstwe[i-1];
+            siecNeuronow[i][j] -> wagi[kk] += ETA * siecNeuronow[i][j] -> blad * siecNeuronow[i][j] -> wartoscBiasu;
+            siecNeuronow[i][j] -> wagi[kk] += CZY_Z_MOMENTEM * MI * (ETA * siecNeuronow[i][j] -> blad * siecNeuronow[i][j] ->wartoscBiasu);
+
         }
     }
 
@@ -143,4 +150,93 @@ void SiecNeuronow::wypiszBledy(){
         cout <<endl <<"warstwa ukryta: "<< i << endl;
     }
 
+}
+
+void SiecNeuronow::wypiszRaz(vector<double> wyj)
+{
+    //manipulowanie wyswietlaniem
+    ios_base::fmtflags old = cout.setf(ios_base::left, ios_base::adjustfield); // cout.setf( ios_base::showpos); //pokazuje znak + zawsze
+
+    //Wyswietlanie
+
+    cout << endl;
+    for (int i = 0; i < iloscNeuronowNaWarstwe[iloscNeuronowNaWarstwe.size() - 1]; i++)
+    {
+                cout.precision(12);
+                cout << i<<"\tWart oczekiwana:" << wyj[i];
+                cout << "\tWyjscie: ";
+                cout.width(17);
+                cout << siecNeuronow[iloscNeuronowNaWarstwe.size() - 1][i]->wyjscie;
+                cout << "\tWagi: ";
+                for (int j = 0; j < iloscNeuronowNaWarstwe[iloscNeuronowNaWarstwe.size() - 1]; j++) {
+                    cout.width(16);
+                    cout << siecNeuronow[iloscNeuronowNaWarstwe.size() - 1][i]->wagi[j] << "  ";
+                }
+                /*
+                cout << "\tStareWagi: ";
+                for (int j = 0; j < iloscNeuronowNaWarstwe[iloscNeuronowNaWarstwe.size() - 1]; j++) {
+                    cout.width(14);
+                    cout << siecNeuronow[iloscNeuronowNaWarstwe.size() - 1][i]->stareWagi[j] << "\t";
+                }
+                 */
+                cout << endl;
+
+    }
+    cout.setf(old, ios_base::adjustfield);// przywracam stare ustwaienia
+}
+
+
+void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie) // TODO jest zle bo skopiowane i nie przerobione
+{
+    obliczanieWyjsciaNeuronow(wejscie);
+    obliczanieBledow(wyjscie);
+
+
+
+    int ile = iloscNeuronowNaWarstwe.size() - 1;
+    int ostatnia = iloscNeuronowNaWarstwe[ile];
+
+    ios_base::fmtflags old = cout.setf(ios_base::fixed, ios_base::adjustfield);
+
+    // szukam maximum
+    //vector<double> wyj;
+    //for(int i=0; i< ostatnia; i++) wyj.push_back( siecNeuronow[ile][i]-> wyjscie);
+   // double maksymalna = *std::max_element(wyj.begin(), wyj.end() ); // TODO albo bez -1
+
+    //szukam maksima
+    int wykryty = 1; // ktory kwiatek zostal wykryty ktore wyjscie ma maksymalna wartosc
+    double wartosc = siecNeuronow[ile][0]-> wyjscie;
+
+    for(int i=0; i< ostatnia; i++)
+    {
+        cout <<endl;
+
+        if(siecNeuronow[ile][i]-> wyjscie > wartosc)
+        {
+            wartosc = siecNeuronow[ile][i]-> wyjscie;
+            wykryty = i+1;
+        }
+
+
+        ////
+        ostringstream ss ;
+        ss << "Neuron nr[" <<i <<"]:";
+
+        cout.width(18) ;
+        cout<< ss.str();
+        cout<<" |";
+        cout.width(13);
+        cout << wejscie[i]<< " |";
+        cout.width(8) ;
+        cout  <<wyjscie[i];
+        cout << " |";
+        cout.width(20) ;
+        cout.precision(10);
+        cout << siecNeuronow[ile][i]-> wyjscie;
+        cout<< " |";
+
+    }
+    cout.setf(old, ios_base::adjustfield);
+    //cout << " " << cout.width(9) << minimalna <<"  .." << os.str() << " ,," << endl;
+    cout <<  " Wykryto kwiatek numer: " << wykryty<<endl;
 }

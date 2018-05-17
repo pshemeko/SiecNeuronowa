@@ -27,7 +27,7 @@ public:
 
     vector<int> iloscNeuronowNaWarstwe;  // = {4,2,4} w konstruktorze inicjuje
 
-    SiecNeuronow(vector<int> iloscNeuronowNaWarstweDomyslna = {4,2,4});
+    SiecNeuronow(vector<int> iloscNeuronowNaWarstweDomyslna = {4,2,3});
     virtual ~SiecNeuronow() = default;
 
     double bladSieci();
@@ -38,7 +38,8 @@ public:
 
     void wypiszSiebie();
     void wypiszBledy();
-
+    void wypiszRaz(vector<double> wyj);
+    void testowanieSieci2(vector<double> wejscie, vector<double> wyjscie);
 };
 
 
