@@ -63,6 +63,7 @@ void SiecNeuronow::obliczanieWyjsciaNeuronow(vector<double> danaWej)
                 suma += siecNeuronow[i][j] -> wagi[k] * siecNeuronow[i-1][k] -> wyjscie;
             }
             siecNeuronow[i][j] -> wyjscie = funkcjaAktywacji(suma);
+            //cout <<"\twyjscie: " << siecNeuronow[i][j] -> wyjscie;
         }
     }
 }
@@ -143,4 +144,21 @@ void SiecNeuronow::wypiszBledy(){
         cout <<endl <<"warstwa ukryta: "<< i << endl;
     }
 
+}
+
+void SiecNeuronow::wypiszWagi()
+{
+    cout <<endl << "TERAZ WAGI"<<endl;
+    for(int i = 0; i<siecNeuronow.size(); i++)
+    {
+    cout << endl<<"Warstwa["<<i<<"] ";
+
+        for(int j = 0; j<siecNeuronow[i].size(); j++)
+        {
+            cout << endl << "Neuron["<<j<<"] wagi:";
+            for(int k =0; k < siecNeuronow[i][j]->wagi.size();k++)
+                cout << siecNeuronow[i][j] -> wagi[k] << "\t";
+        }
+        cout <<endl <<"warstwa ukryta: "<< i << endl;
+    }
 }

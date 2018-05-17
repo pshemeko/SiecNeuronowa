@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pobi/Desktop/iad/SiecNeuronowa/main.cpp" "/home/pobi/Desktop/iad/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/main.cpp.o"
-  "/home/pobi/Desktop/iad/SiecNeuronowa/src/Dane.cpp" "/home/pobi/Desktop/iad/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Dane.cpp.o"
-  "/home/pobi/Desktop/iad/SiecNeuronowa/src/Losowanie.cpp" "/home/pobi/Desktop/iad/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Losowanie.cpp.o"
-  "/home/pobi/Desktop/iad/SiecNeuronowa/src/Neuron.cpp" "/home/pobi/Desktop/iad/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Neuron.cpp.o"
-  "/home/pobi/Desktop/iad/SiecNeuronowa/src/SiecNeuronow.cpp" "/home/pobi/Desktop/iad/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o"
-  "/home/pobi/Desktop/iad/SiecNeuronowa/tests/testLosowanie.cpp" "/home/pobi/Desktop/iad/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/tests/testLosowanie.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/main.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/main.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Dane.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Dane.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Losowanie.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Losowanie.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/Neuron.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/Neuron.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/src/SiecNeuronow.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o"
+  "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/tests/testLosowanie.cpp" "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/kwiatki.dir/tests/testLosowanie.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

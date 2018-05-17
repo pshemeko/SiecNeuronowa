@@ -7,7 +7,7 @@
 #include "headers/Menu.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 7000;
+int ILOSC_EPOK = 7;
 
 using namespace std;
 
@@ -20,6 +20,8 @@ int main() {
 
     //Dane dan(50);
     //int x;
+
+    /*
     Losowanie l1(-0.5,0.5);
     Losowanie l2(0,50);
     vector<int> wekt(52,0);
@@ -48,7 +50,7 @@ int main() {
     for(int i =0; i<50; i++) dodane +=i;
 
     cout <<"\n suma = " << suma <<"  Dodane = " <<dodane;
-
+*/
     ///////////////////  PROGRAM
 
 
@@ -60,6 +62,7 @@ int main() {
 
     dane.wczytajPlik();
     dane.normalizuj();
+    dane.rozdzielDane(30,10);
 
     siec.wypiszSiebie();
     cout <<endl<<endl;
@@ -69,25 +72,28 @@ int main() {
     {
         vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(dane.ileDanychUczenia());
         double bladEpoki = 0.0;
+        cout << "DUPA FUPA "<<kolejnosc.size()<< " ile danych uczenia" <<dane.ileDanychUczenia()<<endl;
         for (int i = 0; i < kolejnosc.size(); i++)
         {
             vector<double> wej = dane.pobierzWejscieUczenia(kolejnosc[i]);
             vector<double> wyj = dane.pobierzWyjscieUczenia(kolejnosc[i]);
-
+            cout<<endl<<"Obliczanie wyjscia Neuronow"<<endl;
             siec.obliczanieWyjsciaNeuronow(wej);
+            cout<<endl<<"obliczanie bledow"<<endl;
             siec.obliczanieBledow(wyj);
             siec.ZmianaWagSieci();
             bladEpoki += siec.bladSieci();
 
         }
-       // cout << bladEpoki <<endl;
+        cout << "blad epoki"<< bladEpoki <<endl;
 
     epoka ++;
     }
+    cout<<endl<<"OSTATNIE wypisy: " <<endl;
 siec.wypiszSiebie();
     cout <<endl<<endl;
     siec.wypiszBledy();
-
+    siec.wypiszWagi();
 
     return 0;
 }

@@ -6,7 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o"
   "CMakeFiles/kwiatki.dir/tests/testLosowanie.cpp.o"
   "kwiatki.pdb"
-  "kwiatki"
+  "kwiatki.exe"
+  "libkwiatki.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
