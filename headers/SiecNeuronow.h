@@ -38,7 +38,6 @@ public:
 
     void wypiszSiebie();
     void wypiszBledy();
-    void wypiszWagi();
 
 };
 
