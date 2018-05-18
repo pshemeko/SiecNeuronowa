@@ -7,7 +7,7 @@
 #include "headers/Menu.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 90000;
+int ILOSC_EPOK = 90;
 
 using namespace std;
 
@@ -53,6 +53,24 @@ int main() {
     ///////////////////  PROGRAM
 
     vector<int> warstwy({4, 2, 3});
+
+    // zapisywanie wynikow do pliku
+    string nazwaU = "wynikiUczenie.txt";
+    ofstream foutUczenie(nazwaU.c_str());
+    string nazwaT = "wynikiTestowanie.txt";
+    ofstream foutTestowanie(nazwaT.c_str());
+    string nazwaW = "wynikiWalidacja.txt";
+    ofstream foutWalidacja(nazwaW.c_str());
+
+    ostringstream ss ;
+    ss << "Zestaw badawczy nr. 1 Wspolczynnik nauki = " << ETA <<" Wspolczynnik momentum = " << MI << " ILOSC EPOK = " << ILOSC_EPOK << " Uklad warstw sieci: " ;
+    for(int i = 0; i < warstwy.size()-1; i++ ) ss << warstwy[i] << "-";
+    ss << warstwy[warstwy.size()-1] <<endl;
+
+    foutUczenie  << ss.str();
+    foutTestowanie << ss.str();
+    foutWalidacja << ss.str();
+
     SiecNeuronow siec(warstwy);
 
     Dane dane;
@@ -143,6 +161,11 @@ int main() {
 
             }
     }
+
+
+    foutUczenie.close();
+    foutTestowanie.close();
+    foutWalidacja.close();
 
     return 0;
 }
