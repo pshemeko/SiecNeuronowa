@@ -238,3 +238,47 @@ void Dane::rozdzielDane(int ileDanychUczenia, int ileDanychTestowych)
             daneWalidacyjne.push_back(daneWszystkie[100 + kolejnosc[i]]);
     }
 }
+
+void Dane::rozdzielDaneUstalonaKolejnosc()
+{
+    int i = 0;
+    for (; i < 30; i++) {
+        daneUczenia.push_back(daneWszystkie[i]);
+    }
+    for (int j = 0; j < 10; j++) {
+        daneTestowe.push_back(daneWszystkie[i]);
+        i++;
+    }
+    for (; i < 50; i++)
+    {
+        daneWalidacyjne.push_back(daneWszystkie[i]);
+        i++;
+    }
+    // drugi kwiatek
+    for (; i < 50+30; i++) {
+        daneUczenia.push_back(daneWszystkie[i]);
+    }
+    for (int j = 0; j < 10; j++) {
+        daneTestowe.push_back(daneWszystkie[i]);
+        i++;
+    }
+    for (; i < 50+50; i++)
+    {
+        daneWalidacyjne.push_back(daneWszystkie[i]);
+        i++;
+    }
+    // trzeci kwiatek
+    for (; i < 100+30; i++) {
+        daneUczenia.push_back(daneWszystkie[i]);
+    }
+    for (int j = 0; j < 10; j++) {
+        daneTestowe.push_back(daneWszystkie[i]);
+        i++;
+    }
+    for (; i < daneWszystkie.size(); i++)   // wszystkie do konca juz
+    {
+        daneWalidacyjne.push_back(daneWszystkie[i]);
+        i++;
+    }
+
+}

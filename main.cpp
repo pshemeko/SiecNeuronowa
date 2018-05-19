@@ -7,7 +7,7 @@
 #include "headers/Menu.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 90;
+int ILOSC_EPOK = 100000;
 
 using namespace std;
 
@@ -52,7 +52,7 @@ int main() {
 */
     ///////////////////  PROGRAM
 
-    vector<int> warstwy({4, 2, 3});
+    vector<int> warstwy({4, 4, 3, 3});
 
     // zapisywanie wynikow do pliku
     string nazwaU = "wynikiUczenie.txt";
@@ -76,7 +76,8 @@ int main() {
     Dane dane;
     dane.wczytajPlik();
     dane.normalizuj();
-    dane.rozdzielDane(30, 10);
+    //dane.rozdzielDane(30, 10);
+    dane.rozdzielDaneUstalonaKolejnosc();
 
     bool pierwszeMenu = true;
 
@@ -115,8 +116,30 @@ int main() {
 
                 }
                 bladEpoki /= kolejnosc.size();
+
+
                // if( bladEpoki>bladEpokiStary ) cout << "Epoka: "<<epoka<< " blad wzrosl\t" << bladEpoki << "\t stary blad:" <<bladEpokiStary<<endl;
                 if( 0 == epoka % 100 ) cout <<epoka<< " Blad Epoki: " << bladEpoki << endl;
+
+                if( 0 == epoka % 10 )
+                {
+                    vector<int> kolejnoscTest = dane.wylosujKolejnoscPobierania(dane.ileDanychTestowych());
+
+                    double bladEpokiTestowania = 0.0;
+                    for (int i = 0; i < kolejnoscTest.size(); i++)
+                    {
+                        vector<double> wej2 = dane.pobierzWejscieTestowania(kolejnoscTest[i]);
+                        vector<double> wyj2 = dane.pobierzWyjscieTestowania(kolejnoscTest[i]);
+
+                        //siec.testowanieSieci2(wej2, wyj2);
+                        siec.obliczanieWyjsciaNeuronow(wej2);
+                        siec.obliczanieBledow(wyj2);
+                        bladEpokiTestowania += siec.bladSieci();
+                    }
+                    //cout <<"dupa\n";
+                    foutUczenie  << epoka << " " << bladEpoki << endl;
+                    foutTestowanie << epoka << " " << bladEpokiTestowania << endl;
+                }
 
                 //if(epoka == 1) {siec.wypiszSiebie();cout<<"\n dupa\n";}
                 epoka++;

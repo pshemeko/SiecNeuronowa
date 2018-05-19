@@ -52,6 +52,8 @@ public:
                                                                     // 50 bo jakby rozpatrujemy jeden rodzaj kwiatka i chcemy by w kazdym z wektorow jak daneuczenia, danetestowe iwalidacyjne
                                                                     // chcemy by bylo po tyle samo kazdych kwiatkow
 
+    void rozdzielDaneUstalonaKolejnosc();
+
     vector<double> pobierzWejscieUczenia(int x);
     vector<double> pobierzWyjscieUczenia(int x);
 
