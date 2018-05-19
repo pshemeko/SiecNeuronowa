@@ -186,7 +186,7 @@ void SiecNeuronow::wypiszRaz(vector<double> wyj)
 }
 
 
-void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie) // TODO jest zle bo skopiowane i nie przerobione
+bool SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie) // TODO jest zle bo skopiowane i nie przerobione
 {
     obliczanieWyjsciaNeuronow(wejscie);
     obliczanieBledow(wyjscie);
@@ -205,6 +205,8 @@ void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjsc
 
     //szukam maksima
     int wykryty = 1; // ktory kwiatek zostal wykryty ktore wyjscie ma maksymalna wartosc
+    int oczekiwany = 0;
+    //int dobrzeWykryto = 0, zleWykryto =0;
     double wartosc = siecNeuronow[ile][0]-> wyjscie;
 
     for(int i=0; i< ostatnia; i++)
@@ -237,6 +239,17 @@ void SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjsc
 
     }
     cout.setf(old, ios_base::adjustfield);
+
     //cout << " " << cout.width(9) << minimalna <<"  .." << os.str() << " ,," << endl;
-    cout <<  " Wykryto kwiatek numer: " << wykryty<<endl;
+    for(int i = 0; i< wejscie.size(); ++i)
+        if(1 == wejscie[i])  oczekiwany = i+1;
+    cout <<  " Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl;
+    if(oczekiwany == wykryty) {
+        return true;
+    }
+    else {
+       return false;
+    }
+
+
 }

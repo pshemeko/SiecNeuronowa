@@ -164,11 +164,12 @@ int main() {
             menuNaglowek();
 
             double bladEpokiTestowania = 0.0;
+            int ileWykryto = 0;
             for (int i = 0; i < kolejnosc.size(); i++) {
                 vector<double> wej = dane.pobierzWejscieTestowania(kolejnosc[i]);
                 vector<double> wyj = dane.pobierzWyjscieTestowania(kolejnosc[i]);
 
-                siec.testowanieSieci2(wej, wyj);
+                ileWykryto += siec.testowanieSieci2(wej, wyj);
                 bladEpokiTestowania += siec.bladSieci();
 
                 //  if (kolejnosc[i] == 200) {
@@ -179,7 +180,8 @@ int main() {
 
             }
             bladEpokiTestowania /= kolejnosc.size();
-            cout <<  endl << "Blad Testowania wyniosl: " << bladEpokiTestowania;
+            cout <<  endl << "Blad Testowania wyniosl: " << bladEpokiTestowania<<endl<<endl;
+            cout << "Dobrze wykryto " << ileWykryto << "  kwiatkow";
 
 
             }

@@ -1,1 +1,1 @@
-Zestaw badawczy nr. 1 Wspolczynnik nauki = 0.1 Wspolczynnik momentum = 0.9 ILOSC EPOK = 2000 Uklad warstw sieci: 4-4-3-3
+Zestaw badawczy nr. 1 Wspolczynnik nauki = 0.1 Wspolczynnik momentum = 0.9 ILOSC EPOK = 100000 Uklad warstw sieci: 4-4-3-3
