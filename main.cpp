@@ -121,7 +121,7 @@ int main() {
                // if( bladEpoki>bladEpokiStary ) cout << "Epoka: "<<epoka<< " blad wzrosl\t" << bladEpoki << "\t stary blad:" <<bladEpokiStary<<endl;
                 if( 0 == epoka % 100 ) cout <<epoka<< " Blad Epoki: " << bladEpoki << endl;
 
-                if( 0 == epoka % 10 )
+                if( 0 == epoka % 100 )
                 {
                     vector<int> kolejnoscTest = dane.wylosujKolejnoscPobierania(dane.ileDanychTestowych());
 
@@ -169,8 +169,10 @@ int main() {
                 vector<double> wej = dane.pobierzWejscieTestowania(kolejnosc[i]);
                 vector<double> wyj = dane.pobierzWyjscieTestowania(kolejnosc[i]);
 
-                ileWykryto += siec.testowanieSieci2(wej, wyj);
+                int numer = siec.testowanieSieci2(wej, wyj);
+                ileWykryto += numer;
                 bladEpokiTestowania += siec.bladSieci();
+                cout << numer;
 
                 //  if (kolejnosc[i] == 200) {
 
@@ -181,7 +183,7 @@ int main() {
             }
             bladEpokiTestowania /= kolejnosc.size();
             cout <<  endl << "Blad Testowania wyniosl: " << bladEpokiTestowania<<endl<<endl;
-            cout << "Dobrze wykryto " << ileWykryto << "  kwiatkow";
+            cout << "Dobrze wykryto " << ileWykryto << "  kwiatkow" << " wszystkich bylo: " <<kolejnosc.size();
 
 
             }

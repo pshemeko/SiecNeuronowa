@@ -39,7 +39,7 @@ public:
     void wypiszSiebie();
     void wypiszBledy();
     void wypiszRaz(vector<double> wyj);
-    bool testowanieSieci2(vector<double> wejscie, vector<double> wyjscie); // zwraca true jesli kwiatek sotal dobrze wykrytyile kwiatkow dbrze wykryto
+    int testowanieSieci2(vector<double> wejscie, vector<double> wyjscie); // zwraca true jesli kwiatek sotal dobrze wykrytyile kwiatkow dbrze wykryto
 };
 
 
