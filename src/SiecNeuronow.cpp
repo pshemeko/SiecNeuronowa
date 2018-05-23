@@ -108,7 +108,7 @@ void SiecNeuronow::ZmianaWagSieci()
             }
             // jeszcze wage biasu zmieniam
             int kk = iloscNeuronowNaWarstwe[i-1];
-            siecNeuronow[i][j] -> wagi[kk] += ETA * siecNeuronow[i][j] -> blad * siecNeuronow[i][j] -> wartoscBiasu;
+            siecNeuronow[i][j] -> wagi[kk] += ETA * siecNeuronow[i][j] -> blad * siecNeuronow[i][j] -> wartoscBiasu; //TODO CZEMU ETA tu i niżej
             siecNeuronow[i][j] -> wagi[kk] += CZY_Z_MOMENTEM * MI * (ETA * siecNeuronow[i][j] -> blad * siecNeuronow[i][j] ->wartoscBiasu);
 
         }
@@ -186,12 +186,13 @@ void SiecNeuronow::wypiszRaz(vector<double> wyj)
 }
 
 
-int SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie) // TODO jest zle bo skopiowane i nie przerobione
+string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie, int &trafiony) // TODO jest zle bo skopiowane i nie przerobione
 {
     obliczanieWyjsciaNeuronow(wejscie);
     obliczanieBledow(wyjscie);
 
-
+    ostringstream s1;
+    string info;
     int ile = iloscNeuronowNaWarstwe.size() - 1;
     int ostatnia = iloscNeuronowNaWarstwe[ile];
 
@@ -233,6 +234,10 @@ int SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjsci
         cout.precision(10);
         cout << siecNeuronow[ile][i]->wyjscie;
         cout << " |";
+    // do plik
+        s1 << ss.str() << " |" <<  wejscie[i] << " |";
+        s1 <<  wyjscie[i] <<  " |";
+        s1 << siecNeuronow[ile][i]->wyjscie << " |" <<endl;
 
     }
     cout.setf(old, ios_base::adjustfield);
@@ -242,12 +247,14 @@ int SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjsci
         if (1.0 == wyjscie[i]) oczekiwany = i + 1;
 
     cout <<  " Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl;
+    s1 <<  " Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl<<endl;
+
+    info = s1.str();
     if(oczekiwany == wykryty) {
-        return 1;
+        trafiony += 1;
     }
-    else {
-       return 0;
-    }
+
+return info;
 
 
 }

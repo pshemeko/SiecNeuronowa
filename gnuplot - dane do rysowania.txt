@@ -1,0 +1,39 @@
+set title "wykres bledu: epok:100000, BIAS, MOMENTUM, WSPOLCZYNNIK NAUKI: 0.1 WSPOLCZYNNIK MOMENTUM: 0.9"
+set xlabel "nr epoki"
+set ylabel "wartosc bledu" 
+
+plot 'c:/dane/Wykres_Bledu_Testowania.txt' with points ps 0.3,'c:/dane/Wykres_Bledu_Uczenie.txt' with points ps 0.3
+
+dodatkowo
+
+siatka:
+http://www.knf.ifd.uni.wroc.pl/materialy/gnuplot.pdf
+
+gnuplot> set grid
+gnuplot> set xzeroaxis lt 1 lc 'black'  
+gnuplot> set yzeroaxis lt 1 lc 'black'  
+
+zakres osi
+
+
+set yrange [0:0.04]  
+W ten sposob zdefiniowane przedzialy obowiazuja we wszystkich nastepnych wykresach nie posiadajacych wlasnej definicji przedzialu. Jezeli chcemy przywrocic automatyczne ustalanie przedzialow, wywolujemy polecenie
+set autoscale [zmienna]
+
+Zapis wynikow:
+by pokzać ustawienia domyślne:
+
+show terminal
+show output
+jak nie podasz dokladnej scezki pliku to zapisze w C:\dane\dudupa2.png
+
+aby zapisac w pliku:
+
+set terminal gif  
+set output "c:/dane/dudupa.gif"  
+
+aby przywrocic domyslne:
+
+set terminal wxt
+set output
+

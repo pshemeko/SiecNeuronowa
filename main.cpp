@@ -55,21 +55,14 @@ int main() {
     vector<int> warstwy({4, 4, 3, 3});
 
     // zapisywanie wynikow do pliku
-    string nazwaU = "wynikiUczenie.txt";
+    string nazwaU = "Wykres_Bledu_Uczenie.txt";
     ofstream foutUczenie(nazwaU.c_str());
-    string nazwaT = "wynikiTestowanie.txt";
+    string nazwaT = "Wykres_Bledu_Testowania.txt";
     ofstream foutTestowanie(nazwaT.c_str());
     string nazwaW = "wynikiWalidacja.txt";
     ofstream foutWalidacja(nazwaW.c_str());
 
-    ostringstream ss ;
-    ss << "Zestaw badawczy nr. 1 Wspolczynnik nauki = " << ETA <<" Wspolczynnik momentum = " << MI << " ILOSC EPOK = " << ILOSC_EPOK << " Uklad warstw sieci: " ;
-    for(int i = 0; i < warstwy.size()-1; i++ ) ss << warstwy[i] << "-";
-    ss << warstwy[warstwy.size()-1] <<endl;
 
-    foutUczenie  << ss.str();
-    foutTestowanie << ss.str();
-    foutWalidacja << ss.str();
 
     SiecNeuronow siec(warstwy);
 
@@ -121,7 +114,7 @@ int main() {
                // if( bladEpoki>bladEpokiStary ) cout << "Epoka: "<<epoka<< " blad wzrosl\t" << bladEpoki << "\t stary blad:" <<bladEpokiStary<<endl;
                 if( 0 == epoka % 100 ) cout <<epoka<< " Blad Epoki: " << bladEpoki << endl;
 
-                if( 0 == epoka % 100 )
+                //if( 0 == epoka % 100 )
                 {
                     vector<int> kolejnoscTest = dane.wylosujKolejnoscPobierania(dane.ileDanychTestowych());
 
@@ -139,6 +132,7 @@ int main() {
                     //cout <<"dupa\n";
                     foutUczenie  << epoka << " " << bladEpoki << endl;
                     foutTestowanie << epoka << " " << bladEpokiTestowania << endl;
+
                 }
 
                 //if(epoka == 1) {siec.wypiszSiebie();cout<<"\n dupa\n";}
@@ -169,10 +163,13 @@ int main() {
                 vector<double> wej = dane.pobierzWejscieTestowania(kolejnosc[i]);
                 vector<double> wyj = dane.pobierzWyjscieTestowania(kolejnosc[i]);
 
-                int numer = siec.testowanieSieci2(wej, wyj);
-                ileWykryto += numer;
+
+               // int numer=0;
+                foutWalidacja <<  siec.testowanieSieci2(wej, wyj, ileWykryto);
+
+               // ileWykryto += numer;
                 bladEpokiTestowania += siec.bladSieci();
-                cout << numer;
+               // cout << numer;
 
                 //  if (kolejnosc[i] == 200) {
 
@@ -182,13 +179,24 @@ int main() {
 
             }
             bladEpokiTestowania /= kolejnosc.size();
-            cout <<  endl << "Blad Testowania wyniosl: " << bladEpokiTestowania<<endl<<endl;
-            cout << "Dobrze wykryto " << ileWykryto << "  kwiatkow" << " wszystkich bylo: " <<kolejnosc.size();
 
+            ostringstream stmp;
 
+            stmp <<  endl << "Blad danych walidacji wyniosl: " << bladEpokiTestowania << endl << endl;
+            stmp << "Dobrze wykryto " << ileWykryto << "  kwiatkow" << " wszystkich bylo: " << kolejnosc.size() << endl;
+
+            cout << stmp.str();
+            foutWalidacja << stmp.str();
             }
     }
+    ostringstream ss ;
+    ss << "Zestaw badawczy nr. 1 Wspolczynnik nauki = " << ETA <<" Wspolczynnik momentum = " << MI << " ILOSC EPOK = " << ILOSC_EPOK << " Uklad warstw sieci: " ;
+    for(int i = 0; i < warstwy.size()-1; i++ ) ss << warstwy[i] << "-";
+    ss << warstwy[warstwy.size()-1] <<endl;
 
+    foutUczenie  << ss.str();
+    foutTestowanie << ss.str();
+    foutWalidacja << ss.str();
 
     foutUczenie.close();
     foutTestowanie.close();
