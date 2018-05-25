@@ -252,7 +252,7 @@ void Dane::rozdzielDaneUstalonaKolejnosc()
     for (; i < 50; i++)
     {
         daneWalidacyjne.push_back(daneWszystkie[i]);
-        i++;
+
     }
     // drugi kwiatek
     for (; i < 50+30; i++) {
@@ -265,7 +265,7 @@ void Dane::rozdzielDaneUstalonaKolejnosc()
     for (; i < 50+50; i++)
     {
         daneWalidacyjne.push_back(daneWszystkie[i]);
-        i++;
+
     }
     // trzeci kwiatek
     for (; i < 100+30; i++) {
@@ -278,7 +278,7 @@ void Dane::rozdzielDaneUstalonaKolejnosc()
     for (; i < daneWszystkie.size(); i++)   // wszystkie do konca juz
     {
         daneWalidacyjne.push_back(daneWszystkie[i]);
-        i++;
+
     }
 
 }

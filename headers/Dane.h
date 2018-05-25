@@ -22,13 +22,13 @@ class Dane {
     //uniform_real_distribution<> dist;
     //uniform_int_distribution<> liczbaNaturalna; // losujemy int od 0 do ileLiczb(z konstruktora)
     //mt19937 gen;
-
+public:
     VEKTORPAR daneWszystkie; // 50 pierwsszegych kwiatkow, potem 50 druich potem trzecich
     VEKTORPAR daneUczenia;
     VEKTORPAR daneTestowe;
     VEKTORPAR daneWalidacyjne;
 
-public:
+
 
     vector<double> maksima; // do normalizacji maksymalne wartosci danej zmiennej
     vector<double> minima;  // do normalizacji

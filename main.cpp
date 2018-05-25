@@ -41,8 +41,14 @@ int main() {
     Dane dane;
     dane.wczytajPlik();
     dane.normalizuj();
-    dane.rozdzielDane(30, 10);
-    //dane.rozdzielDaneUstalonaKolejnosc();
+    //dane.rozdzielDane(30, 10);
+    dane.rozdzielDaneUstalonaKolejnosc();
+
+
+    //dane.wypiszWektorPar(dane.daneWszystkie);
+    //dane.wypiszWektorPar(dane.daneUczenia);
+    //dane.wypiszWektorPar(dane.daneTestowe);
+    //dane.wypiszWektorPar(dane.daneWalidacyjne);
 
    // dane.rozdzielanieDlaWykresuZbiorow(); // potrzebowalem tylko raz aby rozdzielic zbior danych wej. i narysowac go na wykresie
 
