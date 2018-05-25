@@ -216,16 +216,9 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
 
     ios_base::fmtflags old = cout.setf(ios_base::fixed, ios_base::adjustfield);
 
-    // szukam maximum
-    //vector<double> wyj;
-    //for(int i=0; i< ostatnia; i++) wyj.push_back( siecNeuronow[ile][i]-> wyjscie);
-    // double maksymalna = *std::max_element(wyj.begin(), wyj.end() ); // TODO albo bez -1
-
     //szukam maksima
     int wykryty = 1; // ktory kwiatek zostal wykryty ktore wyjscie ma maksymalna wartosc
     int oczekiwany = 0;
-    //int dobrzeWykryto = 0, zleWykryto =0;
-    double wartosc = siecNeuronow[ile][0]->wyjscie;
 
 
         for(int i = 0; i< wyjscie.size(); ++i)
@@ -235,31 +228,29 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
         }
         s1 << " ] - oczekiwana wartosc" <<endl << "[ ";
 
-    for (int i = 0; i < ostatnia; i++) {
-        cout << endl;
 
-        if (siecNeuronow[ile][i]->wyjscie > wartosc) {
-            wartosc = siecNeuronow[ile][i]->wyjscie;
-            wykryty = i + 1;
-        }
+    for (int i = 0; i < ostatnia; i++) {
+        //cout << endl;
+
+        wykryty = ktoryWykryto(); //TODO chyba przed petla mozna
 
 
         ////
-        ostringstream ss;
-        ss << "Neuron nr[" << i << "]:";
+    //    ostringstream ss;
+   //     ss << "Neuron nr[" << i << "]:";
 
-        cout.width(18);
-        cout << ss.str();
-        cout << " |";
-        cout.width(13);
-        cout << wejscie[i] << " |";
-        cout.width(8);
-        cout << wyjscie[i];
-        cout << " |";
-        cout.width(20);
-        cout.precision(10);
-        cout << siecNeuronow[ile][i]->wyjscie;
-        cout << " |";
+   //     cout.width(18);
+   //     cout << ss.str();
+   //     cout << " |";
+   //     cout.width(13);
+   //     cout << wejscie[i] << " |";
+   //     cout.width(8);
+   //     cout << wyjscie[i];
+   //     cout << " |";
+   //     cout.width(20);
+   //     cout.precision(10);
+   //     cout << siecNeuronow[ile][i]->wyjscie;
+   //     cout << " |";
     // do plik
         //s1 << ss.str() << " |" <<  wejscie[i] << " |";
         //s1 <<  wyjscie[i] <<  " |";
@@ -268,13 +259,13 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
         s1 << otrzymano << "  ";
     }
     s1 << " ] - uzyskana wartosc" << endl;
-    cout.setf(old, ios_base::adjustfield);
+    //cout.setf(old, ios_base::adjustfield);
 
     //cout << " " << cout.width(9) << minimalna <<"  .." << os.str() << " ,," << endl;
     for (int i = 0; i < wyjscie.size(); ++i)
         if (1.0 == wyjscie[i]) oczekiwany = i + 1;
 
-    cout <<  " Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl;
+    //cout <<  " Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl;
     s1 <<  "Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl;
 
     info = s1.str();
@@ -300,6 +291,20 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
     }
 
 return info;
+}
 
+int SiecNeuronow::ktoryWykryto() {
+    int ile = iloscNeuronowNaWarstwe.size() - 1;
+    double wartosc = siecNeuronow[ile][0]->wyjscie;
+    int wykryty = 1;
+    for (int i = 0; i < iloscNeuronowNaWarstwe[ile]; i++) {
+       // cout << endl;
 
+        if (siecNeuronow[ile][i]->wyjscie > wartosc) {
+            wartosc = siecNeuronow[ile][i]->wyjscie;
+            wykryty = i + 1;
+        }
+
+    }
+    return wykryty;
 }

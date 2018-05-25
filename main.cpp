@@ -8,7 +8,7 @@
 #include "headers/Menu.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 100000;
+int ILOSC_EPOK = 1000;//100000;
 
 using namespace std;
 
@@ -28,12 +28,15 @@ int main() {
     ofstream foutTestowanie(nazwaT.c_str());
     string nazwaW = "wynikiWalidacja.txt";
     ofstream foutWalidacja(nazwaW.c_str());
+    string nazwaWykryty = "wynikiWykrytychDanejEpoki.txt";
+    ofstream foutWykrytych(nazwaWykryty.c_str());
 
     ostringstream opisEksperymentu ;
     opisEksperymentu << "Zestaw badawczy nr. 1 Wspolczynnik nauki = " << ETA <<" Wspolczynnik momentum = " << MI << " ILOSC EPOK = " << ILOSC_EPOK << " Uklad warstw sieci: " ;
     for(int i = 0; i < warstwy.size()-1; i++ ) opisEksperymentu << warstwy[i] << "-";
     opisEksperymentu << warstwy[warstwy.size()-1] <<endl;
     foutWalidacja << opisEksperymentu.str() << endl;
+    foutWykrytych  << opisEksperymentu.str() << endl;
 
     Dane dane;
     dane.wczytajPlik();
@@ -91,6 +94,7 @@ int main() {
                     vector<int> kolejnoscTest = dane.wylosujKolejnoscPobierania(dane.ileDanychTestowych());
 
                     double bladEpokiTestowania = 0.0;
+                    int ileWykrytoWEpoce = 0;
                     for (int i = 0; i < kolejnoscTest.size(); i++)
                     {
                         vector<double> wej2 = dane.pobierzWejscieTestowania(kolejnoscTest[i]);
@@ -100,11 +104,20 @@ int main() {
                         siec.obliczanieWyjsciaNeuronow(wej2);
                         siec.obliczanieBledow(wyj2);
                         bladEpokiTestowania += siec.bladSieci();
+                        // zliczam dane ile wykryto dobrze
+                        int oczekiwany = 0;
+                        int wykryty = 0;
+                        for (int i = 0; i < wyj2.size(); ++i)
+                            if (1.0 == wyj2[i]) oczekiwany = i + 1;
+                        wykryty = siec.ktoryWykryto();
+                        if ( wykryty == oczekiwany) ileWykrytoWEpoce++;
                     }
                     //cout <<"dupa\n";
                     foutUczenie  << epoka << " " << bladEpoki << endl;
                     foutTestowanie << epoka << " " << bladEpokiTestowania << endl;
+                    foutWykrytych << epoka << " " << ileWykrytoWEpoce <<endl;
                     if( 0 == epoka % 100 ) cout <<epoka<< " Blad Epoki w Testowaniu: " << bladEpokiTestowania << endl;
+
                 }
 
                 //if(epoka == 1) {siec.wypiszSiebie();cout<<"\n dupa\n";}
@@ -127,7 +140,7 @@ int main() {
 
             vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(dane.ileDanychTestowych());
 
-            menuNaglowek();
+            //menuNaglowek();
             foutWalidacja << endl << "Teraz wyniki pogramu na danych walidacyjnych:" << endl << endl;
 
             double bladEpokiTestowania = 0.0;
@@ -137,9 +150,9 @@ int main() {
                 vector<double> wyj = dane.pobierzWyjscieTestowania(kolejnosc[i]);
                 double bladDanych = 0.0;
 
+                ostringstream s1;
                 // int numer=0;
                     {
-                        ostringstream s1;
                         s1 << "[ ";
                         for (int i = 0; i < wej.size(); ++i) {
                             // teraz cofam normalizacje
@@ -149,17 +162,19 @@ int main() {
                             s1 << wejscie << "   ";
                         }
                         s1 << " ] - wejscie sieci" << endl << "[ ";
-                        foutWalidacja << s1.str();
+                        //foutWalidacja << s1.str();
                      }
+                s1 << siec.testowanieSieci2(wej, wyj, ileWykryto, dane.minima, dane.maksima);
 
-                foutWalidacja <<  siec.testowanieSieci2(wej, wyj, ileWykryto, dane.minima, dane.maksima);
 
                // ileWykryto += numer;
                 bladDanych = siec.bladSieci();
                 bladEpokiTestowania +=bladDanych;
 
-                foutWalidacja << "Błąd sieci przy tych danych wyniósł: " << bladDanych <<endl<<endl;
+               s1 << "Błąd sieci przy tych danych wyniósł: " << bladDanych <<endl<<endl;
 
+                foutWalidacja <<  s1.str();
+                cout << s1.str();
 
             }
             bladEpokiTestowania /= kolejnosc.size();
