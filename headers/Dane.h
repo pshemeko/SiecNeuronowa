@@ -27,11 +27,12 @@ class Dane {
     VEKTORPAR daneUczenia;
     VEKTORPAR daneTestowe;
     VEKTORPAR daneWalidacyjne;
+
+public:
+
     vector<double> maksima; // do normalizacji maksymalne wartosci danej zmiennej
     vector<double> minima;  // do normalizacji
    // int ileLiczb;
-
-public:
 
     //Dane(int ileLiczbLosowac);
     Dane() = default;

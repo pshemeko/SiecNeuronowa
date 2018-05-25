@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <iomanip>
 
 #include "headers/Matematyka.h"
 //#include "headers/Losowanie.h"
@@ -28,6 +29,11 @@ int main() {
     string nazwaW = "wynikiWalidacja.txt";
     ofstream foutWalidacja(nazwaW.c_str());
 
+    ostringstream opisEksperymentu ;
+    opisEksperymentu << "Zestaw badawczy nr. 1 Wspolczynnik nauki = " << ETA <<" Wspolczynnik momentum = " << MI << " ILOSC EPOK = " << ILOSC_EPOK << " Uklad warstw sieci: " ;
+    for(int i = 0; i < warstwy.size()-1; i++ ) opisEksperymentu << warstwy[i] << "-";
+    opisEksperymentu << warstwy[warstwy.size()-1] <<endl;
+    foutWalidacja << opisEksperymentu.str() << endl;
 
     Dane dane;
     dane.wczytajPlik();
@@ -112,57 +118,65 @@ int main() {
             cout << endl << endl;
             siec.wypiszBledy();
 
+            siec.wypiszWagi(foutWalidacja);
+
         }
         else
         {
             pierwszeMenu = false; // by juz nie pytal czy uczyć czy testowac
 
-            cout << "\nTestuje na danych podanych w pliku, blende dane to 31 oraz 38" << endl;
-
             vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(dane.ileDanychTestowych());
 
             menuNaglowek();
+            foutWalidacja << endl << "Teraz wyniki pogramu na danych walidacyjnych:" << endl << endl;
 
             double bladEpokiTestowania = 0.0;
             int ileWykryto = 0;
             for (int i = 0; i < kolejnosc.size(); i++) {
                 vector<double> wej = dane.pobierzWejscieTestowania(kolejnosc[i]);
                 vector<double> wyj = dane.pobierzWyjscieTestowania(kolejnosc[i]);
+                double bladDanych = 0.0;
 
+                // int numer=0;
+                    {
+                        ostringstream s1;
+                        s1 << "[ ";
+                        for (int i = 0; i < wej.size(); ++i) {
+                            // teraz cofam normalizacje
+                            double wejscie = wej[i] * ( dane.maksima[i] - dane.minima[i] )  + dane.minima[i];
+                            wejscie = round(wejscie * 100) / 100;
 
-               // int numer=0;
-                foutWalidacja <<  siec.testowanieSieci2(wej, wyj, ileWykryto);
+                            s1 << wejscie << "   ";
+                        }
+                        s1 << " ] - wejscie sieci" << endl << "[ ";
+                        foutWalidacja << s1.str();
+                     }
+
+                foutWalidacja <<  siec.testowanieSieci2(wej, wyj, ileWykryto, dane.minima, dane.maksima);
 
                // ileWykryto += numer;
-                bladEpokiTestowania += siec.bladSieci();
-               // cout << numer;
+                bladDanych = siec.bladSieci();
+                bladEpokiTestowania +=bladDanych;
 
-                //  if (kolejnosc[i] == 200) {
+                foutWalidacja << "Błąd sieci przy tych danych wyniósł: " << bladDanych <<endl<<endl;
 
-                // if (epoka % 500 == 0) {
-                //    siec.wypiszRaz(wyj);
-                // }
 
             }
             bladEpokiTestowania /= kolejnosc.size();
 
             ostringstream stmp;
 
-            stmp <<  endl << "Blad danych walidacji wyniosl: " << bladEpokiTestowania << endl << endl;
+            stmp <<  endl << "Globalny blad danych walidacji wyniosl: " << bladEpokiTestowania << endl << endl;
             stmp << "Dobrze wykryto " << ileWykryto << "  kwiatkow" << " wszystkich bylo: " << kolejnosc.size() << endl;
 
             cout << stmp.str();
             foutWalidacja << stmp.str();
             }
     }
-    ostringstream ss ;
-    ss << "Zestaw badawczy nr. 1 Wspolczynnik nauki = " << ETA <<" Wspolczynnik momentum = " << MI << " ILOSC EPOK = " << ILOSC_EPOK << " Uklad warstw sieci: " ;
-    for(int i = 0; i < warstwy.size()-1; i++ ) ss << warstwy[i] << "-";
-    ss << warstwy[warstwy.size()-1] <<endl;
 
-    foutUczenie  << ss.str();
-    foutTestowanie << ss.str();
-    foutWalidacja << ss.str();
+    foutUczenie  << opisEksperymentu.str();
+    foutTestowanie << opisEksperymentu.str();
+
 
     foutUczenie.close();
     foutTestowanie.close();

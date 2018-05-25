@@ -149,7 +149,25 @@ void SiecNeuronow::wypiszBledy(){
         }
         cout <<endl <<"warstwa ukryta: "<< i << endl;
     }
+}
+void SiecNeuronow::wypiszWagi(ofstream & ofs)
+{
+    for(int i = 1; i < siecNeuronow.size(); i++)
+    {
+        ofs << "Wagi w warstwie " << i << " :" <<endl;
+        for(int j = 0; j < siecNeuronow[i].size(); j++)
+        {
+            ofs << "[";
+            for(int k = 0; k < siecNeuronow[i-1].size(); k++)
+            {
+            double waga = siecNeuronow[i][j] -> wagi[k];
+                waga = round(waga*1000)/1000;
 
+            ofs << waga << "\t";
+            }
+             ofs << "] - Neuron "<< i << "." << j << endl;
+        }
+    }
 }
 
 void SiecNeuronow::wypiszRaz(vector<double> wyj)
@@ -186,7 +204,7 @@ void SiecNeuronow::wypiszRaz(vector<double> wyj)
 }
 
 // zapisuje tez do pliku te zle wykryte
-string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie, int &trafiony) // TODO jest zle bo skopiowane i nie przerobione
+string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie, int &trafiony, vector<double> minNormalizacji, vector<double> maxNormalizacji) // TODO jest zle bo skopiowane i nie przerobione
 {
     obliczanieWyjsciaNeuronow(wejscie);
     obliczanieBledow(wyjscie);
@@ -208,6 +226,14 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
     int oczekiwany = 0;
     //int dobrzeWykryto = 0, zleWykryto =0;
     double wartosc = siecNeuronow[ile][0]->wyjscie;
+
+
+        for(int i = 0; i< wyjscie.size(); ++i)
+        {
+            double wyjsci = round(wyjscie[i]* 1000) / 1000;
+            s1 << wyjsci << ".000  ";
+        }
+        s1 << " ] - oczekiwana wartosc" <<endl << "[ ";
 
     for (int i = 0; i < ostatnia; i++) {
         cout << endl;
@@ -235,11 +261,13 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
         cout << siecNeuronow[ile][i]->wyjscie;
         cout << " |";
     // do plik
-        s1 << ss.str() << " |" <<  wejscie[i] << " |";
-        s1 <<  wyjscie[i] <<  " |";
-        s1 << siecNeuronow[ile][i]->wyjscie << " |" <<endl;
-
+        //s1 << ss.str() << " |" <<  wejscie[i] << " |";
+        //s1 <<  wyjscie[i] <<  " |";
+        //s1 << siecNeuronow[ile][i]->wyjscie << " |" <<endl;
+        double otrzymano = round(siecNeuronow[ile][i]->wyjscie * 1000) / 1000;
+        s1 << otrzymano << "  ";
     }
+    s1 << " ] - uzyskana wartosc" << endl;
     cout.setf(old, ios_base::adjustfield);
 
     //cout << " " << cout.width(9) << minimalna <<"  .." << os.str() << " ,," << endl;
@@ -247,7 +275,7 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
         if (1.0 == wyjscie[i]) oczekiwany = i + 1;
 
     cout <<  " Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl;
-    s1 <<  " Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl<<endl;
+    s1 <<  "Oczekiwany :" << oczekiwany << " Wykryty kwiatek numer: " << wykryty<<endl;
 
     info = s1.str();
     if(oczekiwany == wykryty) {
@@ -259,7 +287,14 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
             cout << "\nBlad otwarcia pliku\n";
         }
         for(int i = 0; i < wejscie.size(); ++i)
-        plik << wejscie[i] << " " ;
+        {
+            // teraz cofam normalizacje
+            double wej = wejscie[i] * ( maxNormalizacji[i] - minNormalizacji[i] )  + minNormalizacji[i];
+            wej = round(wej * 100) / 100;
+
+            plik << wej << "   ";
+        }
+        //plik << wejscie[i] << " " ;
         plik << endl;
         plik.close();
     }
