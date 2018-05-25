@@ -282,3 +282,93 @@ void Dane::rozdzielDaneUstalonaKolejnosc()
     }
 
 }
+
+
+
+void Dane::rozdzielanieDlaWykresuZbiorow() // wczytuje dane z pliku iris.data do wektora par
+{
+
+    double raz, dwa, trzy, cztery;
+    char c1;
+    string nazwa;
+
+    string nazwaPliku = "iris.data";
+    int ilosclinii = 50;
+
+    // dwie pierwsze dane tu zapisze
+    ofstream plik1s;
+    plik1s.open("Iris-setosa1.txt"); // dwie pierwsze wartosci na 1szy wykres
+    if (!plik1s.is_open()) {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+    ofstream plik1ve;
+    plik1ve.open("Iris-versicolor1.txt"); // dwie pierwsze wartosci na 1szy wykres
+    if (!plik1ve.is_open()) {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+    ofstream plik1vi;
+    plik1vi.open("Iris-virginica1.txt"); // dwie pierwsze wartosci na 1szy wykres
+    if (!plik1vi.is_open()) {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+
+    // dwie drugie dane tu zapisze
+    ofstream plik2s;
+    plik2s.open("Iris-setosa2.txt"); // dwie pierwsze wartosci na 1szy wykres
+    if (!plik2s.is_open()) {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+    ofstream plik2ve;
+    plik2ve.open("Iris-versicolor2.txt"); // dwie pierwsze wartosci na 1szy wykres
+    if (!plik2ve.is_open()) {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+    ofstream plik2vi;
+    plik2vi.open("Iris-virginica2.txt"); // dwie pierwsze wartosci na 1szy wykres
+    if (!plik2vi.is_open()) {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+
+
+    ifstream plik;
+    plik.open(nazwaPliku.c_str(), ios_base::in);   // otworz plik w trybie do odczytu
+    if (!plik.is_open()) {
+        cout << "\nBlad otwarcia pliku\n";
+    }
+
+    while (ilosclinii--) { //cin.peek()!= EOF
+        plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
+        //    cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
+        //vector<double> dana1 ({raz, dwa, trzy, cztery});
+
+        plik1s << raz << " " << dwa << endl;
+        plik2s << trzy << " " << cztery << endl;
+    }
+
+    ilosclinii = 50;
+    while (ilosclinii--) { //cin.peek()!= EOF
+        plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
+        //    cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
+        //vector<double> dana1 ({raz, dwa, trzy, cztery});
+
+        plik1ve << raz << " " << dwa << endl;
+        plik2ve << trzy << " " << cztery << endl;
+    }
+
+    ilosclinii = 50;
+    while (ilosclinii--) { //cin.peek()!= EOF
+        plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
+        //    cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
+        //vector<double> dana1 ({raz, dwa, trzy, cztery});
+
+        plik1vi << raz << " " << dwa << endl;
+        plik2vi << trzy << " " << cztery << endl;
+    }
+
+    plik1s.close();
+    plik2s.close();
+    plik1ve.close();
+    plik1ve.close();
+    plik1vi.close();
+    plik1vi.close();
+}

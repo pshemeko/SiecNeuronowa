@@ -1,155 +1,155 @@
-Neuron nr[0]: |0.333333 |0 |0.000186855 |
-Neuron nr[1]: |0.208333 |1 |0.999961 |
-Neuron nr[2]: |0.508475 |0 |2.96507e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.333333 |0 |0.00100418 |
-Neuron nr[1]: |0.166667 |1 |0.999763 |
-Neuron nr[2]: |0.474576 |0 |2.99957e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.583333 |0 |7.65436e-12 |
-Neuron nr[1]: |0.333333 |0 |1.97817e-08 |
-Neuron nr[2]: |0.779661 |1 |1 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.305556 |1 |0.99592 |
-Neuron nr[1]: |0.583333 |0 |0.00381272 |
-Neuron nr[2]: |0.0847458 |0 |4.7691e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.472222 |0 |3.30132e-08 |
-Neuron nr[1]: |0.416667 |0 |0.135057 |
-Neuron nr[2]: |0.644068 |1 |0.867494 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.333333 |0 |0.00325803 |
-Neuron nr[1]: |0.166667 |1 |0.999115 |
-Neuron nr[2]: |0.457627 |0 |3.12416e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.138889 |1 |0.996535 |
-Neuron nr[1]: |0.458333 |0 |0.00317298 |
-Neuron nr[2]: |0.101695 |0 |4.79883e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.222222 |1 |0.997718 |
-Neuron nr[1]: |0.583333 |0 |0.00198558 |
-Neuron nr[2]: |0.0847458 |0 |4.87545e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.666667 |0 |9.31127e-05 |
-Neuron nr[1]: |0.458333 |1 |0.999978 |
-Neuron nr[2]: |0.627119 |0 |3.30456e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.25 |1 |0.998896 |
-Neuron nr[1]: |0.875 |0 |0.000878285 |
-Neuron nr[2]: |0.0847458 |0 |5.01155e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.0277778 |1 |0.996755 |
-Neuron nr[1]: |0.416667 |0 |0.00294763 |
-Neuron nr[2]: |0.0508475 |0 |4.81079e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.861111 |0 |8.8164e-12 |
-Neuron nr[1]: |0.333333 |0 |2.10152e-08 |
-Neuron nr[2]: |0.864407 |1 |1 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.333333 |1 |0.998838 |
-Neuron nr[1]: |0.916667 |0 |0.000930607 |
-Neuron nr[2]: |0.0677966 |0 |5.00178e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.555556 |0 |7.67826e-12 |
-Neuron nr[1]: |0.583333 |0 |1.99299e-08 |
-Neuron nr[2]: |0.779661 |1 |1 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.333333 |1 |0.99836 |
-Neuron nr[1]: |0.625 |0 |0.00137009 |
-Neuron nr[2]: |0.0508475 |0 |4.93691e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.416667 |0 |0.000951712 |
-Neuron nr[1]: |0.291667 |1 |0.999777 |
-Neuron nr[2]: |0.491525 |0 |2.99279e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.166667 |1 |0.997786 |
-Neuron nr[1]: |0.458333 |0 |0.00191877 |
-Neuron nr[2]: |0.0847458 |0 |4.88109e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.555556 |0 |7.96348e-05 |
-Neuron nr[1]: |0.125 |1 |0.999978 |
-Neuron nr[2]: |0.576271 |0 |3.77726e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.361111 |0 |0.000531794 |
-Neuron nr[1]: |0.416667 |1 |0.999883 |
-Neuron nr[2]: |0.525424 |0 |2.94047e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.166667 |1 |0.997786 |
-Neuron nr[1]: |0.458333 |0 |0.00191877 |
-Neuron nr[2]: |0.0847458 |0 |4.88109e-06 |
- Oczekiwany :1 Wykryty kwiatek numer: 1
-
-Neuron nr[0]: |0.722222 |0 |1.06181e-11 |
-Neuron nr[1]: |0.458333 |0 |2.70559e-08 |
-Neuron nr[2]: |0.745763 |1 |1 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.583333 |0 |1.01368e-10 |
-Neuron nr[1]: |0.458333 |0 |1.56451e-06 |
-Neuron nr[2]: |0.762712 |1 |0.999999 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.944444 |0 |7.4608e-12 |
-Neuron nr[1]: |0.416667 |0 |1.98769e-08 |
-Neuron nr[2]: |0.864407 |1 |1 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.5 |0 |2.07398e-08 |
-Neuron nr[1]: |0.25 |0 |0.0497681 |
-Neuron nr[2]: |0.779661 |1 |0.95126 |
- Oczekiwany :3 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.555556 |0 |5.50585e-06 |
-Neuron nr[1]: |0.333333 |0 |0.999619 |
-Neuron nr[2]: |0.694915 |1 |0.000191156 |
- Oczekiwany :3 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |1 |0 |1.96733e-11 |
-Neuron nr[1]: |0.75 |0 |7.50111e-08 |
+Neuron nr[0]: |1 |0 |2.7661e-17 |
+Neuron nr[1]: |0.75 |0 |5.86752e-07 |
 Neuron nr[2]: |0.915254 |1 |1 |
  Oczekiwany :3 Wykryty kwiatek numer: 3
 
-Neuron nr[0]: |0.472222 |0 |0.000103682 |
-Neuron nr[1]: |0.583333 |1 |0.999978 |
-Neuron nr[2]: |0.59322 |0 |3.11179e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.305556 |0 |6.29804e-05 |
-Neuron nr[1]: |0.416667 |1 |0.999982 |
-Neuron nr[2]: |0.59322 |0 |3.97113e-06 |
- Oczekiwany :2 Wykryty kwiatek numer: 2
-
-Neuron nr[0]: |0.472222 |0 |1.59293e-08 |
-Neuron nr[1]: |0.291667 |1 |0.032233 |
-Neuron nr[2]: |0.694915 |0 |0.969991 |
- Oczekiwany :2 Wykryty kwiatek numer: 3
-
-Neuron nr[0]: |0.194444 |1 |0.997871 |
-Neuron nr[1]: |0.5 |0 |0.00183655 |
-Neuron nr[2]: |0.0338983 |0 |4.88831e-06 |
+Neuron nr[0]: |0.194444 |1 |0.998578 |
+Neuron nr[1]: |0.583333 |0 |0.00489224 |
+Neuron nr[2]: |0.0847458 |0 |2.04429e-17 |
  Oczekiwany :1 Wykryty kwiatek numer: 1
 
+Neuron nr[0]: |0.25 |0 |6.84916e-11 |
+Neuron nr[1]: |0.291667 |1 |0.999997 |
+Neuron nr[2]: |0.491525 |0 |4.17242e-08 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
 
-Blad danych walidacji wyniosl: 1.22239e-05
+Neuron nr[0]: |0.305556 |1 |0.999206 |
+Neuron nr[1]: |0.708333 |0 |0.00506754 |
+Neuron nr[2]: |0.0847458 |0 |1.83568e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
 
-Dobrze wykryto 28  kwiatkow wszystkich bylo: 30
-Zestaw badawczy nr. 1 Wspolczynnik nauki = 0.1 Wspolczynnik momentum = 0.9 ILOSC EPOK = 100000 Uklad warstw sieci: 4-4-3-3
+Neuron nr[0]: |0.916667 |0 |1.90183e-18 |
+Neuron nr[1]: |0.416667 |0 |1.01921e-06 |
+Neuron nr[2]: |0.949153 |1 |1 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.666667 |0 |0.000124638 |
+Neuron nr[1]: |0.458333 |1 |0.999999 |
+Neuron nr[2]: |0.627119 |0 |1.20057e-08 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.138889 |1 |0.998448 |
+Neuron nr[1]: |0.416667 |0 |0.00464906 |
+Neuron nr[2]: |0.0677966 |0 |2.00904e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.666667 |0 |0.298075 |
+Neuron nr[1]: |0.458333 |1 |0.999971 |
+Neuron nr[2]: |0.576271 |0 |1.72625e-11 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.638889 |0 |0.0325546 |
+Neuron nr[1]: |0.416667 |1 |0.99998 |
+Neuron nr[2]: |0.576271 |0 |4.79222e-11 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.722222 |0 |1.36055e-12 |
+Neuron nr[1]: |0.458333 |0 |1.98938e-08 |
+Neuron nr[2]: |0.694915 |1 |0.999833 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.194444 |0 |1.15296e-08 |
+Neuron nr[1]: |0 |1 |0.999941 |
+Neuron nr[2]: |0.423729 |0 |3.96372e-10 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.333333 |0 |2.98985e-13 |
+Neuron nr[1]: |0.25 |1 |0.999999 |
+Neuron nr[2]: |0.576271 |0 |4.27192e-06 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.5 |0 |3.90155e-17 |
+Neuron nr[1]: |0.416667 |0 |7.23552e-05 |
+Neuron nr[2]: |0.661017 |1 |0.999184 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.277778 |1 |0.999087 |
+Neuron nr[1]: |0.708333 |0 |0.00494275 |
+Neuron nr[2]: |0.0847458 |0 |1.86105e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.166667 |0 |1.57151e-07 |
+Neuron nr[1]: |0.166667 |1 |0.999722 |
+Neuron nr[2]: |0.389831 |0 |6.6072e-11 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.75 |0 |0.200339 |
+Neuron nr[1]: |0.5 |1 |0.999997 |
+Neuron nr[2]: |0.627119 |0 |1.87234e-10 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.0277778 |1 |0.997206 |
+Neuron nr[1]: |0.5 |0 |0.00565701 |
+Neuron nr[2]: |0.0508475 |0 |2.65601e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.416667 |1 |0.999605 |
+Neuron nr[1]: |0.833333 |0 |0.00644992 |
+Neuron nr[2]: |0.0338983 |0 |1.86712e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.0833333 |1 |0.998712 |
+Neuron nr[1]: |0.666667 |0 |0.0038274 |
+Neuron nr[2]: |0 |0 |1.66888e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.527778 |0 |2.16094e-14 |
+Neuron nr[1]: |0.333333 |0 |0.00863014 |
+Neuron nr[2]: |0.644068 |1 |0.809318 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.0555556 |1 |0.99803 |
+Neuron nr[1]: |0.125 |0 |0.00465119 |
+Neuron nr[2]: |0.0508475 |0 |2.12292e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.138889 |1 |0.997483 |
+Neuron nr[1]: |0.458333 |0 |0.00606569 |
+Neuron nr[2]: |0.101695 |0 |2.72935e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.194444 |1 |0.998959 |
+Neuron nr[1]: |0.5 |0 |0.00394593 |
+Neuron nr[2]: |0.0338983 |0 |1.62532e-17 |
+ Oczekiwany :1 Wykryty kwiatek numer: 1
+
+Neuron nr[0]: |0.222222 |0 |0.024987 |
+Neuron nr[1]: |0.208333 |1 |0.820444 |
+Neuron nr[2]: |0.338983 |0 |3.15425e-14 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.333333 |0 |1.48922e-07 |
+Neuron nr[1]: |0.166667 |1 |0.99993 |
+Neuron nr[2]: |0.474576 |0 |2.05157e-10 |
+ Oczekiwany :2 Wykryty kwiatek numer: 2
+
+Neuron nr[0]: |0.5 |0 |3.25447e-22 |
+Neuron nr[1]: |0.25 |0 |7.35665e-09 |
+Neuron nr[2]: |0.779661 |1 |1 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.611111 |0 |2.68929e-16 |
+Neuron nr[1]: |0.5 |0 |1.12892e-06 |
+Neuron nr[2]: |0.694915 |1 |0.999985 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.444444 |0 |6.05351e-21 |
+Neuron nr[1]: |0.416667 |0 |2.5177e-08 |
+Neuron nr[2]: |0.694915 |1 |1 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.666667 |0 |1.9133e-18 |
+Neuron nr[1]: |0.541667 |0 |1.4678e-07 |
+Neuron nr[2]: |0.79661 |1 |1 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+Neuron nr[0]: |0.583333 |0 |3.59039e-19 |
+Neuron nr[1]: |0.291667 |0 |3.59773e-08 |
+Neuron nr[2]: |0.728814 |1 |1 |
+ Oczekiwany :3 Wykryty kwiatek numer: 3
+
+
+Blad danych walidacji wyniosl: 3.60364e-05
+
+Dobrze wykryto 30  kwiatkow wszystkich bylo: 30
+Zestaw badawczy nr. 1 Wspolczynnik nauki = 0.1 Wspolczynnik momentum = 0.9 ILOSC EPOK = 100000 Uklad warstw sieci: 4-3-3

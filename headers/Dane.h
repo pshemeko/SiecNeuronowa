@@ -72,6 +72,7 @@ public:
 
     //double losuj() { return dist(gen);};
     //double losujInt() {return liczbaNaturalna(gen);};
+    void rozdzielanieDlaWykresuZbiorow();
 };
 
 

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <algorithm>
 #include "Neuron.h"
+#include <fstream>
 
 static bool CZY_BIAS = true;
 static bool CZY_Z_MOMENTEM = true;

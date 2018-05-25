@@ -185,7 +185,7 @@ void SiecNeuronow::wypiszRaz(vector<double> wyj)
     cout.setf(old, ios_base::adjustfield);// przywracam stare ustwaienia
 }
 
-
+// zapisuje tez do pliku te zle wykryte
 string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyjscie, int &trafiony) // TODO jest zle bo skopiowane i nie przerobione
 {
     obliczanieWyjsciaNeuronow(wejscie);
@@ -252,6 +252,16 @@ string SiecNeuronow::testowanieSieci2(vector<double> wejscie, vector<double> wyj
     info = s1.str();
     if(oczekiwany == wykryty) {
         trafiony += 1;
+    } else
+    {
+        ofstream plik("BlednieWykryte.txt", ios_base::out| ios_base::app); // dwie pierwsze wartosci na 1szy wykres
+        if (!plik.is_open()) {
+            cout << "\nBlad otwarcia pliku\n";
+        }
+        for(int i = 0; i < wejscie.size(); ++i)
+        plik << wejscie[i] << " " ;
+        plik << endl;
+        plik.close();
     }
 
 return info;

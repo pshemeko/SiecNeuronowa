@@ -1,4 +1,4 @@
-set title "wykres bledu: epok:100000, BIAS, MOMENTUM, WSPOLCZYNNIK NAUKI: 0.1 WSPOLCZYNNIK MOMENTUM: 0.9"
+set title "siec typu: 4-4-3-3  epok:100000, BIAS, MOMENTUM, WSPOLCZYNNIK NAUKI: 0.1 WSPOLCZYNNIK MOMENTUM: 0.9"
 set xlabel "nr epoki"
 set ylabel "wartosc bledu" 
 
@@ -17,7 +17,9 @@ zakres osi
 
 
 set yrange [0:0.04]  
-W ten sposob zdefiniowane przedzialy obowiazuja we wszystkich nastepnych wykresach nie posiadajacych wlasnej definicji przedzialu. Jezeli chcemy przywrocic automatyczne ustalanie przedzialow, wywolujemy polecenie
+W ten sposob zdefiniowane przedzialy obowiazuja we wszystkich nastepnych wykresach nie posiadajacych wlasnej definicji przedzialu. 
+Jezeli chcemy przywrocic automatyczne ustalanie przedzialow, wywolujemy polecenie
+
 set autoscale [zmienna]
 
 Zapis wynikow:
