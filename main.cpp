@@ -8,7 +8,7 @@
 #include "headers/Menu.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 1000;//100000;
+int ILOSC_EPOK = 200000;
 
 using namespace std;
 
@@ -17,8 +17,13 @@ int main() {
     srand(time(NULL));
 
     ///////////////////  PROGRAM
+    //2 warstwy ukryte
+    // i rozbudowana 4 warstwy ukryte i wiecej neuronow
+    //Błąd sieci przy tych danych wyniósł: 0.000344437
 
-    vector<int> warstwy({4, 3, 3});
+    //Globalny blad danych walidacji wyniosl: 2.98486e-05
+
+    vector<int> warstwy({4, 10,10,10,10, 3});
     SiecNeuronow siec(warstwy);
 
     // zapisywanie wynikow do pliku
@@ -41,8 +46,9 @@ int main() {
     Dane dane;
     dane.wczytajPlik();
     dane.normalizuj();
-    //dane.rozdzielDane(30, 10);
-    dane.rozdzielDaneUstalonaKolejnosc();
+    dane.rozdzielDane(30, 10);
+    //dane.rozdzielDaneUstalonaKolejnosc();
+    //dane.rozdzielDaneUstalonaKolejnoscOdKonca();
 
 
     //dane.wypiszWektorPar(dane.daneWszystkie);

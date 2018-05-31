@@ -54,6 +54,7 @@ public:
                                                                     // chcemy by bylo po tyle samo kazdych kwiatkow
 
     void rozdzielDaneUstalonaKolejnosc();
+    void rozdzielDaneUstalonaKolejnoscOdKonca();
 
     vector<double> pobierzWejscieUczenia(int x);
     vector<double> pobierzWyjscieUczenia(int x);

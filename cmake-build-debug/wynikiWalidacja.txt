@@ -1,0 +1,237 @@
+Zestaw badawczy nr. 1 Wspolczynnik nauki = 0.2 Wspolczynnik momentum = 0.9 ILOSC EPOK = 200000 Uklad warstw sieci: 4-10-10-10-10-3
+
+Wagi w warstwie 1 :
+[-0.715	-0.434	-0.515	-0.324	] - Neuron 1.0
+[-0.192	0.209	-0.923	-0.352	] - Neuron 1.1
+[-0.291	-0.049	-0.621	-0.425	] - Neuron 1.2
+[-0.272	-0.363	-0.67	-0.794	] - Neuron 1.3
+[0.009	-0.279	0.077	-0.495	] - Neuron 1.4
+[-0.274	0.019	-1.043	-0.761	] - Neuron 1.5
+[0.342	0.453	0.28	0.61	] - Neuron 1.6
+[-0.28	-0.366	0.021	-0.333	] - Neuron 1.7
+[0.078	-0.382	0.429	0.38	] - Neuron 1.8
+[-0.146	-0.281	0.629	0.835	] - Neuron 1.9
+Wagi w warstwie 2 :
+[0.397	-0.129	0.062	0.381	0.383	0.099	-0.338	0.224	-0.322	-0.895	] - Neuron 2.0
+[-0.862	0.131	-0.353	-0.173	-0.572	0.059	0.541	-0.462	1.022	0.737	] - Neuron 2.1
+[-0.603	-0.66	-0.367	-0.502	0.317	-0.494	0.114	-0.267	0.75	0.657	] - Neuron 2.2
+[-0.12	0.08	-0.58	-0.672	-0.186	-0.215	-0.018	0.129	-0.015	0.06	] - Neuron 2.3
+[0.225	0.274	0.32	0.08	0.26	0.228	0.517	-0.14	0.098	0.712	] - Neuron 2.4
+[-0.713	-0.014	-0.568	-0.63	-0.43	-0.39	0.593	0.023	0.729	0.364	] - Neuron 2.5
+[0.216	0.447	-0.407	-0.005	0.19	-0.006	0.535	0.185	0.02	0.032	] - Neuron 2.6
+[-0.638	0.065	0.133	-0.08	-0.501	0.061	0.867	-0.136	0.613	0.951	] - Neuron 2.7
+[-0.377	-0.985	-0.272	-0.914	0.436	-0.803	-0.193	0.217	0.433	0.026	] - Neuron 2.8
+[-0.609	0.413	-0.122	0.785	-0.503	-0.034	0.195	-0.237	0.374	0.356	] - Neuron 2.9
+Wagi w warstwie 3 :
+[0.039	0.046	-1.547	-0.722	0.638	-0.482	0.483	0.195	-3.289	-0.086	] - Neuron 3.0
+[-0.06	-0.064	1.935	0.511	-0.641	0.184	-0.418	-0.781	3.303	0.245	] - Neuron 3.1
+[-0.011	0.903	1.049	0.36	-0.799	0.879	-0.318	0.135	1.288	0.097	] - Neuron 3.2
+[0.012	-0.077	-0.926	-0.569	0.453	-0.339	-0.316	0.687	-1.949	0.208	] - Neuron 3.3
+[-0.076	0.054	2.02	0.368	-0.93	0.668	-0.612	-0.904	2.528	0.487	] - Neuron 3.4
+[-2.217	3.221	-1.311	2.275	-0.37	3.5	0.114	3.848	-0.526	0.807	] - Neuron 3.5
+[0.041	-0.287	1.003	0.094	1.034	-0.216	1.14	0.017	0.006	-0.472	] - Neuron 3.6
+[-3.482	1.934	-3.116	0.725	-2.712	2.636	-3.279	3.054	-2.646	-1.186	] - Neuron 3.7
+[-3.033	4.373	-1.471	1.867	-0.775	5.199	-0.465	4.897	-0.885	0.781	] - Neuron 3.8
+[-2.328	3.718	-0.771	2.4	-0.405	3.482	0.045	4.615	-0.422	-0.008	] - Neuron 3.9
+Wagi w warstwie 4 :
+[-37.817	33.145	20.756	-16.219	28.086	-6.672	-8.26	1.177	-6.786	-6.646	] - Neuron 4.0
+[-0.222	0.526	0.292	-0.546	0.126	-3.673	-0.117	-1.928	-3.815	-3.819	] - Neuron 4.1
+[0.117	-0.797	-0.515	0.456	0.015	3.908	-0.438	2.222	4.756	4.154	] - Neuron 4.2
+[1.174	-1.491	-0.225	1.023	-0.435	3.824	0.43	3.37	6.127	3.404	] - Neuron 4.3
+[-0.182	0.964	0.56	-0.563	-0.439	-3.44	-0.39	-2.823	-4.417	-3.409	] - Neuron 4.4
+[1.025	-1.662	-0.419	0.354	-0.382	4.791	-0.338	2.321	6.212	3.573	] - Neuron 4.5
+[0.673	5.446	2.853	1.313	3.848	-0.912	3.701	-1.466	-1.757	-0.98	] - Neuron 4.6
+[1.203	1.892	0.928	0.662	1.816	1.229	1.581	0.781	1.111	1.506	] - Neuron 4.7
+[1.045	-1.235	-0.214	1.478	-0.572	3.823	0.516	2.899	5.588	3.479	] - Neuron 4.8
+[-0.742	-0.417	-0.343	0.588	-0.361	-0.959	-3.993	0.636	-0.71	-1.427	] - Neuron 4.9
+Wagi w warstwie 5 :
+[-7.421	15.247	-23.244	-4.3	8.708	-5.259	6.61	-2.161	-5.95	-30.474	] - Neuron 5.0
+[8.396	-1.501	4.042	-4.018	-3.737	-5.45	3.084	-5.772	-0.549	8.185	] - Neuron 5.1
+[46.793	-15.871	2.742	-5.058	-6.915	-3.099	-14.126	-7.318	-8.496	107.254	] - Neuron 5.2
+
+Teraz wyniki pogramu na danych walidacyjnych:
+
+[ 4.8   3.4   1.9   0.2    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 6.69249e-15
+
+[ 4.9   3.1   1.5   0.1    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 7.99073e-16
+
+[ 6.1   3   4.6   1.4    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489891
+
+[ 7.7   3.8   6.7   2.2    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00551071
+
+[ 7.9   3.8   6.4   2    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00551051
+
+[ 5.5   4.2   1.4   0.2    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 2.27177e-15
+
+[ 4.8   3   1.4   0.1    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 6.74178e-16
+
+[ 6.7   3.1   4.4   1.4    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489887
+
+[ 6   2.2   5   1.5    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00550918
+
+[ 5.4   3.4   1.5   0.4    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0.001  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 3.72948e-13
+
+[ 4.6   3.1   1.5   0.2    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 7.95898e-16
+
+[ 6.8   2.8   4.8   1.4    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489854
+
+[ 5.1   3.7   1.5   0.4    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0.001  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 1.80413e-14
+
+[ 7.1   3   5.9   2.1    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00551032
+
+[ 5.6   2.8   4.9   2    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00550941
+
+[ 6.3   2.9   5.6   1.8    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00550978
+
+[ 6.6   3   4.4   1.4    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489888
+
+[ 6.7   2.5   5.8   1.8    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00551002
+
+[ 4.8   3   1.4   0.3    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 1.19308e-15
+
+[ 5.8   2.7   4.1   1    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.486   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489954
+
+[ 7.7   2.8   6.7   2    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00551072
+
+[ 7.6   3   6.6   2.1    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.0055107
+
+[ 5.9   3   5.1   1.8    ] - wejscie sieci
+[ 0.000  0.000  1.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :3 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.0055094
+
+[ 6.4   3.2   4.5   1.5    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.0048988
+
+[ 5   2.3   3.3   1    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.514  0.484   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00488327
+
+[ 6.2   2.9   4.3   1.3    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.485   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489917
+
+[ 5.8   2.7   3.9   1.2    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.486   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489953
+
+[ 5.5   2.6   4.4   1.2    ] - wejscie sieci
+[ 0.000  1.000  0.000   ] - oczekiwana wartosc
+[ 0  0.515  0.486   ] - uzyskana wartosc
+Oczekiwany :2 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 0.00489938
+
+[ 4.4   3.2   1.3   0.2    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 6.09792e-16
+
+[ 4.7   3.2   1.3   0.2    ] - wejscie sieci
+[ 1.000  0.000  0.000   ] - oczekiwana wartosc
+[ 0  0  0   ] - uzyskana wartosc
+Oczekiwany :1 Wykryty kwiatek numer: 2
+Błąd sieci przy tych danych wyniósł: 6.76809e-16
+
+
+Globalny blad danych walidacji wyniosl: 0.00346919
+
+Dobrze wykryto 10  kwiatkow wszystkich bylo: 30
