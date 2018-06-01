@@ -28,10 +28,6 @@ public:
     bool   czyJestBias;
     double wartoscBiasu;    // wywalic jako stala statyczna poza klase
     double blad;
-    //double wyjscieSumatora; // potrzebne bo z niego obliczana pochodna funkcji aktywacji
-    //double delta; // blad * pochodna funkcji aktywacji
-
-    //void   ustawWyjscie(double x); // liczy z sumy wartosc funkcji aktywacji i zapisuje do wyjscie
 
     Neuron(int iloscWejsc, bool bias);
     virtual ~Neuron() = default;

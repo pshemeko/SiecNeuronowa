@@ -28,10 +28,6 @@ random
 math.h
 -
 
-/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Menu.h
-iostream
--
-
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Neuron.h
 vector
 -
@@ -69,8 +65,6 @@ headers/Matematyka.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Matematyka.h
 headers/Dane.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Dane.h
-headers/Menu.h
-/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/Menu.h
 headers/SiecNeuronow.h
 /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/headers/SiecNeuronow.h
 

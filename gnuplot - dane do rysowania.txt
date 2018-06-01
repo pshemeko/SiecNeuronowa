@@ -1,4 +1,4 @@
-set title "siec typu: 4-4-3-3  epok:100000, BIAS, MOMENTUM, WSPOLCZYNNIK NAUKI: 0.1 WSPOLCZYNNIK MOMENTUM: 0.9"
+﻿set title "siec typu: 4-4-3-3  epok:100000, BIAS, MOMENTUM, WSPOLCZYNNIK NAUKI: 0.1 WSPOLCZYNNIK MOMENTUM: 0.9"
 set xlabel "nr epoki"
 set ylabel "wartosc bledu" 
 
@@ -14,7 +14,6 @@ gnuplot> set xzeroaxis lt 1 lc 'black'
 gnuplot> set yzeroaxis lt 1 lc 'black'  
 
 zakres osi
-
 
 set yrange [0:0.04]  
 W ten sposob zdefiniowane przedzialy obowiazuja we wszystkich nastepnych wykresach nie posiadajacych wlasnej definicji przedzialu. 
@@ -38,4 +37,5 @@ aby przywrocic domyslne:
 
 set terminal wxt
 set output
+
 

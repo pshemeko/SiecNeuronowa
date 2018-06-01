@@ -9,10 +9,8 @@ set(SOURCE_FILES main.cpp
         src/Losowanie.cpp
         src/Dane.cpp
         headers/Dane.h
-        headers/Testy.h
         src/Neuron.cpp
         headers/Neuron.h
-        headers/Menu.h
         src/SiecNeuronow.cpp
         headers/SiecNeuronow.h
         tests/testLosowanie.cpp)

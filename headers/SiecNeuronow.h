@@ -23,7 +23,7 @@ using namespace std;
 
 class SiecNeuronow {
 
-public:
+public:/*
     vector<vector<Neuron*> > siecNeuronow;
 
     vector<int> iloscNeuronowNaWarstwe;  // = {4,2,4} w konstruktorze inicjuje
@@ -43,6 +43,7 @@ public:
     string testowanieSieci2(vector<double> wejscie, vector<double> wyjscie, int &trafiony, vector<double> minNormalizacji, vector<double> maxNormalizacji); // zwraca 1 jesli kwiatek zotal dobrze wykryty 0 jesli zle
     void wypiszWagi(ofstream & ofs);
     int ktoryWykryto();
+    */
 };
 
 

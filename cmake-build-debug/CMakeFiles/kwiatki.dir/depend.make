@@ -4,7 +4,6 @@
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Dane.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Losowanie.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Matematyka.h
-CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Menu.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Neuron.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/SiecNeuronow.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../main.cpp
