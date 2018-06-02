@@ -15,14 +15,14 @@
 #include "Losowanie.h"
 #include "Neuron.h"
 
-typedef std::vector< std::vector<double> > VEKTORDANYCH;
+//typedef std::vector< std::vector<double> > VEKTORDANYCH;
 
 using namespace std;
 
 class Dane {
 
 public:
-    VEKTORDANYCH dane; // 50 pierwsszegych kwiatkow, potem 50 druich potem trzecich
+//    VEKTORDANYCH dane; // 50 pierwsszegych kwiatkow, potem 50 druich potem trzecich
 
 //    vector<double> maksima; // do normalizacji maksymalne wartosci danej zmiennej
 //    vector<double> minima;  // do normalizacji
@@ -37,7 +37,7 @@ public:
 
     void wczytajPlik(string nazwaPliku = "iris.data", int ilosclinii = 150); // wczytuje dane z pliku iris.data do wektora par
 
-    void wypiszWektor(VEKTORDANYCH wek);
+  //  void wypiszWektor(VEKTORDANYCH wek);
 
 };
 

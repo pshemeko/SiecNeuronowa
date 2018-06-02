@@ -21,10 +21,11 @@ Zestaw A(0, 1000, -10, 15, "attract_small");
 Zestaw B(0, 10000, -10, 15, "attract_small");
 Zestaw C(-10, 15, -12, 8, "plikStaryZLY");
 
+Zestaw zestaw = C;
 // wziete z maina aby sprawdzac
 void testWczytywania()
 {
-      vector<int> v({-5, 5, 11, 21});
+    vector<int> v({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});
     vector<int> v1({-5, 5, 11, 21, 0, 1, 2, 10, -10, -5});
     Neuron n1(v);
     Neuron n2(v1);

@@ -5,3 +5,7 @@
 #include "../headers/SiecNeuronow.h"
 #include "../headers/Matematyka.h"
 
+SiecNeuronow::SiecNeuronow(vector<int> wymiar)
+{
+
+}

@@ -6,6 +6,7 @@ CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Gnuplot.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Losowanie.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Matematyka.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/Neuron.h
+CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/SiecNeuronow.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../headers/StrukturyZestaw.h
 CMakeFiles/kwiatki.dir/main.cpp.o: ../main.cpp
 

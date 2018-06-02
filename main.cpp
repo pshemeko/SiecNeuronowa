@@ -10,14 +10,15 @@
 #include "headers/Neuron.h"
 #include "headers/Gnuplot.h"
 #include "headers/StrukturyZestaw.h"
+#include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 200000;
+int ILOSC_EPOK = 1000;
 
+int iloscCentrow = 5;
 
-
-Zestaw A(0, 1000, -10, 15, "attract_small");
-Zestaw B(0, 10000, -10, 15, "attract_small");
-Zestaw C(-10, 15, -12, 8, "plikStaryZLY");
+Zestaw A(0, 1000, -10, 15, "attract_small.txt");
+Zestaw B(0, 10000, -10, 15, "attract_small.txt");
+Zestaw C(-10, 15, -12, 8, "plikStaryZLY.txt");
 
 using namespace std;
 
@@ -27,16 +28,20 @@ using namespace std;
     //double Neuron::wartoscBiasu = 1.0;
     //bool Neuron::czyJestBias = false;
 
+
 int main() {
 
     srand(time(NULL));
 
+    /////// deklaracja zmiennych
+    vector<int> wymiar({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});    // to jest przekazywane do neuronu ktory jest centum
 
+    SiecNeuronow siec(wymiar);
 
     ///////////////////  PROGRAM
 
     //rysuj(zestaw.nazwa);
-    vector<int> v({-5, 5, 11, 21});
+    vector<int> v({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});
     vector<int> v1({-5, 5, 11, 21, 0, 1, 2, 10, -10, -5});
     Neuron n1(v);
     Neuron n2(v1);

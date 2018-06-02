@@ -12,18 +12,27 @@
 #include "Neuron.h"
 #include <fstream>
 
-static bool CZY_BIAS = true;
-static bool CZY_Z_MOMENTEM = true;
+//static bool CZY_BIAS = true;
+//static bool CZY_Z_MOMENTEM = true;
 //wspóczynniki
 static double ETA = 0.2; // współczynnik nauki(0.6)  0.9
-static double MI = 0.9; // potrzbne gdy licze z momentem (0.1)  0.6
+//static double MI = 0.9; // potrzbne gdy licze z momentem (0.1)  0.6
 
+typedef std::vector< Neuron* > VEKTORDANYCH;
 
 using namespace std;
 
 class SiecNeuronow {
 
-public:/*
+    VEKTORDANYCH zadanePunkty;
+    VEKTORDANYCH neurony;
+    //vector<pair
+public:
+SiecNeuronow(vector<int> wymiar);
+
+
+
+/*
     vector<vector<Neuron*> > siecNeuronow;
 
     vector<int> iloscNeuronowNaWarstwe;  // = {4,2,4} w konstruktorze inicjuje
