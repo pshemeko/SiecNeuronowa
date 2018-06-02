@@ -1,42 +1,30 @@
+//
+// Created by Przemo on 2018-06-02.
+//
+
+#ifndef KWIATKI_TESTY_H
+#define KWIATKI_TESTY_H
 
 #include <iostream>
 #include <iomanip>
 #include <string.h>
 
-#include "headers/Matematyka.h"
+#include "Matematyka.h"
 //#include "headers/Losowanie.h"
-#include "headers/Dane.h"
+#include "Dane.h"
 
-#include "headers/Neuron.h"
-#include "headers/Gnuplot.h"
-#include "headers/StrukturyZestaw.h"
-
-int ILOSC_EPOK = 200000;
-
-
+#include "Neuron.h"
+#include "Gnuplot.h"
+#include "StrukturyZestaw.h"
 
 Zestaw A(0, 1000, -10, 15, "attract_small");
 Zestaw B(0, 10000, -10, 15, "attract_small");
 Zestaw C(-10, 15, -12, 8, "plikStaryZLY");
 
-using namespace std;
-
-    ////////////////////// deklaracja danych
-
-    Zestaw zestaw = C;  // z ktorego pliku dane brac
-    //double Neuron::wartoscBiasu = 1.0;
-    //bool Neuron::czyJestBias = false;
-
-int main() {
-
-    srand(time(NULL));
-
-
-
-    ///////////////////  PROGRAM
-
-    //rysuj(zestaw.nazwa);
-    vector<int> v({-5, 5, 11, 21});
+// wziete z maina aby sprawdzac
+void testWczytywania()
+{
+      vector<int> v({-5, 5, 11, 21});
     vector<int> v1({-5, 5, 11, 21, 0, 1, 2, 10, -10, -5});
     Neuron n1(v);
     Neuron n2(v1);
@@ -57,5 +45,12 @@ int main() {
     }
 
     cout << endl <<endl<< ile;
-
 }
+
+
+
+
+
+
+
+#endif //KWIATKI_TESTY_H

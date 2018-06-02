@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/cygdrive/d/Politechnika - Inf
 Determining if the C compiler works passed with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_fb9a1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fb9a1.dir/build.make CMakeFiles/cmTC_fb9a1.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_03afa/fast"
+/usr/bin/make -f CMakeFiles/cmTC_03afa.dir/build.make CMakeFiles/cmTC_03afa.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fb9a1.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_fb9a1.dir/testCCompiler.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c"
-Linking C executable cmTC_fb9a1.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_fb9a1.dir/link.txt --verbose=1
-/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_fb9a1.dir/testCCompiler.c.o  -o cmTC_fb9a1.exe -Wl,--out-implib,libcmTC_fb9a1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building C object CMakeFiles/cmTC_03afa.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_03afa.dir/testCCompiler.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c"
+Linking C executable cmTC_03afa.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_03afa.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_03afa.dir/testCCompiler.c.o  -o cmTC_03afa.exe -Wl,--out-implib,libcmTC_03afa.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_b248e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b248e.dir/build.make CMakeFiles/cmTC_b248e.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_cb180/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cb180.dir/build.make CMakeFiles/cmTC_cb180.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o   -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_b248e.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_b248e.dir/link.txt --verbose=1
-/usr/bin/cc    -Wl,--enable-auto-import -v CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o  -o cmTC_b248e.exe -Wl,--out-implib,libcmTC_b248e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building C object CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o   -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_cb180.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_cb180.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import -v CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o  -o cmTC_cb180.exe -Wl,--out-implib,libcmTC_cb180.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe
@@ -59,9 +59,9 @@ Thread model: posix
 gcc version 6.4.0 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/bin/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b248e.exe' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccH52OWQ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_b248e.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o --out-implib libcmTC_b248e.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b248e.exe' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cb180.exe' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccmN63Ap.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_cb180.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o --out-implib libcmTC_cb180.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cb180.exe' '-mtune=generic' '-march=x86-64'
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -69,14 +69,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make.exe" "cmTC_b248e/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_b248e.dir/build.make CMakeFiles/cmTC_b248e.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make.exe" "cmTC_cb180/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_cb180.dir/build.make CMakeFiles/cmTC_cb180.dir/build]
   ignore line: [make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o   -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_b248e.exe]
-  ignore line: [/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_b248e.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc    -Wl,--enable-auto-import -v CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o  -o cmTC_b248e.exe -Wl,--out-implib,libcmTC_b248e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Building C object CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o   -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_cb180.exe]
+  ignore line: [/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_cb180.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc    -Wl,--enable-auto-import -v CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o  -o cmTC_cb180.exe -Wl,--out-implib,libcmTC_cb180.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 6.4.0 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/bin/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b248e.exe' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccH52OWQ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_b248e.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o --out-implib libcmTC_b248e.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cb180.exe' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccmN63Ap.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_cb180.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o --out-implib libcmTC_cb180.dll.a --major-image-version 0 --minor-image-version 0 -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o]
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccH52OWQ.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccmN63Ap.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lcygwin] ==> ignore
@@ -125,7 +125,7 @@ Parsed C implicit link information from above output:
     arg [--dll-search-prefix=cyg] ==> ignore
     arg [--tsaware] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_b248e.exe] ==> ignore
+    arg [cmTC_cb180.exe] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o] ==> ignore
     arg [-L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0] ==> dir [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0]
@@ -136,9 +136,9 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib] ==> dir [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib]
     arg [-L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../..]
     arg [--enable-auto-import] ==> ignore
-    arg [CMakeFiles/cmTC_b248e.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_cb180.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [--out-implib] ==> ignore
-    arg [libcmTC_b248e.dll.a] ==> ignore
+    arg [libcmTC_cb180.dll.a] ==> ignore
     arg [--major-image-version] ==> ignore
     arg [0] ==> ignore
     arg [--minor-image-version] ==> ignore
@@ -171,14 +171,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_77346/fast"
-/usr/bin/make -f CMakeFiles/cmTC_77346.dir/build.make CMakeFiles/cmTC_77346.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_fa5fd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fa5fd.dir/build.make CMakeFiles/cmTC_fa5fd.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_77346.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_77346.dir/feature_tests.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_77346.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_77346.dir/link.txt --verbose=1
-/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_77346.dir/feature_tests.c.o  -o cmTC_77346.exe -Wl,--out-implib,libcmTC_77346.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building C object CMakeFiles/cmTC_fa5fd.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_fa5fd.dir/feature_tests.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_fa5fd.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_fa5fd.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_fa5fd.dir/feature_tests.c.o  -o cmTC_fa5fd.exe -Wl,--out-implib,libcmTC_fa5fd.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -191,14 +191,14 @@ make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV sem
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_28e14/fast"
-/usr/bin/make -f CMakeFiles/cmTC_28e14.dir/build.make CMakeFiles/cmTC_28e14.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_c87d7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c87d7.dir/build.make CMakeFiles/cmTC_c87d7.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_28e14.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_28e14.dir/feature_tests.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_28e14.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_28e14.dir/link.txt --verbose=1
-/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_28e14.dir/feature_tests.c.o  -o cmTC_28e14.exe -Wl,--out-implib,libcmTC_28e14.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building C object CMakeFiles/cmTC_c87d7.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_c87d7.dir/feature_tests.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_c87d7.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_c87d7.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_c87d7.dir/feature_tests.c.o  -o cmTC_c87d7.exe -Wl,--out-implib,libcmTC_c87d7.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -211,14 +211,14 @@ make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV sem
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_14849/fast"
-/usr/bin/make -f CMakeFiles/cmTC_14849.dir/build.make CMakeFiles/cmTC_14849.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_6a987/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6a987.dir/build.make CMakeFiles/cmTC_6a987.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_14849.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_14849.dir/feature_tests.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.c"
-Linking C executable cmTC_14849.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_14849.dir/link.txt --verbose=1
-/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_14849.dir/feature_tests.c.o  -o cmTC_14849.exe -Wl,--out-implib,libcmTC_14849.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building C object CMakeFiles/cmTC_6a987.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_6a987.dir/feature_tests.c.o   -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_6a987.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_6a987.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_6a987.dir/feature_tests.c.o  -o cmTC_6a987.exe -Wl,--out-implib,libcmTC_6a987.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -229,28 +229,28 @@ make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV sem
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_9dda8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9dda8.dir/build.make CMakeFiles/cmTC_9dda8.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_e4abb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e4abb.dir/build.make CMakeFiles/cmTC_e4abb.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9dda8.dir/testCXXCompiler.cxx.o
-/usr/bin/c++.exe     -o CMakeFiles/cmTC_9dda8.dir/testCXXCompiler.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
-Linking CXX executable cmTC_9dda8.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_9dda8.dir/link.txt --verbose=1
-/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_9dda8.dir/testCXXCompiler.cxx.o  -o cmTC_9dda8.exe -Wl,--out-implib,libcmTC_9dda8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building CXX object CMakeFiles/cmTC_e4abb.dir/testCXXCompiler.cxx.o
+/usr/bin/c++.exe     -o CMakeFiles/cmTC_e4abb.dir/testCXXCompiler.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
+Linking CXX executable cmTC_e4abb.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_e4abb.dir/link.txt --verbose=1
+/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_e4abb.dir/testCXXCompiler.cxx.o  -o cmTC_e4abb.exe -Wl,--out-implib,libcmTC_e4abb.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_19c14/fast"
-/usr/bin/make -f CMakeFiles/cmTC_19c14.dir/build.make CMakeFiles/cmTC_19c14.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_ba414/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ba414.dir/build.make CMakeFiles/cmTC_ba414.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++.exe     -o CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_19c14.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_19c14.dir/link.txt --verbose=1
-/usr/bin/c++.exe    -Wl,--enable-auto-import -v CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_19c14.exe -Wl,--out-implib,libcmTC_19c14.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building CXX object CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++.exe     -o CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_ba414.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_ba414.dir/link.txt --verbose=1
+/usr/bin/c++.exe    -Wl,--enable-auto-import -v CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ba414.exe -Wl,--out-implib,libcmTC_ba414.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe
@@ -260,9 +260,9 @@ Thread model: posix
 gcc version 6.4.0 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/bin/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_19c14.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccUvp0zg.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_19c14.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o --out-implib libcmTC_19c14.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_19c14.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ba414.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccRcBxpz.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_ba414.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o --out-implib libcmTC_ba414.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ba414.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -270,14 +270,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make.exe" "cmTC_19c14/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_19c14.dir/build.make CMakeFiles/cmTC_19c14.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make.exe" "cmTC_ba414/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_ba414.dir/build.make CMakeFiles/cmTC_ba414.dir/build]
   ignore line: [make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++.exe     -o CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_19c14.exe]
-  ignore line: [/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_19c14.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++.exe    -Wl,--enable-auto-import -v CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_19c14.exe -Wl,--out-implib,libcmTC_19c14.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++.exe     -o CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o -c /cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/share/cmake-3.10.3/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_ba414.exe]
+  ignore line: [/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_ba414.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++.exe    -Wl,--enable-auto-import -v CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ba414.exe -Wl,--out-implib,libcmTC_ba414.dll.a -Wl,--major-image-version,0,--minor-image-version,0 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe]
@@ -287,13 +287,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 6.4.0 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/bin/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/:/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_19c14.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccUvp0zg.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_19c14.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o --out-implib libcmTC_19c14.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ba414.exe' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe -plugin /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll -plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe -plugin-opt=-fresolution=/tmp/ccRcBxpz.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lcygwin -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id -m i386pep --wrap _Znwm --wrap _Znam --wrap _ZdlPv --wrap _ZdaPv --wrap _ZnwmRKSt9nothrow_t --wrap _ZnamRKSt9nothrow_t --wrap _ZdlPvRKSt9nothrow_t --wrap _ZdaPvRKSt9nothrow_t -Bdynamic --dll-search-prefix=cyg --tsaware -o cmTC_ba414.exe /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0 -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib -L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../.. --enable-auto-import CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o --out-implib libcmTC_ba414.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lgcc_s -lgcc -lcygwin -ladvapi32 -lshell32 -luser32 -lkernel32 -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/default-manifest.o /usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtend.o]
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/collect2.exe] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/cyglto_plugin.dll] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/lto-wrapper.exe] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccUvp0zg.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccRcBxpz.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lcygwin] ==> ignore
@@ -326,7 +326,7 @@ Parsed CXX implicit link information from above output:
     arg [--dll-search-prefix=cyg] ==> ignore
     arg [--tsaware] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_19c14.exe] ==> ignore
+    arg [cmTC_ba414.exe] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../lib/crt0.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/crtbegin.o] ==> ignore
     arg [-L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0] ==> dir [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0]
@@ -337,9 +337,9 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib] ==> dir [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../../../x86_64-pc-cygwin/lib]
     arg [-L/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-cygwin/6.4.0/../../..]
     arg [--enable-auto-import] ==> ignore
-    arg [CMakeFiles/cmTC_19c14.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_ba414.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [--out-implib] ==> ignore
-    arg [libcmTC_19c14.dll.a] ==> ignore
+    arg [libcmTC_ba414.dll.a] ==> ignore
     arg [--major-image-version] ==> ignore
     arg [0] ==> ignore
     arg [--minor-image-version] ==> ignore
@@ -373,14 +373,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_a0ef6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a0ef6.dir/build.make CMakeFiles/cmTC_a0ef6.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_8343b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8343b.dir/build.make CMakeFiles/cmTC_8343b.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_a0ef6.dir/feature_tests.cxx.o
-/usr/bin/c++.exe    -std=c++1z -o CMakeFiles/cmTC_a0ef6.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_a0ef6.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_a0ef6.dir/link.txt --verbose=1
-/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_a0ef6.dir/feature_tests.cxx.o  -o cmTC_a0ef6.exe -Wl,--out-implib,libcmTC_a0ef6.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building CXX object CMakeFiles/cmTC_8343b.dir/feature_tests.cxx.o
+/usr/bin/c++.exe    -std=c++1z -o CMakeFiles/cmTC_8343b.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_8343b.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_8343b.dir/link.txt --verbose=1
+/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_8343b.dir/feature_tests.cxx.o  -o cmTC_8343b.exe -Wl,--out-implib,libcmTC_8343b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -446,14 +446,14 @@ make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV sem
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_0465b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0465b.dir/build.make CMakeFiles/cmTC_0465b.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_ad40b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ad40b.dir/build.make CMakeFiles/cmTC_ad40b.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0465b.dir/feature_tests.cxx.o
-/usr/bin/c++.exe    -std=c++14 -o CMakeFiles/cmTC_0465b.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_0465b.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_0465b.dir/link.txt --verbose=1
-/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_0465b.dir/feature_tests.cxx.o  -o cmTC_0465b.exe -Wl,--out-implib,libcmTC_0465b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building CXX object CMakeFiles/cmTC_ad40b.dir/feature_tests.cxx.o
+/usr/bin/c++.exe    -std=c++14 -o CMakeFiles/cmTC_ad40b.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_ad40b.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_ad40b.dir/link.txt --verbose=1
+/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_ad40b.dir/feature_tests.cxx.o  -o cmTC_ad40b.exe -Wl,--out-implib,libcmTC_ad40b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -519,14 +519,14 @@ make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV sem
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_7b17f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7b17f.dir/build.make CMakeFiles/cmTC_7b17f.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_52828/fast"
+/usr/bin/make -f CMakeFiles/cmTC_52828.dir/build.make CMakeFiles/cmTC_52828.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7b17f.dir/feature_tests.cxx.o
-/usr/bin/c++.exe    -std=c++11 -o CMakeFiles/cmTC_7b17f.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_7b17f.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_7b17f.dir/link.txt --verbose=1
-/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_7b17f.dir/feature_tests.cxx.o  -o cmTC_7b17f.exe -Wl,--out-implib,libcmTC_7b17f.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building CXX object CMakeFiles/cmTC_52828.dir/feature_tests.cxx.o
+/usr/bin/c++.exe    -std=c++11 -o CMakeFiles/cmTC_52828.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_52828.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_52828.dir/link.txt --verbose=1
+/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_52828.dir/feature_tests.cxx.o  -o cmTC_52828.exe -Wl,--out-implib,libcmTC_52828.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -592,14 +592,14 @@ make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV sem
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make.exe" "cmTC_c7db2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c7db2.dir/build.make CMakeFiles/cmTC_c7db2.dir/build
+Run Build Command:"/usr/bin/make.exe" "cmTC_cc9ab/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cc9ab.dir/build.make CMakeFiles/cmTC_cc9ab.dir/build
 make[1]: Entering directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c7db2.dir/feature_tests.cxx.o
-/usr/bin/c++.exe    -std=c++98 -o CMakeFiles/cmTC_c7db2.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
-Linking CXX executable cmTC_c7db2.exe
-/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_c7db2.dir/link.txt --verbose=1
-/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_c7db2.dir/feature_tests.cxx.o  -o cmTC_c7db2.exe -Wl,--out-implib,libcmTC_c7db2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+Building CXX object CMakeFiles/cmTC_cc9ab.dir/feature_tests.cxx.o
+/usr/bin/c++.exe    -std=c++98 -o CMakeFiles/cmTC_cc9ab.dir/feature_tests.cxx.o -c "/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_cc9ab.exe
+/cygdrive/c/Users/Przemo/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_cc9ab.dir/link.txt --verbose=1
+/usr/bin/c++.exe    -Wl,--enable-auto-import  CMakeFiles/cmTC_cc9ab.dir/feature_tests.cxx.o  -o cmTC_cc9ab.exe -Wl,--out-implib,libcmTC_cc9ab.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 make[1]: Leaving directory '/cygdrive/d/Politechnika - Informatyka/II rok/IV semestr/Inteligentna analiza danych/git/SiecNeuronowa/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 

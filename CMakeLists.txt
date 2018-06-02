@@ -13,5 +13,5 @@ set(SOURCE_FILES main.cpp
         headers/Neuron.h
         src/SiecNeuronow.cpp
         headers/SiecNeuronow.h
-        tests/testLosowanie.cpp)
+        tests/testLosowanie.cpp src/Gnuplot.cpp headers/Gnuplot.h headers/Testy.h headers/StrukturyZestaw.h)
 add_executable(kwiatki ${SOURCE_FILES})

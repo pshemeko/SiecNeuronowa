@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include "Losowanie.h"
+#include "Neuron.h"
 
 typedef std::vector< std::vector<double> > VEKTORDANYCH;
 
@@ -23,18 +24,18 @@ class Dane {
 public:
     VEKTORDANYCH dane; // 50 pierwsszegych kwiatkow, potem 50 druich potem trzecich
 
-    vector<double> maksima; // do normalizacji maksymalne wartosci danej zmiennej
-    vector<double> minima;  // do normalizacji
+//    vector<double> maksima; // do normalizacji maksymalne wartosci danej zmiennej
+//    vector<double> minima;  // do normalizacji
+//    void normalizuj();
 
     Dane() = default;
     virtual ~Dane();
+    void wczytaj_wzorzec(vector<Neuron*>  &wzorzec,char *nazwa);
 
-    vector<int> wylosujKolejnoscPobierania(int ileLiczb); // losuje kolejnosc liczb z przedz. [0, ileliczb) bez ileLiczb
+
+//    vector<int> wylosujKolejnoscPobierania(int ileLiczb); // losuje kolejnosc liczb z przedz. [0, ileliczb) bez ileLiczb
 
     void wczytajPlik(string nazwaPliku = "iris.data", int ilosclinii = 150); // wczytuje dane z pliku iris.data do wektora par
-
-    void normalizuj();
-
 
     void wypiszWektor(VEKTORDANYCH wek);
 

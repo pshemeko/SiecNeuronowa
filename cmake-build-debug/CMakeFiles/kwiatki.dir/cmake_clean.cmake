@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/kwiatki.dir/src/Neuron.cpp.o"
   "CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o"
   "CMakeFiles/kwiatki.dir/tests/testLosowanie.cpp.o"
+  "CMakeFiles/kwiatki.dir/src/Gnuplot.cpp.o"
   "kwiatki.pdb"
   "kwiatki.exe"
   "libkwiatki.dll.a"

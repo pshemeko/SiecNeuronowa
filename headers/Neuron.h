@@ -20,17 +20,16 @@ typedef std::vector<double> Wektor;
 
 
 class Neuron {
+    //static double wartoscBiasu;    // wywalic jako stala statyczna poza klase
+    //static bool   czyJestBias;
 
 public:
-    Wektor wagi;
-    Wektor stareWagi;       // potrzebne do propagacji wstecznej
-    double wyjscie;
-    bool   czyJestBias;
-    double wartoscBiasu;    // wywalic jako stala statyczna poza klase
-    double blad;
+    Wektor wagi;    // wspolrzedne neuronu
 
-    Neuron(int iloscWejsc, bool bias);
+    Neuron( vector<int> zakres);
+    Neuron( double x, double y); // DLA DANYCH Z PLIKU
     virtual ~Neuron() = default;
+    Neuron() = default;
 };
 
 

@@ -177,6 +177,33 @@ src/Dane.cpp.s:
 	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Dane.cpp.s
 .PHONY : src/Dane.cpp.s
 
+src/Gnuplot.o: src/Gnuplot.cpp.o
+
+.PHONY : src/Gnuplot.o
+
+# target to build an object file
+src/Gnuplot.cpp.o:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Gnuplot.cpp.o
+.PHONY : src/Gnuplot.cpp.o
+
+src/Gnuplot.i: src/Gnuplot.cpp.i
+
+.PHONY : src/Gnuplot.i
+
+# target to preprocess a source file
+src/Gnuplot.cpp.i:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Gnuplot.cpp.i
+.PHONY : src/Gnuplot.cpp.i
+
+src/Gnuplot.s: src/Gnuplot.cpp.s
+
+.PHONY : src/Gnuplot.s
+
+# target to generate assembly for a file
+src/Gnuplot.cpp.s:
+	$(MAKE) -f CMakeFiles/kwiatki.dir/build.make CMakeFiles/kwiatki.dir/src/Gnuplot.cpp.s
+.PHONY : src/Gnuplot.cpp.s
+
 src/Losowanie.o: src/Losowanie.cpp.o
 
 .PHONY : src/Losowanie.o
@@ -300,6 +327,9 @@ help:
 	@echo "... src/Dane.o"
 	@echo "... src/Dane.i"
 	@echo "... src/Dane.s"
+	@echo "... src/Gnuplot.o"
+	@echo "... src/Gnuplot.i"
+	@echo "... src/Gnuplot.s"
 	@echo "... src/Losowanie.o"
 	@echo "... src/Losowanie.i"
 	@echo "... src/Losowanie.s"

@@ -8,8 +8,8 @@
 Dane::~Dane() {
 }
 
-void Dane::normalizuj()
-{
+//void Dane::normalizuj()
+//{
     /*
     int ileDanych = daneWszystkie[0].first.size();
 
@@ -36,11 +36,12 @@ void Dane::normalizuj()
         }
     }
      */
-}
+//}
 
+/*
 void Dane::wypiszWektor(VEKTORDANYCH wek)
 {
-    /*
+
     for(int i = 0; i < wek.size(); i++)   //po wszystkich danych wejsciowych
     {
         cout << i << "\t|";
@@ -57,46 +58,49 @@ void Dane::wypiszWektor(VEKTORDANYCH wek)
         cout <<endl;
     }
     cout << "koniec par!" << endl;
-*/
-}
 
+}
+*/
+
+/*
 void Dane::wczytajPlik(string nazwaPliku,int ilosclinii) // wczytuje dane z pliku iris.data do wektora par
 {
-    /*
-    double raz,dwa,trzy,cztery;
-    char c1;
-    string nazwa;
 
-    ifstream plik;
-    plik.open(nazwaPliku.c_str(), ios_base::in);   // otworz plik w trybie do odczytu
-    if (!plik.is_open())
-    {
-        cout << "\nBlad otwarcia pliku\n";
-    }
+   double raz,dwa,trzy,cztery;
+   char c1;
+   string nazwa;
 
-    while(ilosclinii--) { //cin.peek()!= EOF
-        plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
-        //    cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
-        //vector<double> dana1 ({raz, dwa, trzy, cztery});
-        vector<double> dana1;
-        dana1.push_back(raz);
-        dana1.push_back(dwa);
-        dana1.push_back(trzy);
-        dana1.push_back(cztery);
+   ifstream plik;
+   plik.open(nazwaPliku.c_str(), ios_base::in);   // otworz plik w trybie do odczytu
+   if (!plik.is_open())
+   {
+       cout << "\nBlad otwarcia pliku\n";
+   }
 
-        vector<double> dana2;
+   while(ilosclinii--) { //cin.peek()!= EOF
+       plik >> raz >> c1 >> dwa >> c1 >> trzy >> c1 >> cztery >> c1 >> nazwa;
+       //    cout << raz << c1 << dwa << c1 << trzy << c1 << cztery << c1 << nazwa << endl;
+       //vector<double> dana1 ({raz, dwa, trzy, cztery});
+       vector<double> dana1;
+       dana1.push_back(raz);
+       dana1.push_back(dwa);
+       dana1.push_back(trzy);
+       dana1.push_back(cztery);
 
-        if(nazwa == "Iris-setosa")     dana2 = vector<double>({1.0, 0.0, 0.0});
-        if(nazwa == "Iris-versicolor") dana2 = vector<double>({0.0, 1.0, 0.0});
-        if(nazwa == "Iris-virginica")  dana2 = vector<double>({0.0, 0.0, 1.0});
-        pair<vector<double>, vector<double>> para = std::make_pair(dana1, dana2);
+       vector<double> dana2;
 
-        daneWszystkie.push_back(para);
-    }
-    */
+       if(nazwa == "Iris-setosa")     dana2 = vector<double>({1.0, 0.0, 0.0});
+       if(nazwa == "Iris-versicolor") dana2 = vector<double>({0.0, 1.0, 0.0});
+       if(nazwa == "Iris-virginica")  dana2 = vector<double>({0.0, 0.0, 1.0});
+       pair<vector<double>, vector<double>> para = std::make_pair(dana1, dana2);
+
+       daneWszystkie.push_back(para);
+   }
+
 }
+*/
 
-
+/*
 vector<int> Dane::wylosujKolejnoscPobierania(int ileLiczb)
 {
     Losowanie losowana(0,ileLiczb);
@@ -125,3 +129,35 @@ vector<int> Dane::wylosujKolejnoscPobierania(int ileLiczb)
     return wynik;
 }
 
+ */
+
+void Dane::wczytaj_wzorzec(vector<Neuron * > &wzorzec,char *nazwa){
+    fstream dane;
+    dane.open(nazwa, ios::in | ios::out) ;
+    double liczba;
+    int i=0;
+    int j=0;
+    //wzorzec.push_back(vector<double>());
+    vector<double> vv;
+    if(dane.is_open()){
+        cout<<"plik otwarty.."<<endl;
+        while(!dane.eof() ){
+            dane>>liczba;
+            vv.push_back(liczba);
+            j=vv.size();
+            // cout<<wzorzec[i][j-1]<<"d";
+            if(j==2){
+                i++;
+                Neuron *nn = new Neuron(vv[0],vv[1]);
+                wzorzec.push_back(nn);
+
+                vv.clear();
+                //wzorzec.push_back(vector<double>());
+                // cout<<endl;
+            }
+        }
+        dane.close();
+        //wzorzec.pop_back();
+    }
+    else cout<<"plik nie zostal otwarty"<<endl;
+}
