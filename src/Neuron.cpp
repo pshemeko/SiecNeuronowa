@@ -18,3 +18,14 @@ Neuron::Neuron( double x, double y)
     wagi.push_back(x);
     wagi.push_back(y);
 }
+
+double Neuron::odlegloscEuklidesowa( Neuron * neuron)
+{
+    double suma = 0.0;
+    for(int i = 0; i < wagi.size(); i++)
+    {
+        suma += (wagi[i] - neuron->wagi[i]) * (wagi[i] - neuron->wagi[i]);
+    }
+    suma = sqrt(suma);
+    return suma;
+}

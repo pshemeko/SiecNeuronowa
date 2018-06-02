@@ -1,7 +1,6 @@
 
 #include <iostream>
 #include <iomanip>
-#include <string.h>
 
 #include "headers/Matematyka.h"
 //#include "headers/Losowanie.h"
@@ -36,10 +35,19 @@ int main() {
     /////// deklaracja zmiennych
     vector<int> wymiar({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});    // to jest przekazywane do neuronu ktory jest centum
 
-    SiecNeuronow siec(wymiar);
+    SiecNeuronow siec(wymiar, iloscCentrow, zestaw);
 
     ///////////////////  PROGRAM
 
+    siec.obliczOdleglosci();
+
+    siec.sortujOdleglosci();
+
+
+
+
+
+/*
     //rysuj(zestaw.nazwa);
     vector<int> v({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});
     vector<int> v1({-5, 5, 11, 21, 0, 1, 2, 10, -10, -5});
@@ -62,5 +70,5 @@ int main() {
     }
 
     cout << endl <<endl<< ile;
-
+*/
 }

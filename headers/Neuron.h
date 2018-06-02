@@ -29,7 +29,9 @@ public:
     Neuron( vector<int> zakres);
     Neuron( double x, double y); // DLA DANYCH Z PLIKU
     virtual ~Neuron() = default;
-    Neuron() = default;
+    Neuron() = default; // teraznie wiem po co on
+
+    double odlegloscEuklidesowa( Neuron * neuron);
 };
 
 

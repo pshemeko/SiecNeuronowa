@@ -5,6 +5,7 @@
 #ifndef KWIATKI_STRUKTURYZESTAW_H
 #define KWIATKI_STRUKTURYZESTAW_H
 
+#include <string.h>
 
 struct Zestaw
 {

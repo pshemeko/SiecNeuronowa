@@ -30,7 +30,7 @@ public:
 
     Dane() = default;
     virtual ~Dane();
-    void wczytaj_wzorzec(vector<Neuron*>  &wzorzec,char *nazwa);
+    static void wczytaj_wzorzec(vector<Neuron*>  &wzorzec,char *nazwa);
 
 
 //    vector<int> wylosujKolejnoscPobierania(int ileLiczb); // losuje kolejnosc liczb z przedz. [0, ileliczb) bez ileLiczb

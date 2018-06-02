@@ -25,10 +25,12 @@ CMakeFiles/kwiatki.dir/src/Neuron.cpp.o: ../headers/Losowanie.h
 CMakeFiles/kwiatki.dir/src/Neuron.cpp.o: ../headers/Neuron.h
 CMakeFiles/kwiatki.dir/src/Neuron.cpp.o: ../src/Neuron.cpp
 
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../headers/Dane.h
 CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../headers/Losowanie.h
 CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../headers/Matematyka.h
 CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../headers/Neuron.h
 CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../headers/SiecNeuronow.h
+CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../headers/StrukturyZestaw.h
 CMakeFiles/kwiatki.dir/src/SiecNeuronow.cpp.o: ../src/SiecNeuronow.cpp
 
 CMakeFiles/kwiatki.dir/tests/testLosowanie.cpp.o: ../headers/Losowanie.h
