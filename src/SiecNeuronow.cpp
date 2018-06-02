@@ -13,6 +13,7 @@ SiecNeuronow::SiecNeuronow(vector<int> &wymiar, int iloscCentrow, Zestaw zestaw)
     }
     Dane::wczytaj_wzorzec(zadanePunkty, zestaw.nazwa);
     odleglosci.clear();
+    czyPosortowaneOdleglosci = false;
 }
 
 string SiecNeuronow::wypiszZadanePunkty()
@@ -62,6 +63,7 @@ string SiecNeuronow::wypiszOdleglosci()
 void SiecNeuronow::obliczOdleglosci()
 {
     odleglosci.clear();
+    czyPosortowaneOdleglosci = false;
     //odleglosci.push_back(make_pair(vector<double>(),vector<double>()));
     for(int i = 0 ; i < zadanePunkty.size(); ++i)
     {
@@ -93,4 +95,62 @@ void SiecNeuronow::sortujOdleglosci()   // po 0 sa najmniejsze odleglosci
             }
         }
     }
+    czyPosortowaneOdleglosci = true;
+}
+
+double SiecNeuronow::obliczBladKwantyzacji() // TODO zrobic na wykladzie jest i do wykresow dac
+{
+    // musi byc posortowane
+    if(!czyPosortowaneOdleglosci) sortujOdleglosci();
+
+    double blad = 0.0;
+
+    // obliczam z wzoru z wykladow na E
+    for(int i = 0; i < odleglosci.size(); ++i )
+    {
+        //double odl = neuronyCentalne[odleglosci[i].first[0]]->odlegloscEuklidesowa(zadanePunkty[i]); // mozna prosciejponizej
+        double odl = odleglosci[i].second[0];// bo second to odleglosc
+        odl *=odl; //bo kwadrat we wzorze
+        blad += odl;
+    }
+    blad /= odleglosci.size();
+    return blad;
+}
+
+void SiecNeuronow::adapptacjaWagWersjaOFFLine()
+{
+    //obliczOdleglosci();
+    //sortujOdleglosci();
+    int ile = 0;
+
+    vector<double> wspolrzedneNowe = neuronyCentalne[0]->wagi;  // aby mial ten sam rozmiar
+
+    for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
+
+    // alggorytm adaptacji parametrow funkcji radialnych  procesie samoorganizacji str. 28.
+    for(int i = 0; i < neuronyCentalne.size(); ++i)
+    {
+        for(int j = 0; j < odleglosci.size(); ++j)
+        {
+            if(odleglosci[j].first[0] == i)
+            {
+                for(int l = 0; l < wspolrzedneNowe.size(); ++l) // sumuje kazda wspolrzedna
+                {
+                    wspolrzedneNowe[l] +=zadanePunkty[j]->wagi[l];
+                }
+                ile++;
+            }
+        }
+        if(ile !=0)
+        {
+            for(int k = 0; k < wspolrzedneNowe.size(); ++k)
+            {
+                wspolrzedneNowe[k] = wspolrzedneNowe[k] / ile;
+                neuronyCentalne[i]->wagi[k] = wspolrzedneNowe[k];
+            }
+        }
+        ile = 0;
+        for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
+    }
+
 }

@@ -28,11 +28,12 @@ typedef std::vector<std::pair< std::vector<double>, std::vector<double> > > VEKT
 using namespace std;
 
 class SiecNeuronow {
-
+public:
     VEKTORDANYCH zadanePunkty;  // punkty z pliku
     VEKTORDANYCH neuronyCentalne;       // neurony ktore sa centalnymi ktore pokkrywaja przestrzen
     VEKTORPAR odleglosci;       // zapisane sa pary: first: numer neuronu i second : odleglosc tego neuronu do danego zadanego punktu
 
+    bool czyPosortowaneOdleglosci; // zapamietuje czy VEKTORPAR odleglosci jest posortowany
 public:
 
     string wypiszZadanePunkty();
@@ -46,7 +47,9 @@ public:
     void obliczOdleglosci();
     void sortujOdleglosci();    // sortuje tak pod nr 0(apierwszy) w parze jest neuron centralny ktory jest najblizej zadanego i-tego neurony
 
-    double obliczBladKwantyzacji(); // TODO zrobic na wykladzie jest i do wykresow dac
+    double obliczBladKwantyzacji(); // cos jak blad sieci // TODO zapisywac do pliku i zrobic wykres jak w sprwku 2b
+
+    void adapptacjaWagWersjaOFFLine(); // jedna z wersji
 
 /*
     vector<vector<Neuron*> > siecNeuronow;

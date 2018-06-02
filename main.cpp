@@ -39,14 +39,19 @@ int main() {
 
     ///////////////////  PROGRAM
 
+    for(int i = 0; i < ILOSC_EPOK; ++i)
+    {
     siec.obliczOdleglosci();
 
     siec.sortujOdleglosci();
 
+    siec.adapptacjaWagWersjaOFFLine();
+    cout << i << " ";
+    }
+cout << endl<<endl<<endl <<" KONIECcccccccccccccccccccccccccccccccccccccccccccccccccccc" <<endl;
+    /////////////////////teraz rysuje
 
-
-
-
+    
 /*
     //rysuj(zestaw.nazwa);
     vector<int> v({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});
