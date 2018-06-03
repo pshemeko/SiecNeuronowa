@@ -161,3 +161,4 @@ void Dane::wczytaj_wzorzec(vector<Neuron * > &wzorzec,char *nazwa){
     }
     else cout<<"plik nie zostal otwarty"<<endl;
 }
+

@@ -154,3 +154,94 @@ void SiecNeuronow::adapptacjaWagWersjaOFFLine()
     }
 
 }
+
+void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku)
+{
+    ofstream zapis(nazwaPliku);//obiekt tworzymy tylko raz
+
+    for(int i=0; i<dana.size(); i++){
+        for(int j=0;j<dana[i]->wagi.size();j++){
+            zapis<<dana[i]->wagi[j]<<" ";
+        }
+        zapis<<endl;
+    }
+
+    zapis.close();
+}
+
+void SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentrow)
+{
+    zapiszDoPliku(neuronyCentalne, nazwaPlikuCentrow);   // zapisuje neurony centralne do pliku by moc rysowac je
+
+    // musi byc posortowane
+    if(!czyPosortowaneOdleglosci) sortujOdleglosci();
+
+    string nazwa;
+
+    //int l=0;
+    //int a=1;
+    VEKTORDANYCH p1;
+
+    for(int i=0;i<iloscCentrow;i++)
+    {
+        sprintf((char*)nazwa.c_str(), "%d", i);
+        string nazwa1 = nazwa.c_str();
+        nazwa1=nazwa1+".txt";
+                //char *nazwa3 = new char[nazwa1.length() + 1];
+                //strcpy(nazwa3, nazwa1.c_str());
+  cout<<nazwa1<<" ";
+        for(int j=0;j<odleglosci.size();j++)
+        {
+            if(odleglosci[j].first[0] == i)
+            {
+                p1.push_back(new Neuron(zadanePunkty[j]->wagi[0], zadanePunkty[j]->wagi[1]));
+                //p1.push_back(vector<double>());
+                //p1[l].push_back(wzorzec[j][0]);
+                //p1[l].push_back(wzorzec[j][1]);
+                //l++;
+
+            }
+            // cout<<nazwa<<" ";
+        }
+        zapiszDoPliku(p1,nazwa1);
+        p1.clear();
+        //l=0;
+    }
+    p1.clear();
+
+}
+
+
+void SiecNeuronow::rysujWykres( int iloscCentrow, int numer)
+{
+    //char *plikCentrow = "neuronyCentralne.txt";
+    string nazwaPlikuCentrow = "neuronyCentralne.txt";
+
+    zapiszWszystkoWPliku(iloscCentrow, nazwaPlikuCentrow);
+
+    string nazwa1;
+    string s0="plot ";
+    string s1=" w points ps 0.5 pt 7 ";
+    ostringstream ss;
+    string nn;
+
+    for(int i = 0 ; i < iloscCentrow; ++i)  // tworze pliki oraz komnde do plota
+    {
+        sprintf((char*)nazwa1.c_str(), "%d", i);
+        string nazwa2 = nazwa1.c_str();
+        nazwa1=nazwa2+".txt";
+        s0=s0+"'"+nazwa1+"'"+s1+", ";
+    }
+
+    s0=s0+ "'"+nazwaPlikuCentrow + "' \n";// " w points ps 2 pt 1 lc rgb 'red' \n";
+
+    ss << numer;
+    nn = ss.str();
+
+ cout << endl << s0 <<endl;
+    rysuj1(s0,nn);
+    //rysuj(nazwa2);
+    //getchar() ;
+
+
+}

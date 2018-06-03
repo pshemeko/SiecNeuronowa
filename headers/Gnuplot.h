@@ -53,4 +53,23 @@ static void rysuj(string str)
 
 }
 
+static void rysuj1(string komenda, string nazwaPlikuPNG)
+{
+    Gnuplot gnuplot;
+
+    gnuplot("set term png truecolor\n"); //ustawienie terminala na png
+    gnuplot("set output \""+nazwaPlikuPNG+".png\" \n");  //ustawienie pliku do którego maja zostac zapisane dane
+    gnuplot("set xlabel 'Wartosci'\n"); //ustawienie opisu osi x
+    gnuplot("set ylabel 'liczebnosc'\n"); // ustawienie osi y
+    gnuplot("set boxwidth 0.5 relative\n");
+    gnuplot("set style fill transparent solid 0.5 noborder\n");
+    gnuplot("set xtics rotate out\n");
+    gnuplot("set key title \"Legenda\" box\n");
+
+    gnuplot(komenda);
+    gnuplot("exit\n");
+
+}
+
+
 #endif //KWIATKI_GNUPLOT_H

@@ -12,6 +12,7 @@
 #include "Neuron.h"
 #include "StrukturyZestaw.h"
 #include "Dane.h"
+#include "Gnuplot.h"
 #include <fstream>
 
 
@@ -28,7 +29,10 @@ typedef std::vector<std::pair< std::vector<double>, std::vector<double> > > VEKT
 using namespace std;
 
 class SiecNeuronow {
-public:
+
+    void zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku);  //zapisuje neuronyCentralne do pliku
+
+
     VEKTORDANYCH zadanePunkty;  // punkty z pliku
     VEKTORDANYCH neuronyCentalne;       // neurony ktore sa centalnymi ktore pokkrywaja przestrzen
     VEKTORPAR odleglosci;       // zapisane sa pary: first: numer neuronu i second : odleglosc tego neuronu do danego zadanego punktu
@@ -50,6 +54,11 @@ public:
     double obliczBladKwantyzacji(); // cos jak blad sieci // TODO zapisywac do pliku i zrobic wykres jak w sprwku 2b
 
     void adapptacjaWagWersjaOFFLine(); // jedna z wersji
+
+
+    void zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow); // musi byc posortowane
+
+    void rysujWykres(int iloscCentrow, int numer);   // zapisuje do plikow i rysuje wykres
 
 /*
     vector<vector<Neuron*> > siecNeuronow;

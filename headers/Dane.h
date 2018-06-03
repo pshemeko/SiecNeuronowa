@@ -14,6 +14,7 @@
 #include <fstream>
 #include "Losowanie.h"
 #include "Neuron.h"
+#include "SiecNeuronow.h"
 
 //typedef std::vector< std::vector<double> > VEKTORDANYCH;
 
@@ -36,6 +37,8 @@ public:
 //    vector<int> wylosujKolejnoscPobierania(int ileLiczb); // losuje kolejnosc liczb z przedz. [0, ileliczb) bez ileLiczb
 
     void wczytajPlik(string nazwaPliku = "iris.data", int ilosclinii = 150); // wczytuje dane z pliku iris.data do wektora par
+
+
 
   //  void wypiszWektor(VEKTORDANYCH wek);
 

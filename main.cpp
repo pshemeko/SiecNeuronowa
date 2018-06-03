@@ -39,19 +39,22 @@ int main() {
 
     ///////////////////  PROGRAM
 
-    for(int i = 0; i < ILOSC_EPOK; ++i)
+    for(int i = 0; i < 20; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
-    siec.obliczOdleglosci();
+        cout << endl << "Epoka :" << i << " \t";
 
-    siec.sortujOdleglosci();
+        siec.obliczOdleglosci();
 
-    siec.adapptacjaWagWersjaOFFLine();
-    cout << i << " ";
+        siec.sortujOdleglosci();
+
+        siec.adapptacjaWagWersjaOFFLine();
+
+        siec.rysujWykres(iloscCentrow, i);
+
     }
-cout << endl<<endl<<endl <<" KONIECcccccccccccccccccccccccccccccccccccccccccccccccccccc" <<endl;
-    /////////////////////teraz rysuje
+cout << endl<<endl <<"\t KONIEC" <<endl;
 
-    
+
 /*
     //rysuj(zestaw.nazwa);
     vector<int> v({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});
