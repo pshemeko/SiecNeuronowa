@@ -1,0 +1,7 @@
+1. czy b³¹d kwantyzacji liczymy dla ka¿dego neuronu, czy tez dla coa³ej sieci w sensie sumujemy blad kazdeg neuronu i dzieimy przez iosc neuronow???
+
+
+
+program strona do robienia animowanych gifow:
+https://gifmake.com/
+

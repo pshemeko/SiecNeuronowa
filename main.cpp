@@ -33,15 +33,19 @@ int main() {
     srand(time(NULL));
 
     /////// deklaracja zmiennych
+    string nazwaPlikuBledu = "Wykres_Bledu_Kwantyzacji";
+    ofstream foutKwantyzacji(nazwaPlikuBledu+".txt");
+
     vector<int> wymiar({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});    // to jest przekazywane do neuronu ktory jest centum
 
     SiecNeuronow siec(wymiar, iloscCentrow, zestaw);
 
+
     ///////////////////  PROGRAM
 
-    for(int i = 0; i < 20; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
+    for(int i = 0; i < 50; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
-        cout << endl << "Epoka :" << i << " \t";
+        //cout << endl << "Epoka :" << i << " \t";
 
         siec.obliczOdleglosci();
 
@@ -49,34 +53,28 @@ int main() {
 
         siec.adapptacjaWagWersjaOFFLine();
 
-        siec.rysujWykres(iloscCentrow, i);
-
-    }
-cout << endl<<endl <<"\t KONIEC" <<endl;
-
-
-/*
-    //rysuj(zestaw.nazwa);
-    vector<int> v({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});
-    vector<int> v1({-5, 5, 11, 21, 0, 1, 2, 10, -10, -5});
-    Neuron n1(v);
-    Neuron n2(v1);
-    for (int i = 0; i < n1.wagi.size(); i++) { cout << n1.wagi[i] << "  "; };
-    cout << endl << "drugi" << endl;
-    for (int i = 0; i < n2.wagi.size(); i++) { cout << n2.wagi[i] << "  "; };
-    Dane dana;
-    vector<Neuron *> punkty;
-    dana.wczytaj_wzorzec(punkty, zestaw.nazwa);
-    int ile = 0;
-
-    for (int i = 0; i < punkty.size(); i++) {
-        for (int j = 0; j < punkty[i]->wagi.size(); j++) {
-            cout << punkty[i]->wagi[j] << " ";
+        if(i <2)   // na poczatek rysuje wszystkie 20 epok a potem co 10
+        {
+            siec.rysujWykres(iloscCentrow, i);
         }
-        cout << endl;
-        ile++;
-    }
+        else
+        {
+            if(i % 10 == 0) siec.rysujWykres(iloscCentrow, i);
+        }
 
-    cout << endl <<endl<< ile;
-*/
+        double blad = siec.obliczBladKwantyzacji();
+        cout << "Epoka " << i <<", blad kwantyzacji: " << blad <<endl;
+        foutKwantyzacji << i << " " << blad << endl;
+    }
+    foutKwantyzacji.close(); //musze zamknac plik zanim bede zniego rysowal wykres
+    rysuj(nazwaPlikuBledu); // rysuje wykres bledow kwantyzacji
+
+
+
+
+    cout << endl<<endl <<"\t KONIEC" <<endl;
+
+
+
+
 }

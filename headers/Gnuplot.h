@@ -36,8 +36,8 @@ static void rysuj(string str)
     gnuplot("set term png truecolor\n"); //ustawienie terminala na png
     //gnuplot("set output \"plikStaryZLY.png\" \n");  //ustawienie pliku do którego maj¹ zostaæ zapisane dane
     gnuplot("set output \""+str+".png\" \n");  //ustawienie pliku do którego maj¹ zostaæ zapisane dane
-    gnuplot("set xlabel 'Wartosci'\n"); //ustawienie opisu osi x
-    gnuplot("set ylabel 'liczebnosc'\n"); // ustawienie osi y
+    gnuplot("set xlabel 'Epoka'\n"); //ustawienie opisu osi x
+    gnuplot("set ylabel 'Wartosc bledu kwantyzacji'\n"); // ustawienie osi y
     gnuplot("set boxwidth 0.5 relative\n");
     gnuplot("set style fill transparent solid 0.5 noborder\n");
     gnuplot("set xtics rotate out\n");

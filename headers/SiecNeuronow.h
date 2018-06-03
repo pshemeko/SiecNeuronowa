@@ -32,7 +32,6 @@ class SiecNeuronow {
 
     void zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku);  //zapisuje neuronyCentralne do pliku
 
-
     VEKTORDANYCH zadanePunkty;  // punkty z pliku
     VEKTORDANYCH neuronyCentalne;       // neurony ktore sa centalnymi ktore pokkrywaja przestrzen
     VEKTORPAR odleglosci;       // zapisane sa pary: first: numer neuronu i second : odleglosc tego neuronu do danego zadanego punktu
@@ -56,31 +55,12 @@ public:
     void adapptacjaWagWersjaOFFLine(); // jedna z wersji
 
 
-    void zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow); // musi byc posortowane
+    string zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow); // musi byc posortowane
 
-    void rysujWykres(int iloscCentrow, int numer);   // zapisuje do plikow i rysuje wykres
+    string rysujWykres(int iloscCentrow, int numer);   // zapisuje do plikow i rysuje wykres
 
-/*
-    vector<vector<Neuron*> > siecNeuronow;
+    void rysujBledyKwantyzacji(string nazwaPlikuBledu);
 
-    vector<int> iloscNeuronowNaWarstwe;  // = {4,2,4} w konstruktorze inicjuje
-
-    SiecNeuronow(vector<int> iloscNeuronowNaWarstweDomyslna = {4,2,3});
-    virtual ~SiecNeuronow() = default;
-
-    double bladSieci();
-
-    void obliczanieWyjsciaNeuronow(vector<double> danaWej);
-    void obliczanieBledow(vector<double> danaWyj);
-    void ZmianaWagSieci();
-
-    void wypiszSiebie();
-    void wypiszBledy();
-    void wypiszRaz(vector<double> wyj);
-    string testowanieSieci2(vector<double> wejscie, vector<double> wyjscie, int &trafiony, vector<double> minNormalizacji, vector<double> maxNormalizacji); // zwraca 1 jesli kwiatek zotal dobrze wykryty 0 jesli zle
-    void wypiszWagi(ofstream & ofs);
-    int ktoryWykryto();
-    */
 };
 
 

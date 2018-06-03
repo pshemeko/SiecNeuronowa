@@ -169,8 +169,9 @@ void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku)
     zapis.close();
 }
 
-void SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentrow)
+string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentrow)
 {
+    string zwracany;
     zapiszDoPliku(neuronyCentalne, nazwaPlikuCentrow);   // zapisuje neurony centralne do pliku by moc rysowac je
 
     // musi byc posortowane
@@ -189,7 +190,7 @@ void SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentro
         nazwa1=nazwa1+".txt";
                 //char *nazwa3 = new char[nazwa1.length() + 1];
                 //strcpy(nazwa3, nazwa1.c_str());
-  cout<<nazwa1<<" ";
+  zwracany += nazwa1 +" ";
         for(int j=0;j<odleglosci.size();j++)
         {
             if(odleglosci[j].first[0] == i)
@@ -209,15 +210,17 @@ void SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentro
     }
     p1.clear();
 
+    return zwracany;
 }
 
 
-void SiecNeuronow::rysujWykres( int iloscCentrow, int numer)
+string SiecNeuronow::rysujWykres( int iloscCentrow, int numer)
 {
     //char *plikCentrow = "neuronyCentralne.txt";
     string nazwaPlikuCentrow = "neuronyCentralne.txt";
+    string zwracany;
 
-    zapiszWszystkoWPliku(iloscCentrow, nazwaPlikuCentrow);
+    zwracany = zapiszWszystkoWPliku(iloscCentrow, nazwaPlikuCentrow);
 
     string nazwa1;
     string s0="plot ";
@@ -238,10 +241,11 @@ void SiecNeuronow::rysujWykres( int iloscCentrow, int numer)
     ss << numer;
     nn = ss.str();
 
- cout << endl << s0 <<endl;
+    zwracany = "\n" + s0 + "\n";
+ //cout << endl << s0 <<endl;
     rysuj1(s0,nn);
     //rysuj(nazwa2);
     //getchar() ;
-
-
+return zwracany;
 }
+
