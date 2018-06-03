@@ -25,6 +25,7 @@ class Neuron {
 
 public:
     Wektor wagi;    // wspolrzedne neuronu
+    double potencjal;
 
     Neuron( vector<int> zakres);
     Neuron( double x, double y); // DLA DANYCH Z PLIKU

@@ -5,15 +5,17 @@
 #include "../headers/SiecNeuronow.h"
 #include "../headers/Matematyka.h"
 
-SiecNeuronow::SiecNeuronow(vector<int> &wymiar, int iloscCentrow, Zestaw zestaw)
+SiecNeuronow::SiecNeuronow(vector<int> &wymiar, int iloscCentrow, Zestaw zestawik, double potencjalMinimalny)
+    :zestaw(zestawik)
 {
     for(int i = 0; i < iloscCentrow; ++i)
     {
         neuronyCentalne.push_back(new Neuron(wymiar));
     }
-    Dane::wczytaj_wzorzec(zadanePunkty, zestaw.nazwa);
+    Dane::wczytaj_wzorzec(zadanePunkty, zestawik.nazwa);
     odleglosci.clear();
     czyPosortowaneOdleglosci = false;
+    potencjalMinimum = potencjalMinimalny;
 }
 
 string SiecNeuronow::wypiszZadanePunkty()
@@ -60,18 +62,18 @@ string SiecNeuronow::wypiszOdleglosci()
 }
 
 
-void SiecNeuronow::obliczOdleglosci()
+void SiecNeuronow::obliczOdleglosci(VEKTORDANYCH &wektor)
 {
     odleglosci.clear();
     czyPosortowaneOdleglosci = false;
     //odleglosci.push_back(make_pair(vector<double>(),vector<double>()));
-    for(int i = 0 ; i < zadanePunkty.size(); ++i)
+    for(int i = 0 ; i < wektor.size(); ++i)
     {
         vector<double> punkt;
         vector<double> odlegly;
         for(int j = 0; j < neuronyCentalne.size(); ++j)
         {
-            double odl = neuronyCentalne[j]->odlegloscEuklidesowa(zadanePunkty[i]);
+            double odl = neuronyCentalne[j]->odlegloscEuklidesowa(wektor[i]);
             punkt.push_back(j);
             odlegly.push_back(odl);
         }
@@ -97,6 +99,27 @@ void SiecNeuronow::sortujOdleglosci()   // po 0 sa najmniejsze odleglosci
     }
     czyPosortowaneOdleglosci = true;
 }
+void SiecNeuronow::sortujOdleglosciDokladnie()
+{
+    for(int i = 0; i < odleglosci.size(); ++i)
+    {
+        for(int j = 0; j < odleglosci[i].first.size() - 1; ++j)
+        {
+            for(int k = j+1; k < odleglosci[i].first.size(); ++k)
+            {
+                if( odleglosci[i].second[j] > odleglosci[i].second[k])
+                {
+                    // zamieniamy
+                    swap(odleglosci[i].first[j], odleglosci[i].first[k]);
+                    swap(odleglosci[i].second[j], odleglosci[i].second[k]);
+
+                }
+            }
+
+        }
+    }
+    czyPosortowaneOdleglosci = true;
+}
 
 double SiecNeuronow::obliczBladKwantyzacji() // TODO zrobic na wykladzie jest i do wykresow dac
 {
@@ -117,42 +140,99 @@ double SiecNeuronow::obliczBladKwantyzacji() // TODO zrobic na wykladzie jest i 
     return blad;
 }
 
-void SiecNeuronow::adapptacjaWagWersjaOFFLine()
+void SiecNeuronow::obliczpotencjaly()
+{
+    int ilecentorw = neuronyCentalne.size();
+    for(int i = 0; i < odleglosci.size(); ++i)
+    {
+        for(int j = 0; j < odleglosci[i].first.size(); ++j)
+        {
+            if(0 == j) // gdy zwyciezyl odejmnij PMIN
+            {
+                neuronyCentalne[odleglosci[i].first[j]]->potencjal -= potencjalMinimum;
+            }
+            else neuronyCentalne[odleglosci[i].first[j]]->potencjal += 1.0 / ilecentorw;
+        }
+    }
+}
+
+void SiecNeuronow::adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal)
 {
     //obliczOdleglosci();
     //sortujOdleglosci();
     int ile = 0;
-
     vector<double> wspolrzedneNowe = neuronyCentalne[0]->wagi;  // aby mial ten sam rozmiar
 
     for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
 
-    // alggorytm adaptacji parametrow funkcji radialnych  procesie samoorganizacji str. 28.
-    for(int i = 0; i < neuronyCentalne.size(); ++i)
+    if(czyUwzgledniacPotencjal)
     {
-        for(int j = 0; j < odleglosci.size(); ++j)
-        {
-            if(odleglosci[j].first[0] == i)
-            {
-                for(int l = 0; l < wspolrzedneNowe.size(); ++l) // sumuje kazda wspolrzedna
-                {
-                    wspolrzedneNowe[l] +=zadanePunkty[j]->wagi[l];
-                }
-                ile++;
-            }
-        }
-        if(ile !=0)
-        {
-            for(int k = 0; k < wspolrzedneNowe.size(); ++k)
-            {
-                wspolrzedneNowe[k] = wspolrzedneNowe[k] / ile;
-                neuronyCentalne[i]->wagi[k] = wspolrzedneNowe[k];
-            }
-        }
-        ile = 0;
-        for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
-    }
+        obliczpotencjaly();
+        sortujOdleglosciDokladnie(); // sortowanie pełne wtedy tzreba zrobic
 
+        for(int i = 0; i < neuronyCentalne.size(); ++i)
+        {
+            if(neuronyCentalne[i]->potencjal > potencjalMinimum)    // gdy potencjal < PMIN neuron odpoczywa
+            {
+                for(int j = 0; j < odleglosci.size(); ++j)  // jedziemy wszystkie punkty pokolei
+                {
+                    int k = 0;
+                    while(neuronyCentalne[odleglosci[j].first[k]]->potencjal < potencjalMinimum)
+                    {
+                        ++k;
+                    }
+
+                    if(odleglosci[j].first[k] == i)
+                    {
+                        for(int l = 0; l < wspolrzedneNowe.size(); ++l) // sumuje kazda wspolrzedna
+                        {
+                            wspolrzedneNowe[l] +=zadanePunkty[j]->wagi[l];
+                        }
+                        ile++;
+                    }
+
+                }
+                if(ile !=0)
+                {
+                    for(int k = 0; k < wspolrzedneNowe.size(); ++k)
+                    {
+                        wspolrzedneNowe[k] = wspolrzedneNowe[k] / ile;
+                        neuronyCentalne[i]->wagi[k] = wspolrzedneNowe[k];
+                    }
+                }
+                ile = 0;
+                for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
+            }
+        }
+
+    }
+    else {  // gdy bez potencjalu jest jak bylo
+     // alggorytm adaptacji parametrow funkcji radialnych  procesie samoorganizacji str. 28.
+        for(int i = 0; i < neuronyCentalne.size(); ++i)
+        {
+            for(int j = 0; j < odleglosci.size(); ++j)
+            {
+                if(odleglosci[j].first[0] == i)
+                {
+                    for(int l = 0; l < wspolrzedneNowe.size(); ++l) // sumuje kazda wspolrzedna
+                    {
+                        wspolrzedneNowe[l] +=zadanePunkty[j]->wagi[l];
+                    }
+                    ile++;
+                }
+            }
+            if(ile !=0)
+            {
+                for(int k = 0; k < wspolrzedneNowe.size(); ++k)
+                {
+                    wspolrzedneNowe[k] = wspolrzedneNowe[k] / ile;
+                    neuronyCentalne[i]->wagi[k] = wspolrzedneNowe[k];
+                }
+            }
+            ile = 0;
+            for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
+        }
+    }
 }
 
 void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku)
@@ -171,7 +251,7 @@ void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku)
 
 string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentrow)
 {
-    string zwracany;
+    string zwracany; // to co moge wyswietlic w main
     zapiszDoPliku(neuronyCentalne, nazwaPlikuCentrow);   // zapisuje neurony centralne do pliku by moc rysowac je
 
     // musi byc posortowane
@@ -190,7 +270,7 @@ string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCent
         nazwa1=nazwa1+".txt";
                 //char *nazwa3 = new char[nazwa1.length() + 1];
                 //strcpy(nazwa3, nazwa1.c_str());
-  zwracany += nazwa1 +" ";
+        zwracany += nazwa1 +" ";    // zeby wyswietlic w main
         for(int j=0;j<odleglosci.size();j++)
         {
             if(odleglosci[j].first[0] == i)
@@ -249,3 +329,78 @@ string SiecNeuronow::rysujWykres( int iloscCentrow, int numer)
 return zwracany;
 }
 
+void SiecNeuronow::tworzMozaike()
+{
+    for(double i = zestaw.xmin; i < zestaw.xmax; i = i+0.1)
+    {
+        for(double j = zestaw.ymin; j < zestaw.ymax; j = j+0.1)
+        {
+            mozaika.push_back(new Neuron(i,j));
+        }
+    }
+}
+
+
+
+void SiecNeuronow::zapiszCentra()    // potrzebne do testowania ustawien by byly takie same wagi poczatkowe
+{
+    ofstream foutCenta("Wagi.txt");
+    for(int i = 0; i < neuronyCentalne.size(); ++i)
+    {
+        for(int j = 0; j<neuronyCentalne[i]->wagi.size();++j)
+        {
+            foutCenta << neuronyCentalne[i]->wagi[j] << " ";
+        }
+        foutCenta << endl;
+    }
+
+}
+
+void SiecNeuronow::wczytajCentra()
+{
+    string nazwa = "Wagi.txt";
+    fstream dane;
+    dane.open(nazwa, ios::in | ios::out) ;
+    double liczba;
+    int i=0;
+    int j=0;
+    //wzorzec.push_back(vector<double>());
+    vector<double> vv;
+    if(dane.is_open()){
+        neuronyCentalne.clear();
+        cout<<"plik otwartyyyyyy"<<endl;
+        while(!dane.eof() ){
+            dane>>liczba;
+            vv.push_back(liczba);
+            j=vv.size();
+            // cout<<wzorzec[i][j-1]<<"d";
+            if(j==2){
+                i++;
+                Neuron *nn = new Neuron(vv[0],vv[1]);
+                neuronyCentalne.push_back(nn);
+
+                vv.clear();
+                //wzorzec.push_back(vector<double>());
+                // cout<<endl;
+            }
+        }
+        dane.close();
+        //wzorzec.pop_back();
+    }
+    else cout<<"plik nie zostal otwarty"<<endl;
+}
+
+void SiecNeuronow::zapiszCetraZPotencjalem()
+{
+    ofstream foutCenta("potencjaly.txt");
+    for(int i = 0; i < neuronyCentalne.size(); ++i)
+    {
+        for(int j = 0; j<neuronyCentalne[i]->wagi.size();++j)
+        {
+            foutCenta << neuronyCentalne[i]->wagi[j] << " ";
+        }
+
+        foutCenta << " : " << neuronyCentalne[i]->potencjal <<   endl;
+    }
+
+}

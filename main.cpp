@@ -11,9 +11,11 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 1000;
+int ILOSC_EPOK = 200;
 
-int iloscCentrow = 5;
+int iloscCentrow = 30;
+double PMIN = 0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach
+bool czyPotencjalUwgledniac = false; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
 
 Zestaw A(0, 1000, -10, 15, "attract_small.txt");
 Zestaw B(0, 10000, -10, 15, "attract_small.txt");
@@ -38,20 +40,21 @@ int main() {
 
     vector<int> wymiar({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});    // to jest przekazywane do neuronu ktory jest centum
 
-    SiecNeuronow siec(wymiar, iloscCentrow, zestaw);
-
+    SiecNeuronow siec(wymiar, iloscCentrow, zestaw, PMIN);
+    //siec.zapiszCentra();
+    //siec.wczytajCentra();
 
     ///////////////////  PROGRAM
 
-    for(int i = 0; i < 50; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
+    for(int i = 0; i < ILOSC_EPOK; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
         //cout << endl << "Epoka :" << i << " \t";
 
-        siec.obliczOdleglosci();
+        siec.obliczOdleglosci(siec.zadanePunkty);
 
         siec.sortujOdleglosci();
 
-        siec.adapptacjaWagWersjaOFFLine();
+        siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
 
         if(i <2)   // na poczatek rysuje wszystkie 20 epok a potem co 10
         {
@@ -69,7 +72,13 @@ int main() {
     foutKwantyzacji.close(); //musze zamknac plik zanim bede zniego rysowal wykres
     rysuj(nazwaPlikuBledu); // rysuje wykres bledow kwantyzacji
 
+    ////// tworze mozaike
+    siec.tworzMozaike();
+    siec.obliczOdleglosci(siec.mozaika);
+    siec.sortujOdleglosci();
 
+// sprawdzam tylko
+    siec.zapiszCetraZPotencjalem();
 
 
     cout << endl<<endl <<"\t KONIEC" <<endl;

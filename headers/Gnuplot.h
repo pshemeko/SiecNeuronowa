@@ -64,7 +64,10 @@ static void rysuj1(string komenda, string nazwaPlikuPNG)
     gnuplot("set boxwidth 0.5 relative\n");
     gnuplot("set style fill transparent solid 0.5 noborder\n");
     gnuplot("set xtics rotate out\n");
-    gnuplot("set key title \"Legenda\" box\n");
+    gnuplot("set key noautotitle;\n");  // nie wyswietla legendy
+    //gnuplot("set key outside right top;");
+    //gnuplot("set key title \"Legenda\" box\n");
+    //gnuplot("set key off"); // nie rusuje legendy
 
     gnuplot(komenda);
     gnuplot("exit\n");

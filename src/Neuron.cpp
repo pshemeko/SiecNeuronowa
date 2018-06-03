@@ -11,12 +11,14 @@ Neuron::Neuron(vector<int> zakres)
         Losowanie los(zakres[i * 2], zakres[ i * 2 + 1]);
         wagi.push_back(los.losujWagi() );
     }
+    potencjal = 0.0;
 }
 
 Neuron::Neuron( double x, double y)
 {
     wagi.push_back(x);
     wagi.push_back(y);
+    potencjal = 0.0;
 }
 
 double Neuron::odlegloscEuklidesowa( Neuron * neuron)
