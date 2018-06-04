@@ -13,6 +13,7 @@ CMakeFiles/kwiatki.dir/main.cpp.o: ../main.cpp
 CMakeFiles/kwiatki.dir/src/Dane.cpp.o: ../headers/Dane.h
 CMakeFiles/kwiatki.dir/src/Dane.cpp.o: ../headers/Gnuplot.h
 CMakeFiles/kwiatki.dir/src/Dane.cpp.o: ../headers/Losowanie.h
+CMakeFiles/kwiatki.dir/src/Dane.cpp.o: ../headers/Matematyka.h
 CMakeFiles/kwiatki.dir/src/Dane.cpp.o: ../headers/Neuron.h
 CMakeFiles/kwiatki.dir/src/Dane.cpp.o: ../headers/SiecNeuronow.h
 CMakeFiles/kwiatki.dir/src/Dane.cpp.o: ../headers/StrukturyZestaw.h

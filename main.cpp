@@ -11,10 +11,17 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 20;
+static int ILOSC_EPOK = 20;
+static int iloscCentrow = 10;
+static double PMIN = 0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
+double LAMBDA = 2.0;//??? chyba zrobic min i max
+/////////// LAMBDA NIE MOZE BYC < 0
 
-int iloscCentrow = 10;
-double PMIN = 0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach
+vector<double> ETA({0.8, 0.6, 0.4, 0.2, 0.1}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
+static int K_iluSasiadomZmieniamy = ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
+////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
+
+
 bool czyPotencjalUwgledniac = false; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
 
 Zestaw A(0, 1000, -10, 15, "attract_small.txt");
@@ -50,13 +57,13 @@ int main() {
     {
         //cout << endl << "Epoka :" << i << " \t";
 
-        siec.obliczOdleglosci(siec.zadanePunkty);
+        //siec.obliczOdleglosci(siec.zadanePunkty);
+        //siec.sortujOdleglosci();
+        //siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
 
-        siec.sortujOdleglosci();
+        siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA);
 
-        siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
-
-        if(i <2)   // na poczatek rysuje wszystkie 20 epok a potem co 10
+        if(i <6)   // na poczatek rysuje wszystkie 20 epok a potem co 10
         {
             siec.rysujWykres(iloscCentrow, i,siec.zadanePunkty);
         }

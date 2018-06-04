@@ -13,6 +13,7 @@
 #include "StrukturyZestaw.h"
 #include "Dane.h"
 #include "Gnuplot.h"
+#include "Matematyka.h"
 #include <fstream>
 
 
@@ -36,9 +37,8 @@ class SiecNeuronow {
     void obliczpotencjaly();
 public:
     void sortujOdleglosciDokladnie(); // robi pelne sortowanie vektorapar odleglosci
-    void zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku);  //zapisuje neuronyCentralne do pliku
+    void zapiszDoPliku(VEKTORDANYCH &dana, string nazwaPliku);  //zapisuje neuronyCentralne do pliku
 
-public:
 
     VEKTORDANYCH zadanePunkty;  // punkty z pliku
     VEKTORDANYCH neuronyCentalne;       // neurony ktore sa centalnymi ktore pokkrywaja przestrzen
@@ -61,7 +61,9 @@ public:
 
 
 
-    void adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal); // jedna z wersji
+    void adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal); // jedna z wersji Klasyczny algorytm WTA
+
+    void adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, vector<double> wspolczynnikiNaukiSasiadow); // ONLINE
 
 
     string zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow, VEKTORDANYCH &dane); // musi byc posortowane

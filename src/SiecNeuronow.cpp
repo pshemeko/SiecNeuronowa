@@ -235,7 +235,85 @@ void SiecNeuronow::adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal)
     }
 }
 
-void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku)
+void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, vector<double> wspolczynnikiNaukiSasiadow)
+{
+    odleglosci.clear();
+    int iluSasiadow = wspolczynnikiNaukiSasiadow.size();
+    if(iluSasiadow > neuronyCentalne.size())
+    {
+        cout <<endl<<endl<< "!!!!!!!!!!!!!!!!!! BLAD NIE MOZNA ADAPTOWAC WIECEJ SASIADOW NIZ JEST CENTROW" <<endl<<endl;
+        exit(99999);
+    }
+    //obliczOdleglosci();
+    //sortujOdleglosciDokladnie();
+    int ile = 0;
+    //vector<double> wspolrzedneNowe = neuronyCentalne[0]->wagi;  // aby mial ten sam rozmiar
+    //for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
+
+    //vector<double> ileRazyZmienionoCentum;
+   //for (int i = 0; i < neuronyCentalne.size(); ++i) ileRazyZmienionoCentum.push_back(0.0); // zapisuje i;le razy modyfikowalem wagi danego centum
+
+    if(czyUwzgledniacPotencjal)
+    {
+
+    }
+    else
+    {
+
+            ///////////// wybierz kolejny punkt znajdz najblizsze mu centa i zmien ich wagi
+        for(int i = 0; i < zadanePunkty.size(); ++i)
+            {
+                VEKTORPAR para;
+                vector<double> punkt;
+                vector<double> odlegly;
+                // zwyliczam odleglosci wszystkich neuronow od tego punktu
+                for(int j = 0; j <neuronyCentalne.size(); ++j)
+                {
+                    double odl = neuronyCentalne[j]->odlegloscEuklidesowa(zadanePunkty[i]);
+                    punkt.push_back(j);
+                    odlegly.push_back(odl);
+                }
+                para.push_back(make_pair(punkt,odlegly));
+
+                // teraz sortuje odleglosci od najblizszego
+                for(int j = 0; j < para[0].first.size() - 1; ++j)
+                {
+                    for(int k = j+1; k < para[0].first.size(); ++k)
+                    {
+                        if( para[0].second[j] > para[0].second[k])
+                        {
+                            // zamieniamy
+                            swap(para[0].first[j], para[0].first[k]);
+                            swap(para[0].second[j], para[0].second[k]);
+
+                        }
+                    }
+                }
+
+             // modyfikuje wagi wszystkich neurony od najblizszego do zadanego punktu az do K-tego(z main) czyli iluSasiadow
+
+             for(int j = 0; j < iluSasiadow; ++j)
+             {
+                 // tu njpierw oblicz potencjal gdy wybrano
+                 for(int k = 0; k< neuronyCentalne[0]->wagi.size(); ++k)
+                 {
+                     // wzor z wykladu strona 39 oraz 42
+                    neuronyCentalne[para[0].first[j]]-> wagi[k]
+                            += wspolczynnikiNaukiSasiadow[j] * funkcjaSasiedztwaGazuNeuronowego(j,lambda)
+                               * (zadanePunkty[i]->wagi[k] - neuronyCentalne[para[0].first[j]]-> wagi[k]);
+
+                 }
+
+
+             }
+
+            }
+
+        }
+}
+
+
+void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH &dana, string nazwaPliku)
 {
     ofstream zapis(nazwaPliku);//obiekt tworzymy tylko raz
 
