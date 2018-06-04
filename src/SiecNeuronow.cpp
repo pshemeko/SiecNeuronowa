@@ -249,9 +249,10 @@ void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku)
     zapis.close();
 }
 
-string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentrow)
+string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCentrow, VEKTORDANYCH &dane)
 {
     string zwracany; // to co moge wyswietlic w main
+
     zapiszDoPliku(neuronyCentalne, nazwaPlikuCentrow);   // zapisuje neurony centralne do pliku by moc rysowac je
 
     // musi byc posortowane
@@ -271,11 +272,12 @@ string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCent
                 //char *nazwa3 = new char[nazwa1.length() + 1];
                 //strcpy(nazwa3, nazwa1.c_str());
         zwracany += nazwa1 +" ";    // zeby wyswietlic w main
+
         for(int j=0;j<odleglosci.size();j++)
         {
             if(odleglosci[j].first[0] == i)
             {
-                p1.push_back(new Neuron(zadanePunkty[j]->wagi[0], zadanePunkty[j]->wagi[1]));
+                p1.push_back(new Neuron(dane[j]->wagi[0], dane[j]->wagi[1]));
                 //p1.push_back(vector<double>());
                 //p1[l].push_back(wzorzec[j][0]);
                 //p1[l].push_back(wzorzec[j][1]);
@@ -294,16 +296,19 @@ string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCent
 }
 
 
-string SiecNeuronow::rysujWykres( int iloscCentrow, int numer)
+string SiecNeuronow::rysujWykres( int iloscCentrow, int numer, VEKTORDANYCH &dane, string komendaJest)
 {
     //char *plikCentrow = "neuronyCentralne.txt";
     string nazwaPlikuCentrow = "neuronyCentralne.txt";
     string zwracany;
 
-    zwracany = zapiszWszystkoWPliku(iloscCentrow, nazwaPlikuCentrow);
+    zwracany = zapiszWszystkoWPliku(iloscCentrow, nazwaPlikuCentrow, dane);
 
     string nazwa1;
-    string s0="plot ";
+    string s0;
+    if(komendaJest != "a") s0 += komendaJest;
+
+    s0+="plot ";
     string s1=" w points ps 0.5 pt 7 ";
     ostringstream ss;
     string nn;
@@ -316,14 +321,16 @@ string SiecNeuronow::rysujWykres( int iloscCentrow, int numer)
         s0=s0+"'"+nazwa1+"'"+s1+", ";
     }
 
-    s0=s0+ "'"+nazwaPlikuCentrow + "' \n";// " w points ps 2 pt 1 lc rgb 'red' \n";
+    s0=s0+ "'"+nazwaPlikuCentrow + "'  \n";// " w points ps 2 pt 1 lc rgb 'red' \n";    //TODO zmien i dodaj to zakomentowane na koncu jak cos
 
     ss << numer;
     nn = ss.str();
 
     zwracany = "\n" + s0 + "\n";
- //cout << endl << s0 <<endl;
-    rysuj1(s0,nn);
+ cout << endl << s0 <<endl;
+
+     rysuj1(s0,nn);
+
     //rysuj(nazwa2);
     //getchar() ;
 return zwracany;
@@ -331,6 +338,7 @@ return zwracany;
 
 void SiecNeuronow::tworzMozaike()
 {
+/*
     for(double i = zestaw.xmin; i < zestaw.xmax; i = i+0.1)
     {
         for(double j = zestaw.ymin; j < zestaw.ymax; j = j+0.1)
@@ -338,6 +346,33 @@ void SiecNeuronow::tworzMozaike()
             mozaika.push_back(new Neuron(i,j));
         }
     }
+*/
+    //poniewaz zamiast 0 pokazuje -1.87905e-14 musze to rozbic na czeci
+
+    for(double i = zestaw.xmin; i <= 0.1; i = i+0.1)
+    {
+        for(double j = zestaw.ymin; j <= 0.1; j = j+0.1)
+        {
+            mozaika.push_back(new Neuron(i,j));
+        }
+        for(double j = 0.0; j < zestaw.ymax; j = j+0.1)
+        {
+            mozaika.push_back(new Neuron(i,j));
+        }
+    }
+
+    for(double i = 0.0; i < zestaw.xmax; i = i+0.1)
+    {
+        for(double j = zestaw.ymin; j <= 0.1; j = j+0.1)
+        {
+            mozaika.push_back(new Neuron(i,j));
+        }
+        for(double j = 0.0; j < zestaw.ymax; j = j+0.1)
+        {
+            mozaika.push_back(new Neuron(i,j));
+        }
+    }
+
 }
 
 

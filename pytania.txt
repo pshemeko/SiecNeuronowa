@@ -12,5 +12,6 @@ program strona do robienia animowanych gifow:
 https://gifmake.com/
 
 gnuplot - dane jak opisac wykres i wylaczyc legende
+https://www.mblog.boo.pl/mapa-strony.html
 https://www.mblog.boo.pl/artykul-65-gnuplot-czesc-ustawienia-legendy.html
 

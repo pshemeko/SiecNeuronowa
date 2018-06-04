@@ -38,12 +38,12 @@ static void rysuj(string str)
     gnuplot("set output \""+str+".png\" \n");  //ustawienie pliku do którego maj¹ zostaæ zapisane dane
     gnuplot("set xlabel 'Epoka'\n"); //ustawienie opisu osi x
     gnuplot("set ylabel 'Wartosc bledu kwantyzacji'\n"); // ustawienie osi y
-    gnuplot("set boxwidth 0.5 relative\n");
-    gnuplot("set style fill transparent solid 0.5 noborder\n");
-    gnuplot("set xtics rotate out\n");
+    //gnuplot("set boxwidth 0.5 relative\n");
+    //gnuplot("set style fill transparent solid 0.5 noborder\n");
+   // gnuplot("set xtics rotate out\n");
     gnuplot("set key title \"Legenda\" box\n");
     //gnuplot("plot 'plikStaryZLY.txt' with points ps 0.3\n");
-    gnuplot("plot '"+str+".txt' with points ps 0.3\n");
+    gnuplot("plot '"+str+".txt'"+" w points pt 7 ps 1\n");//                         " with points ps 0.3\n"); //pt 5 - kwadraty, pt 7 - kropki powiny byc ale trpche nie do konca dobrze
     //gnuplot("plot 'attract.txt' using 2:xtic(1) ti \"");
     //gnuplot(a);
     //gnuplot("\" w boxes lc rgb'red', 'attract_small.txt' using 2:xtic(1) ti \"");
@@ -72,6 +72,14 @@ static void rysuj1(string komenda, string nazwaPlikuPNG)
     gnuplot(komenda);
     gnuplot("exit\n");
 
+}
+
+static void rysuj0(string komendaGnuplota)
+{
+    Gnuplot gnuplot;
+
+    gnuplot(komendaGnuplota);
+    gnuplot("exit\n");
 }
 
 

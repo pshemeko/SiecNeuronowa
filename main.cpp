@@ -11,9 +11,9 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-int ILOSC_EPOK = 200;
+int ILOSC_EPOK = 20;
 
-int iloscCentrow = 30;
+int iloscCentrow = 10;
 double PMIN = 0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach
 bool czyPotencjalUwgledniac = false; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
 
@@ -58,11 +58,11 @@ int main() {
 
         if(i <2)   // na poczatek rysuje wszystkie 20 epok a potem co 10
         {
-            siec.rysujWykres(iloscCentrow, i);
+            siec.rysujWykres(iloscCentrow, i,siec.zadanePunkty);
         }
         else
         {
-            if(i % 10 == 0) siec.rysujWykres(iloscCentrow, i);
+            if(i % 10 == 0) siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
         }
 
         double blad = siec.obliczBladKwantyzacji();
@@ -70,15 +70,35 @@ int main() {
         foutKwantyzacji << i << " " << blad << endl;
     }
     foutKwantyzacji.close(); //musze zamknac plik zanim bede zniego rysowal wykres
-    rysuj(nazwaPlikuBledu); // rysuje wykres bledow kwantyzacji
+  rysuj(nazwaPlikuBledu); // rysuje wykres bledow kwantyzacji
 
     ////// tworze mozaike
+    string mozaik = "mozaikaaa";
     siec.tworzMozaike();
     siec.obliczOdleglosci(siec.mozaika);
     siec.sortujOdleglosci();
 
+   siec.zapiszDoPliku(siec.mozaika,mozaik+".txt");
+
+    string komendaMozaiki = "set term png truecolor\n set output \'" + mozaik + ".png\' \n";
+    komendaMozaiki += "set style fill transparent solid 0.5 noborder\n";
+    komendaMozaiki += "set key noautotitle;\n";  // nie wyswietla legendy
+    ostringstream s1;
+    s1 << "set xrange [" << zestaw.xmin << ":" << zestaw.xmax << "]\n" << "set yrange [" << zestaw.ymin<<":" << zestaw.ymax << "]\n";
+    komendaMozaiki += s1.str();
+    komendaMozaiki += "plot '"+mozaik+".txt'"+" w points pt 7 ps 1\n";
+
+   // rysuj0(komendaMozaiki); // rysuje wszystkie punkty z wektora mozaiki tylko sprawdzam cz sa te punkty
+
+int nnn = 999999;
+//siec.zapiszWszystkoWPliku(iloscCentrow,)
+
+    cout <<endl<<"jest..."<<endl;
+    siec.rysujWykres(iloscCentrow,nnn, siec.mozaika, s1.str());
+
+
 // sprawdzam tylko
-    siec.zapiszCetraZPotencjalem();
+    //siec.zapiszCetraZPotencjalem();
 
 
     cout << endl<<endl <<"\t KONIEC" <<endl;

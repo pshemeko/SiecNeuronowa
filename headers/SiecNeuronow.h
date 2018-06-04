@@ -33,7 +33,8 @@ class SiecNeuronow {
     bool czyPosortowaneOdleglosci; // zapamietuje czy VEKTORPAR odleglosci jest posortowany
     double potencjalMinimum;
     Zestaw zestaw;
-
+    void obliczpotencjaly();
+public:
     void sortujOdleglosciDokladnie(); // robi pelne sortowanie vektorapar odleglosci
     void zapiszDoPliku(VEKTORDANYCH dana, string nazwaPliku);  //zapisuje neuronyCentralne do pliku
 
@@ -41,8 +42,8 @@ public:
 
     VEKTORDANYCH zadanePunkty;  // punkty z pliku
     VEKTORDANYCH neuronyCentalne;       // neurony ktore sa centalnymi ktore pokkrywaja przestrzen
-    VEKTORPAR odleglosci;       // zapisane sa pary: first: numer neuronu i second : odleglosc tego neuronu do danego zadanego punktu
     VEKTORDANYCH mozaika;   // wszystkie punkty na plaszczyznie
+    VEKTORPAR odleglosci;       // zapisane sa pary: first: numer neuronu i second : odleglosc tego neuronu do danego zadanego punktu
 
     string wypiszZadanePunkty();
     string wypiszNeurony();
@@ -58,14 +59,14 @@ public:
 
     double obliczBladKwantyzacji(); // cos jak blad sieci // TODO zapisywac do pliku i zrobic wykres jak w sprwku 2b
 
-    void obliczpotencjaly();
+
 
     void adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal); // jedna z wersji
 
 
-    string zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow); // musi byc posortowane
+    string zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow, VEKTORDANYCH &dane); // musi byc posortowane
 
-    string rysujWykres(int iloscCentrow, int numer);   // zapisuje do plikow i rysuje wykres
+    string rysujWykres(int iloscCentrow, int numer, VEKTORDANYCH &dane, string komendaJest = "a");   // zapisuje do plikow i rysuje wykres
 
     void rysujBledyKwantyzacji(string nazwaPlikuBledu);
 
