@@ -11,13 +11,13 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-static int ILOSC_EPOK = 20;
-static int iloscCentrow = 10;
-static double PMIN = 0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
-double LAMBDA = 2.0;//??? chyba zrobic min i max
+static int ILOSC_EPOK = 2;
+static int iloscCentrow = 6;
+static double PMIN = 1;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
+double LAMBDA = 10.0;//??? chyba zrobic min i max
 /////////// LAMBDA NIE MOZE BYC < 0
 
-vector<double> ETA({0.8, 0.6, 0.4, 0.2, 0.1}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
+vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
 static int K_iluSasiadomZmieniamy = ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
 
@@ -62,13 +62,16 @@ int main() {
         //siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
 
         siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA);
-
-        if(i <6)   // na poczatek rysuje wszystkie 20 epok a potem co 10
+        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+cout <<siec.wypiszOdleglosci();
+        if(i <9)   // na poczatek rysuje wszystkie 20 epok a potem co 10
         {
+            siec.sortujOdleglosci();
             siec.rysujWykres(iloscCentrow, i,siec.zadanePunkty);
         }
         else
         {
+            siec.sortujOdleglosci();
             if(i % 10 == 0) siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
         }
 
@@ -76,6 +79,13 @@ int main() {
         cout << "Epoka " << i <<", blad kwantyzacji: " << blad <<endl;
         foutKwantyzacji << i << " " << blad << endl;
     }
+    // zeby zobaczyc ostatni wyglad
+    siec.sortujOdleglosci();
+    cout <<endl<<endl;
+    cout <<siec.wypiszOdleglosci();
+
+    siec.rysujWykres(iloscCentrow, ILOSC_EPOK,siec.zadanePunkty);
+
     foutKwantyzacji.close(); //musze zamknac plik zanim bede zniego rysowal wykres
   rysuj(nazwaPlikuBledu); // rysuje wykres bledow kwantyzacji
 

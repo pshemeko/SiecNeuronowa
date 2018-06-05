@@ -100,7 +100,7 @@ void Dane::wczytajPlik(string nazwaPliku,int ilosclinii) // wczytuje dane z plik
 }
 */
 
-/*
+
 vector<int> Dane::wylosujKolejnoscPobierania(int ileLiczb)
 {
     Losowanie losowana(0,ileLiczb);
@@ -129,7 +129,7 @@ vector<int> Dane::wylosujKolejnoscPobierania(int ileLiczb)
     return wynik;
 }
 
- */
+
 
 void Dane::wczytaj_wzorzec(vector<Neuron * > &wzorzec,char *nazwa){
     fstream dane;

@@ -237,6 +237,8 @@ void SiecNeuronow::adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal)
 
 void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, vector<double> wspolczynnikiNaukiSasiadow)
 {
+    //Dane dane;
+    //vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(zadanePunkty.size());
     odleglosci.clear();
     int iluSasiadow = wspolczynnikiNaukiSasiadow.size();
     if(iluSasiadow > neuronyCentalne.size())
@@ -263,28 +265,30 @@ void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double
             ///////////// wybierz kolejny punkt znajdz najblizsze mu centa i zmien ich wagi
         for(int i = 0; i < zadanePunkty.size(); ++i)
             {
-                VEKTORPAR para;
+                //VEKTORPAR para;
                 vector<double> punkt;
                 vector<double> odlegly;
                 // zwyliczam odleglosci wszystkich neuronow od tego punktu
                 for(int j = 0; j <neuronyCentalne.size(); ++j)
                 {
                     double odl = neuronyCentalne[j]->odlegloscEuklidesowa(zadanePunkty[i]);
+                    //double odl = zadanePunkty[i]->odlegloscEuklidesowa(neuronyCentalne[j]);
+
                     punkt.push_back(j);
                     odlegly.push_back(odl);
                 }
-                para.push_back(make_pair(punkt,odlegly));
+                odleglosci.push_back(make_pair(punkt,odlegly));
 
                 // teraz sortuje odleglosci od najblizszego
-                for(int j = 0; j < para[0].first.size() - 1; ++j)
+                for(int j = 0; j < odleglosci[i].first.size() - 1; ++j)
                 {
-                    for(int k = j+1; k < para[0].first.size(); ++k)
+                    for(int k = j+1; k < odleglosci[i].first.size(); ++k)
                     {
-                        if( para[0].second[j] > para[0].second[k])
+                        if( odleglosci[i].second[j] > odleglosci[i].second[k])
                         {
                             // zamieniamy
-                            swap(para[0].first[j], para[0].first[k]);
-                            swap(para[0].second[j], para[0].second[k]);
+                            swap(odleglosci[i].first[j], odleglosci[i].first[k]);
+                            swap(odleglosci[i].second[j], odleglosci[i].second[k]);
 
                         }
                     }
@@ -294,22 +298,29 @@ void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double
 
              for(int j = 0; j < iluSasiadow; ++j)
              {
+                 ostringstream os;
                  // tu njpierw oblicz potencjal gdy wybrano
                  for(int k = 0; k< neuronyCentalne[0]->wagi.size(); ++k)
                  {
+                     os << "Waga:" <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
                      // wzor z wykladu strona 39 oraz 42
-                    neuronyCentalne[para[0].first[j]]-> wagi[k]
+                    neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]
                             += wspolczynnikiNaukiSasiadow[j] * funkcjaSasiedztwaGazuNeuronowego(j,lambda)
-                               * (zadanePunkty[i]->wagi[k] - neuronyCentalne[para[0].first[j]]-> wagi[k]);
+                               * (zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]);
+
+                    os << " wsp. Nauki: " << wspolczynnikiNaukiSasiadow[j]<< " Fcja sasiedstawa: " ;
+                    os << funkcjaSasiedztwaGazuNeuronowego(j,lambda) << " roznica wag" << zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
+                    os <<" Nowa waga: " <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
 
                  }
-
+                if (0 == i) cout << os.str() << endl;
 
              }
 
             }
 
         }
+    czyPosortowaneOdleglosci = true;
 }
 
 
@@ -334,7 +345,7 @@ string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCent
     zapiszDoPliku(neuronyCentalne, nazwaPlikuCentrow);   // zapisuje neurony centralne do pliku by moc rysowac je
 
     // musi byc posortowane
-    if(!czyPosortowaneOdleglosci) sortujOdleglosci();
+    //if(!czyPosortowaneOdleglosci) sortujOdleglosci();
 
     string nazwa;
 
