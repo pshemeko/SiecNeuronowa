@@ -11,14 +11,14 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-static int ILOSC_EPOK = 40;
-static int iloscCentrow = 20;
+static int ILOSC_EPOK = 2;
+static int iloscCentrow = 10;
 static double PMIN = 0.75;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
 double LAMBDA;// zmienia sie co iteracje
 const double LambdaMIN = 0.0000005;
-const double LambdaMAX = 2.0;
+const double LambdaMAX = 1.0;
 /////////// LAMBDA NIE MOZE BYC < 0
-double ETA = 1.0; // wspolczynnik nauki
+double ETA = 0.5; // wspolczynnik nauki
 //vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
 static int K_iluSasiadomZmieniamy = 4;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
@@ -57,8 +57,9 @@ int main() {
 
     for(int i = 0; i < ILOSC_EPOK; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
-        LAMBDA = LambdaMAX * pow(LambdaMIN/LambdaMAX, (double)i/ILOSC_EPOK);    // wzor z wykladu
-        //cout << endl << "Epoka :" << i << " \t";
+        ///// zmniejszam lambde
+        LAMBDA = LambdaMAX * pow(LambdaMIN / LambdaMAX, (double) i / ILOSC_EPOK);    // wzor z wykladu
+        // TODO zrobic zmniejszanie wspolczynnika nauki
 
         //siec.obliczOdleglosci(siec.zadanePunkty);
         //siec.sortujOdleglosci();
@@ -67,26 +68,29 @@ int main() {
         siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
 //        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
 //cout <<siec.wypiszOdleglosci();
-        if(i <9)   // na poczatek rysuje wszystkie 9 epok a potem co 10
+        if (i < 9)   // na poczatek rysuje wszystkie 9 epok a potem co 10
         {
-            siec.sortujOdleglosci();
-            siec.rysujWykres(iloscCentrow, i,siec.zadanePunkty);
-        }
-        else
-        {
+            siec.sortujOdleglosciDokladnie();
+            siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
+        } else {
 
-            if(i % 10 == 0)
-            {
-                siec.sortujOdleglosci();
+            if (i % 10 == 0) {
+                siec.sortujOdleglosciDokladnie();
                 siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
             }
         }
 
         double blad = siec.obliczBladKwantyzacji();
-        cout << "Epoka " << i <<", blad kwantyzacji: " << blad <<endl;
+        cout << "Epoka " << i << ", blad kwantyzacji: " << blad << endl;
         foutKwantyzacji << i << " " << blad << endl;
 
-        ///// zmniejszam lambde
+        if (i > ILOSC_EPOK - 5)
+        {
+            siec.sortujOdleglosciDokladnie();
+            siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
+            //getchar();
+            //getchar();
+         }
 
     }
     // zeby zobaczyc ostatni wyglad

@@ -296,7 +296,7 @@ void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double
 
              // modyfikuje wagi wszystkich neurony od najblizszego do zadanego punktu az do K-tego(z main) czyli iluSasiadow
 
-             for(int j = 0; j < iluSasiadow; ++j)
+             for(int j = 0; j < iluSasiadow; ++j)    //TODO zmienic tak jak na wykladzie ze j< neuronyCentalne.size() bo zmieniac trzeba dla wszystkich tylko te sasiedstwo bedzie coraz mniejsza wartosc
              {
                  ostringstream os;
                  // tu njpierw oblicz potencjal gdy wybrano
@@ -313,7 +313,7 @@ void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double
                     os <<" Nowa waga: " <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
 
                  }
-                if (0 == i) cout << os.str() << endl;
+              //  if (0 == i) cout << os.str() << endl;
 
              }
 
