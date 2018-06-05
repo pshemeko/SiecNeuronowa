@@ -11,8 +11,8 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-static int ILOSC_EPOK = 2;
-static int iloscCentrow = 10;
+static int ILOSC_EPOK = 20;
+static int iloscCentrow = 2;
 static double PMIN = 0.75;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
 double LAMBDA;// zmienia sie co iteracje
 const double LambdaMIN = 0.0000005;
@@ -20,13 +20,13 @@ const double LambdaMAX = 1.0;
 /////////// LAMBDA NIE MOZE BYC < 0
 double ETA = 0.5; // wspolczynnik nauki
 //vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
-static int K_iluSasiadomZmieniamy = 4;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
+static int K_iluSasiadomZmieniamy = 1;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
 
 
 bool czyPotencjalUwgledniac = false; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
 
-Zestaw A(0, 1000, -10, 15, "attract_small.txt");
+Zestaw A(-10, 15, -12, 8, "attract_small.txt");
 Zestaw B(0, 10000, -10, 15, "attract.txt");
 Zestaw C(-10, 15, -12, 8, "plikStaryZLY.txt");
 
@@ -49,19 +49,12 @@ int main() {
 
     vector<int> wymiar({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});    // to jest przekazywane do neuronu ktory jest centum
 
-    vector<Neuron *> wekkkkk;
-    Dane dane;
-    dane.wczytaj_wzorzec(wekkkkk,zestaw.nazwa);
 
-    rysuj(zestaw.nazwa);
-
-
-
-/*
     SiecNeuronow siec(wymiar, iloscCentrow, zestaw, PMIN);
     //siec.zapiszCentra();
     //siec.wczytajCentra();
-
+            //siec.zapiszDoPliku(siec.zadanePunkty,"maly.txt");
+            //rysuj("attract_small");
     ///////////////////  PROGRAM
 
     for(int i = 0; i < ILOSC_EPOK; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
@@ -105,7 +98,7 @@ int main() {
     // zeby zobaczyc ostatni wyglad
     siec.sortujOdleglosci();
     cout <<endl<<endl;
-    cout <<siec.wypiszOdleglosci();
+    //cout <<siec.wypiszOdleglosci();
 
     siec.rysujWykres(iloscCentrow, ILOSC_EPOK,siec.zadanePunkty);
 
@@ -143,7 +136,7 @@ int nnn = 999999;
 
     cout << endl<<endl <<"\t KONIEC" <<endl;
 
-*/
+
 
 
 }

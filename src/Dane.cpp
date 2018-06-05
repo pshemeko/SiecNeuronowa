@@ -141,7 +141,7 @@ void Dane::wczytaj_wzorzec(vector<Neuron * > &wzorzec,char *nazwa){
     vector<double> vv;
     if(dane.is_open()){
         cout<<"plik otwarty.."<<endl;
-        while(!dane.eof() ){
+        while(!dane.eof()){
             dane>>liczba;
             vv.push_back(liczba);
             j=vv.size();
