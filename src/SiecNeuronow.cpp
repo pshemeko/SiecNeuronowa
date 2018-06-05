@@ -305,26 +305,15 @@ void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double
                      os << "Waga:" <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
                      // wzor z wykladu strona 39 oraz 42
                     neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]
-<<<<<<< HEAD
                             += eta * funkcjaSasiedztwaGazuNeuronowego(j,lambda)
                                * (zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]);
 
                     os << " wsp. Nauki: " << eta << " Fcja sasiedstawa: " ;
-=======
-                            += wspolczynnikiNaukiSasiadow[j] * funkcjaSasiedztwaGazuNeuronowego(j,lambda)
-                               * (zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]);
-
-                    os << " wsp. Nauki: " << wspolczynnikiNaukiSasiadow[j]<< " Fcja sasiedstawa: " ;
->>>>>>> 7411f7d212c0d01e2d163493d97bb18c186c0d88
                     os << funkcjaSasiedztwaGazuNeuronowego(j,lambda) << " roznica wag" << zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
                     os <<" Nowa waga: " <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
 
                  }
-<<<<<<< HEAD
               //  if (0 == i) cout << os.str() << endl;
-=======
-                if (0 == i) cout << os.str() << endl;
->>>>>>> 7411f7d212c0d01e2d163493d97bb18c186c0d88
 
              }
 
