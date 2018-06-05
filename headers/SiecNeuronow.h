@@ -63,7 +63,7 @@ public:
 
     void adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal); // jedna z wersji Klasyczny algorytm WTA
 
-    void adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, vector<double> wspolczynnikiNaukiSasiadow); // ONLINE
+    void adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, double eta, int iluSasiadomZmieniamy);// vector<double> wspolczynnikiNaukiSasiadow); // ONLINE
 
 
     string zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow, VEKTORDANYCH &dane); // musi byc posortowane

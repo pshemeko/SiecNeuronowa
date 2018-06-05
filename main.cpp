@@ -11,14 +11,16 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-static int ILOSC_EPOK = 20;
-static int iloscCentrow = 10;
-static double PMIN = 0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
-double LAMBDA = 2.0;//??? chyba zrobic min i max
+static int ILOSC_EPOK = 40;
+static int iloscCentrow = 20;
+static double PMIN = 0.75;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
+double LAMBDA;// zmienia sie co iteracje
+const double LambdaMIN = 0.0000005;
+const double LambdaMAX = 2.0;
 /////////// LAMBDA NIE MOZE BYC < 0
-
-vector<double> ETA({0.8, 0.6, 0.4, 0.2, 0.1}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
-static int K_iluSasiadomZmieniamy = ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
+double ETA = 1.0; // wspolczynnik nauki
+//vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
+static int K_iluSasiadomZmieniamy = 4;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
 
 
@@ -55,27 +57,45 @@ int main() {
 
     for(int i = 0; i < ILOSC_EPOK; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
+        LAMBDA = LambdaMAX * pow(LambdaMIN/LambdaMAX, (double)i/ILOSC_EPOK);    // wzor z wykladu
         //cout << endl << "Epoka :" << i << " \t";
 
         //siec.obliczOdleglosci(siec.zadanePunkty);
         //siec.sortujOdleglosci();
         //siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
 
-        siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA);
-
-        if(i <6)   // na poczatek rysuje wszystkie 20 epok a potem co 10
+        siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
+//        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+//cout <<siec.wypiszOdleglosci();
+        if(i <9)   // na poczatek rysuje wszystkie 9 epok a potem co 10
         {
+            siec.sortujOdleglosci();
             siec.rysujWykres(iloscCentrow, i,siec.zadanePunkty);
         }
         else
         {
-            if(i % 10 == 0) siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
+
+            if(i % 10 == 0)
+            {
+                siec.sortujOdleglosci();
+                siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
+            }
         }
 
         double blad = siec.obliczBladKwantyzacji();
         cout << "Epoka " << i <<", blad kwantyzacji: " << blad <<endl;
         foutKwantyzacji << i << " " << blad << endl;
+
+        ///// zmniejszam lambde
+
     }
+    // zeby zobaczyc ostatni wyglad
+    siec.sortujOdleglosci();
+    cout <<endl<<endl;
+    cout <<siec.wypiszOdleglosci();
+
+    siec.rysujWykres(iloscCentrow, ILOSC_EPOK,siec.zadanePunkty);
+
     foutKwantyzacji.close(); //musze zamknac plik zanim bede zniego rysowal wykres
   rysuj(nazwaPlikuBledu); // rysuje wykres bledow kwantyzacji
 

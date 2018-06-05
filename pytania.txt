@@ -6,6 +6,7 @@
  Czy nalezy go zaostawic czy moze jeœli tak jest to nalezy go w poczatkowej fazie uczenia przestawic 
 	w inne miejsce np. do najbli¿szego punktu???
 
+3. czy eta (wspolczynnik nauki) to jest wektor (iny dla kazdej z wag ) czy to jest stala liczba dla wszystkich wag
 
 
 program strona do robienia animowanych gifow:

@@ -9,7 +9,7 @@
 
 static double funkcjaSasiedztwaGazuNeuronowego(int ktoreSasiedztwo, double lambda)
 {
-if(lambda < 0.0000001) lambda = 0.0000001;
+//if(lambda < 0.0000001) lambda = 0.0000001;
 
 return pow(M_E, -(double)ktoreSasiedztwo/lambda);
 }
