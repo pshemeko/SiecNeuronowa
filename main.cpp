@@ -11,6 +11,7 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
+<<<<<<< HEAD
 static int ILOSC_EPOK = 20;
 static int iloscCentrow = 2;
 static double PMIN = 0.75;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
@@ -21,6 +22,16 @@ const double LambdaMAX = 1.0;
 double ETA = 0.5; // wspolczynnik nauki
 //vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
 static int K_iluSasiadomZmieniamy = 1;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
+=======
+static int ILOSC_EPOK = 2;
+static int iloscCentrow = 6;
+static double PMIN = 1;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
+double LAMBDA = 10.0;//??? chyba zrobic min i max
+/////////// LAMBDA NIE MOZE BYC < 0
+
+vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
+static int K_iluSasiadomZmieniamy = ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
+>>>>>>> 7411f7d212c0d01e2d163493d97bb18c186c0d88
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
 
 
@@ -67,6 +78,7 @@ int main() {
         //siec.sortujOdleglosci();
         //siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
 
+<<<<<<< HEAD
         siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
 //        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
 //cout <<siec.wypiszOdleglosci();
@@ -80,6 +92,20 @@ int main() {
                 siec.sortujOdleglosciDokladnie();
                 siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
             }
+=======
+        siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA);
+        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+cout <<siec.wypiszOdleglosci();
+        if(i <9)   // na poczatek rysuje wszystkie 20 epok a potem co 10
+        {
+            siec.sortujOdleglosci();
+            siec.rysujWykres(iloscCentrow, i,siec.zadanePunkty);
+        }
+        else
+        {
+            siec.sortujOdleglosci();
+            if(i % 10 == 0) siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
+>>>>>>> 7411f7d212c0d01e2d163493d97bb18c186c0d88
         }
 
         double blad = siec.obliczBladKwantyzacji();
@@ -98,7 +124,11 @@ int main() {
     // zeby zobaczyc ostatni wyglad
     siec.sortujOdleglosci();
     cout <<endl<<endl;
+<<<<<<< HEAD
     //cout <<siec.wypiszOdleglosci();
+=======
+    cout <<siec.wypiszOdleglosci();
+>>>>>>> 7411f7d212c0d01e2d163493d97bb18c186c0d88
 
     siec.rysujWykres(iloscCentrow, ILOSC_EPOK,siec.zadanePunkty);
 
