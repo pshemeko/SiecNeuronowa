@@ -34,7 +34,7 @@ using namespace std;
 
     ////////////////////// deklaracja danych
 
-    Zestaw zestaw = C;  // z ktorego pliku dane brac
+    Zestaw zestaw = A;  // z ktorego pliku dane brac
     //double Neuron::wartoscBiasu = 1.0;
     //bool Neuron::czyJestBias = false;
 
@@ -49,6 +49,15 @@ int main() {
 
     vector<int> wymiar({zestaw.xmin, zestaw.xmax, zestaw.ymin, zestaw.ymax});    // to jest przekazywane do neuronu ktory jest centum
 
+    vector<Neuron *> wekkkkk;
+    Dane dane;
+    dane.wczytaj_wzorzec(wekkkkk,zestaw.nazwa);
+
+    rysuj(zestaw.nazwa);
+
+
+
+/*
     SiecNeuronow siec(wymiar, iloscCentrow, zestaw, PMIN);
     //siec.zapiszCentra();
     //siec.wczytajCentra();
@@ -134,7 +143,7 @@ int nnn = 999999;
 
     cout << endl<<endl <<"\t KONIEC" <<endl;
 
-
+*/
 
 
 }
