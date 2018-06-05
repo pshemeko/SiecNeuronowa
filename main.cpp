@@ -27,7 +27,7 @@ static int K_iluSasiadomZmieniamy = 4;//ETA.size();   // do gazu neuronowego ile
 bool czyPotencjalUwgledniac = false; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
 
 Zestaw A(0, 1000, -10, 15, "attract_small.txt");
-Zestaw B(0, 10000, -10, 15, "attract_small.txt");
+Zestaw B(0, 10000, -10, 15, "attract.txt");
 Zestaw C(-10, 15, -12, 8, "plikStaryZLY.txt");
 
 using namespace std;
