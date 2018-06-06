@@ -67,6 +67,8 @@ public:
 
     void aptacjaWagGazNeuronowyOFFLine(bool czyUwzgledniacPotencjal, double &lambda, double eta, int iluSasiadomZmieniamy);
 
+    void przesunMartweNeurony(double lambda, double eta);
+
     string zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow, VEKTORDANYCH &dane); // musi byc posortowane
 
     string rysujWykres(int iloscCentrow, int numer, VEKTORDANYCH &dane, string komendaJest = "a");   // zapisuje do plikow i rysuje wykres
@@ -79,7 +81,8 @@ public:
 
     void zapiszCentra();    // potrzebne do testowania ustawien by byly takie same wagi poczatkowe
     void wczytajCentra();   // wczytuje centra z pliku zeby zawsze siec startowala z tymi samymi danymi
-    void zapiszCetraZPotencjalem();     //sprawdam potencjal martwych neuronow
+    void zapiszCetraZPotencjalem(int numer);     //sprawdam potencjal martwych neuronow
+    void zapiszCentraZIlosciaZmian(int numer);
 
 };
 

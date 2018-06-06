@@ -335,11 +335,30 @@ void SiecNeuronow::aptacjaWagGazNeuronowyOFFLine(bool czyUwzgledniacPotencjal, d
         cout <<endl<<endl<< "!!!!!!!!!!!!!!!!!! BLAD NIE MOZNA ADAPTOWAC WIECEJ SASIADOW NIZ JEST CENTROW" <<endl<<endl;
         exit(99999);
     }
-   // if(czyUwzgledniacPotencjal)
-   // {
-
-   // }
-   // else
+    if(czyUwzgledniacPotencjal)
+    {
+        obliczpotencjaly();
+        for(int i = 0; i < odleglosci.size(); ++i)
+        {
+            int numer = 0; // zminiejszymy gdy neuron pauzuje aby to nastepny byl traktowany jako pierwszy
+            for(int j = 0; j < iluSasiadomZmieniamy; ++j) // for(int j = 0; j < odleglosci[i].first.size(); ++j)
+            {
+                if(neuronyCentalne[odleglosci[i].first[j]]->potencjal > potencjalMinimum)
+                {
+                    iloscZmianNeuronu[odleglosci[i].first[j]] += 1.0;
+                    for(int k = 0; k < neuronyCentalne[0]->wagi.size(); ++k)
+                    {
+                        neuronyCentalne[odleglosci[i].first[j]]-> wagi[k] +=
+                                eta * funkcjaSasiedztwaGazuNeuronowego(numer,lambda)
+                                *(zadanePunkty[i] -> wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]);
+                    }
+                    neuronyCentalne[odleglosci[i].first[j]]-> iloscZmian++;
+                    numer++;
+                }
+            }
+        }
+    }
+    else
     {  // gdy bez potencjalu jest jak bylo
         // alggorytm adaptacji parametrow funkcji radialnych  procesie samoorganizacji str. 28.
 
@@ -374,7 +393,39 @@ void SiecNeuronow::aptacjaWagGazNeuronowyOFFLine(bool czyUwzgledniacPotencjal, d
     }
 }
 
+void SiecNeuronow::przesunMartweNeurony(double lambda, double eta)
+{
+    for(int i = 0; i < neuronyCentalne.size(); ++i)
+    {
+        if(neuronyCentalne[i]->iloscZmian < 5)
+        {
+            // to szukam najbliższego zadanwego punktu i przesuwam neuron
 
+            int numerPunktu = 0;
+            double odleglosc =  neuronyCentalne[i] ->odlegloscEuklidesowa(zadanePunkty[0]);
+            for(int j = 1; j < zadanePunkty.size(); ++j)
+            {
+                int wartosc = neuronyCentalne[i] ->odlegloscEuklidesowa(zadanePunkty[j]);
+                if (wartosc < odleglosc)
+                {
+                    odleglosc = wartosc;
+                    numerPunktu = j;
+                }
+            }
+            // przesuwamy neuron blizej punktu
+
+            for (int k = 0; k < neuronyCentalne[0]->wagi.size(); ++k)
+            {
+                neuronyCentalne[i]-> wagi[k] +=
+                        eta * funkcjaSasiedztwaGazuNeuronowego(0,lambda)
+                        *(zadanePunkty[numerPunktu] -> wagi[k] - neuronyCentalne[i]-> wagi[k]);
+            }
+
+        }
+
+    }
+
+}
 
 
 void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH &dana, string nazwaPliku)
@@ -567,9 +618,15 @@ void SiecNeuronow::wczytajCentra()
     else cout<<"plik nie zostal otwarty"<<endl;
 }
 
-void SiecNeuronow::zapiszCetraZPotencjalem()
+void SiecNeuronow::zapiszCetraZPotencjalem(int numer)
 {
-    ofstream foutCenta("potencjaly.txt");
+    string nazwa;
+    sprintf((char*)nazwa.c_str(), "%d", numer);
+    string nazwa1 = "aaa";
+    nazwa1 += nazwa.c_str();
+    nazwa1=nazwa1+".txt";
+
+    ofstream foutCenta(nazwa1);
     for(int i = 0; i < neuronyCentalne.size(); ++i)
     {
         for(int j = 0; j<neuronyCentalne[i]->wagi.size();++j)
@@ -578,6 +635,27 @@ void SiecNeuronow::zapiszCetraZPotencjalem()
         }
 
         foutCenta << " : " << neuronyCentalne[i]->potencjal <<   endl;
+    }
+
+}
+
+void SiecNeuronow::zapiszCentraZIlosciaZmian(int numer)
+{
+    string nazwa;
+    sprintf((char*)nazwa.c_str(), "%d", numer);
+    string nazwa1 = "bbb";
+    nazwa1 += nazwa.c_str();
+    nazwa1=nazwa1+".txt";
+
+    ofstream foutCenta(nazwa1);
+    for(int i = 0; i < neuronyCentalne.size(); ++i)
+    {
+        for(int j = 0; j<neuronyCentalne[i]->wagi.size();++j)
+        {
+            foutCenta << neuronyCentalne[i]->wagi[j] << " ";
+        }
+
+        foutCenta << " : " << neuronyCentalne[i]->iloscZmian <<   endl;
     }
 
 }

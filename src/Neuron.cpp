@@ -12,6 +12,7 @@ Neuron::Neuron(vector<int> zakres)
         wagi.push_back(los.losujWagi() );
     }
     potencjal = 0.0;
+    iloscZmian = 0;
 }
 
 Neuron::Neuron( double x, double y)
@@ -19,6 +20,7 @@ Neuron::Neuron( double x, double y)
     wagi.push_back(x);
     wagi.push_back(y);
     potencjal = 0.0;
+    iloscZmian = 0;
 }
 
 double Neuron::odlegloscEuklidesowa( Neuron * neuron)

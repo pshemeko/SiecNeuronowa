@@ -16,7 +16,7 @@ static int iloscCentrow = 19;
 static double PMIN = 0.75;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
 double LAMBDA;// zmienia sie co iteracje
 const double LambdaMIN = 0.0000005;
-const double LambdaMAX = 0.3;
+const double LambdaMAX = 2.0;
 /////////// LAMBDA NIE MOZE BYC < 0
 double ETA = 0.7; // wspolczynnik nauki
 //vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
@@ -24,7 +24,7 @@ static int K_iluSasiadomZmieniamy = 1;//ETA.size();   // do gazu neuronowego ile
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
 
 
-bool czyPotencjalUwgledniac = false; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
+bool czyPotencjalUwgledniac = true; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
 
 Zestaw A(-10, 15, -12, 8, "attract_small.txt");
 Zestaw B(0, 10000, -10, 15, "attract.txt");
@@ -51,13 +51,11 @@ int main() {
 
 
     SiecNeuronow siec(wymiar, iloscCentrow, zestaw, PMIN);
-    //siec.zapiszCentra();
+    //siec.zapiszCentra();  // moge zapisac wylosowane centra i potem je wczytac i testowac na tych samych danych
     //siec.wczytajCentra();
-            //siec.zapiszDoPliku(siec.zadanePunkty,"maly.txt");
-            //rysuj("attract_small");
+
     ///////////////////  PROGRAM
-//cout <<siec.wypiszZadanePunkty();
-//siec.zapiszDoPliku(siec.neuronyCentalne,"aaaCentra.txt");
+
     for(int i = 0; i < ILOSC_EPOK; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
         ///// zmniejszam lambde
@@ -66,13 +64,15 @@ int main() {
 
         siec.obliczOdleglosci(siec.zadanePunkty);
         siec.sortujOdleglosciDokladnie();
-  //      cout <<siec.wypiszOdleglosci();
+
         if(i == 0) siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
         //siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
-
         //siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
 
         siec.aptacjaWagGazNeuronowyOFFLine(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
+        if(i < 5)siec.przesunMartweNeurony(LAMBDA,ETA);     //w pierwszych 10 iteracjach przesuwam martwe neurony
+    //siec.zapiszCentraZIlosciaZmian(i);
+        //siec.zapiszCetraZPotencjalem(i);
 //        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
 //cout <<siec.wypiszOdleglosci();
         if (i < 9)   // na poczatek rysuje wszystkie 9 epok a potem co 10
