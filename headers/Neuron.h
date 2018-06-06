@@ -27,6 +27,7 @@ public:
     Wektor wagi;    // wspolrzedne neuronu
     double potencjal;
     int iloscZmian; // zapisuje ile razy neuron zostal przemieszczony w inne miejscs 0 - martwy neuron
+    Wektor starwWagi;
 
     Neuron( vector<int> zakres);
     Neuron( double x, double y); // DLA DANYCH Z PLIKU

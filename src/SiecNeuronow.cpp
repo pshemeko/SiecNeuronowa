@@ -659,3 +659,30 @@ void SiecNeuronow::zapiszCentraZIlosciaZmian(int numer)
     }
 
 }
+
+void SiecNeuronow::przepiszWagiNeuronom()
+{
+    for(int i = 0; i < neuronyCentalne.size(); ++i)
+        for(int k = 0; k < neuronyCentalne[0]->wagi.size(); ++k)
+        {
+            neuronyCentalne[i]->starwWagi[k] = neuronyCentalne[i]->wagi[k];
+        }
+}
+
+double SiecNeuronow::wielkoscZmianWspolrzednychNeuronow()
+{
+    double sumaKwadratowa = 0.0;
+    for(int i = 0; i < neuronyCentalne.size(); ++i)
+    {
+        double wartosc = 0.0;
+        for(int k = 0; k < neuronyCentalne[0]->wagi.size(); ++k)
+        {
+            double tmp = neuronyCentalne[i]->wagi[k] - neuronyCentalne[i]->starwWagi[k];
+            wartosc += tmp * tmp;
+        }
+        wartosc = sqrt(wartosc);
+        sumaKwadratowa += wartosc;
+    }
+    sumaKwadratowa /= neuronyCentalne.size();
+    return sumaKwadratowa;
+}

@@ -83,6 +83,8 @@ public:
     void wczytajCentra();   // wczytuje centra z pliku zeby zawsze siec startowala z tymi samymi danymi
     void zapiszCetraZPotencjalem(int numer);     //sprawdam potencjal martwych neuronow
     void zapiszCentraZIlosciaZmian(int numer);
+    void przepiszWagiNeuronom();
+    double wielkoscZmianWspolrzednychNeuronow();
 
 };
 

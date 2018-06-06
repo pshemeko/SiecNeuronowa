@@ -22,7 +22,7 @@ double ETA = 0.7; // wspolczynnik nauki
 //vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
 static int K_iluSasiadomZmieniamy = 1;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
-
+double WARTOSC_STOPU = 0.0;
 
 bool czyPotencjalUwgledniac = true; // czy stopowac wygrywjace ciagle neurony bo ruszyly sie martwe neurony
 
@@ -58,6 +58,8 @@ int main() {
 
     for(int i = 0; i < ILOSC_EPOK; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
+        //przepisuje wagi do starych wag zeby sprawdzic czy neuronuy sie poruszaja
+        siec.przepiszWagiNeuronom();
         ///// zmniejszam lambde
         LAMBDA = LambdaMAX * pow(LambdaMIN / LambdaMAX, (double) i / ILOSC_EPOK);    // wzor z wykladu
         // TODO zrobic zmniejszanie wspolczynnika nauki
@@ -85,10 +87,13 @@ int main() {
                 siec.sortujOdleglosciDokladnie();
                 siec.rysujWykres(iloscCentrow, i+1, siec.zadanePunkty);
             }
+
+            //sprawdzam o ile zmienily sie wagi do warunku stopu
+
         }
 
         double blad = siec.obliczBladKwantyzacji();
-        cout << "Epoka " << i << ", blad kwantyzacji: " << blad << endl;
+        cout << "Epoka " << i << ", blad kwantyzacji: " << blad;
         foutKwantyzacji << i << " " << blad << endl;
 
         if (i > ILOSC_EPOK - 5)
@@ -98,6 +103,13 @@ int main() {
             //getchar();
             //getchar();
          }
+        double zmianaWag = siec.wielkoscZmianWspolrzednychNeuronow();
+        cout << "  wartosc zmiany wspolrzednych neuronow : " << zmianaWag <<endl;
+        if(zmianaWag <= WARTOSC_STOPU)
+        {
+            cout <<endl<<endl<<endl<< " !!!!!!!!!! NURONY PRZESTALY ZMIENIAC POZYCJE KONIEC NAUKI SIECI W EPOCE : " <<i << "        !!!!!!!!!!!!!!!!!!!!!"<<endl<<endl;
+            break;
+        }
 
     }
     // zeby zobaczyc ostatni wyglad

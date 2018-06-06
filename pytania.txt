@@ -1,12 +1,16 @@
-1. czy b³¹d kwantyzacji liczymy dla ka¿dego neuronu, czy tez dla coa³ej sieci w sensie 
-	sumujemy blad kazdeg neuronu i dzieimy przez iosc neuronow???
+1. czy b³¹d kwantyzacji liczymy dla ka¿dego neuronu, czy tez dla ca³ej sieci w sensie 
+	sumujemy blad kazdeg neuronu i dzieimy przez iosc neuronow??? gdy¿ b³a ten niewiele nam sie zmienia bo siec uczy sie szybko.
 
 2. nawet jak dodalem potencjal neuronu ktorypowoduje ze zbyt czestowygrywajace  neuronu nie modyfikuja 
-	swoich wag to zdarza sie jakis "martwy neuron" ktory nigdy nie wygrywa
- Czy nalezy go zaostawic czy moze jeœli tak jest to nalezy go w poczatkowej fazie uczenia przestawic 
-	w inne miejsce np. do najbli¿szego punktu???
+	swoich wag to zdarza sie jakis "martwy neuron" ktory nigdy nie wygrywa.
+Równie¿ jeœli zostanie dodane uwzglêdnianie potencja³u zgodnie z wyk³adem 6 gdzie s¹ sieci samoorganizujace sie(str36) zdarza sie ze niektore neurony s¹ caly czas "martwe"
+ Czy nalezy je zostawic martwymi czy mozê mo¿na w pocz¹tkowej fazie nauki przesun¹c je np.bli¿ej najbli¿szego zadanego punktu?
 
-3. czy eta (wspolczynnik nauki) to jest wektor (iny dla kazdej z wag ) czy to jest stala liczba dla wszystkich wag
+
+3. czy eta (wspolczynnik nauki) to jest wektor (iny dla kazdej z wag ) czy to jest stala liczba dla wszystkich wag. Robimy wersje gazu neuronowego,chodzi mi o wzór na str 39 wyk³adu 6-go
+
+4. z tresci zadania wynika ze mamy zrobic jeden z wariantów sieci tj. z Algorytm Kohonena lub Algorytmem gazu neuronowego , natomiast w czêœci badawczej eksperyment 2 jest podane aby przeprowadzic naukê w obu waroantach a wiêc czy naprawde musimy pisac sieci z obydwoma algorytmami?
+
 
 
 program strona do robienia animowanych gifow:

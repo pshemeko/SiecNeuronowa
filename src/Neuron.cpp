@@ -10,6 +10,7 @@ Neuron::Neuron(vector<int> zakres)
     {
         Losowanie los(zakres[i * 2], zakres[ i * 2 + 1]);
         wagi.push_back(los.losujWagi() );
+        starwWagi.push_back(0.0);
     }
     potencjal = 0.0;
     iloscZmian = 0;
@@ -19,6 +20,8 @@ Neuron::Neuron( double x, double y)
 {
     wagi.push_back(x);
     wagi.push_back(y);
+    starwWagi.push_back(0.0);
+    starwWagi.push_back(0.0);
     potencjal = 0.0;
     iloscZmian = 0;
 }
