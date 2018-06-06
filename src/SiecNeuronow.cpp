@@ -520,7 +520,7 @@ string SiecNeuronow::rysujWykres( int iloscCentrow, int numer, VEKTORDANYCH &dan
     nn = ss.str();
 
     zwracany = "\n" + s0 + "\n";
- cout << endl << s0 <<endl;
+ //cout << endl << s0 <<endl;
 
      rysuj1(s0,nn);
 

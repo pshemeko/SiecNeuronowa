@@ -114,7 +114,7 @@ int main() {
     }
     // zeby zobaczyc ostatni wyglad
     siec.sortujOdleglosci();
-    cout <<endl<<endl;
+    //cout <<endl<<endl;
     //cout <<siec.wypiszOdleglosci();
 
     siec.rysujWykres(iloscCentrow, ILOSC_EPOK,siec.zadanePunkty);
@@ -143,7 +143,7 @@ int main() {
 int nnn = 999999;
 //siec.zapiszWszystkoWPliku(iloscCentrow,)
 
-    cout <<endl<<"jest..."<<endl;
+    cout <<"jest..."<<endl;
     siec.rysujWykres(iloscCentrow,nnn, siec.mozaika, s1.str());
 
 
@@ -151,7 +151,7 @@ int nnn = 999999;
     //siec.zapiszCetraZPotencjalem();
 
 
-    cout << endl<<endl <<"\t KONIEC" <<endl;
+    cout << endl <<"\t KONIEC" <<endl;
 
 
 
