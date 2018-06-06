@@ -11,14 +11,14 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-static int ILOSC_EPOK = 20;
-static int iloscCentrow = 2;
+static int ILOSC_EPOK = 50;
+static int iloscCentrow = 19;
 static double PMIN = 0.75;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
 double LAMBDA;// zmienia sie co iteracje
 const double LambdaMIN = 0.0000005;
-const double LambdaMAX = 1.0;
+const double LambdaMAX = 0.3;
 /////////// LAMBDA NIE MOZE BYC < 0
-double ETA = 0.5; // wspolczynnik nauki
+double ETA = 0.7; // wspolczynnik nauki
 //vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
 static int K_iluSasiadomZmieniamy = 1;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
@@ -56,29 +56,34 @@ int main() {
             //siec.zapiszDoPliku(siec.zadanePunkty,"maly.txt");
             //rysuj("attract_small");
     ///////////////////  PROGRAM
-
+//cout <<siec.wypiszZadanePunkty();
+//siec.zapiszDoPliku(siec.neuronyCentalne,"aaaCentra.txt");
     for(int i = 0; i < ILOSC_EPOK; ++i) // Cała siec  wersja off-line wyklad str28 //TODO jeszcze zrobic karanie zwyciezcow co za duzo wygrywaja
     {
         ///// zmniejszam lambde
         LAMBDA = LambdaMAX * pow(LambdaMIN / LambdaMAX, (double) i / ILOSC_EPOK);    // wzor z wykladu
         // TODO zrobic zmniejszanie wspolczynnika nauki
 
-        //siec.obliczOdleglosci(siec.zadanePunkty);
-        //siec.sortujOdleglosci();
+        siec.obliczOdleglosci(siec.zadanePunkty);
+        siec.sortujOdleglosciDokladnie();
+  //      cout <<siec.wypiszOdleglosci();
+        if(i == 0) siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
         //siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
 
-        siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
+        //siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
+
+        siec.aptacjaWagGazNeuronowyOFFLine(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
 //        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
 //cout <<siec.wypiszOdleglosci();
         if (i < 9)   // na poczatek rysuje wszystkie 9 epok a potem co 10
         {
             siec.sortujOdleglosciDokladnie();
-            siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
+            siec.rysujWykres(iloscCentrow, i+1, siec.zadanePunkty);
         } else {
 
             if (i % 10 == 0) {
                 siec.sortujOdleglosciDokladnie();
-                siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
+                siec.rysujWykres(iloscCentrow, i+1, siec.zadanePunkty);
             }
         }
 

@@ -23,6 +23,7 @@ string SiecNeuronow::wypiszZadanePunkty()
     ostringstream ss;
     for(int i = 0; i < zadanePunkty.size(); i++)
     {
+        ss<< "Punkt[" << i <<"]: ";
         for(int j = 0; j < zadanePunkty[i]->wagi.size(); ++j)
         {
             ss << zadanePunkty[i]->wagi[j] << " ";
@@ -54,7 +55,7 @@ string SiecNeuronow::wypiszOdleglosci()
         ss<<"Punkt " << i <<": ";
         for(int j = 0; j < odleglosci[i].first.size(); ++j)
         {
-            ss <<" punkt " << odleglosci[i].first[j] <<" odl: " <<odleglosci[i].second[j] ;
+            ss <<" centr " << odleglosci[i].first[j] <<" odl: " <<odleglosci[i].second[j] ;
         }
         ss << endl;
     }
@@ -234,9 +235,10 @@ void SiecNeuronow::adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal)
         }
     }
 }
-
+/*
 void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, double eta, int K_iluSasiadomZmieniamy)//vector<double> wspolczynnikiNaukiSasiadow)
 {
+    ///////////////////////////// nieskonczone
     //Dane dane;
     //vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(zadanePunkty.size());
     odleglosci.clear();
@@ -304,6 +306,7 @@ void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double
                  {
                      os << "Waga:" <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
                      // wzor z wykladu strona 39 oraz 42
+                     // TODO Wzur na sume jest zly
                     neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]
                             += eta * funkcjaSasiedztwaGazuNeuronowego(j,lambda)
                                * (zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]);
@@ -322,6 +325,56 @@ void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double
         }
     czyPosortowaneOdleglosci = true;
 }
+*/
+void SiecNeuronow::aptacjaWagGazNeuronowyOFFLine(bool czyUwzgledniacPotencjal, double &lambda, double eta, int iluSasiadomZmieniamy)
+{
+    vector<double> iloscZmianNeuronu;
+    for(int i = 0; i < neuronyCentalne.size(); ++i) iloscZmianNeuronu.push_back(0.0);   // zeruje
+    if(iluSasiadomZmieniamy > neuronyCentalne.size())
+    {
+        cout <<endl<<endl<< "!!!!!!!!!!!!!!!!!! BLAD NIE MOZNA ADAPTOWAC WIECEJ SASIADOW NIZ JEST CENTROW" <<endl<<endl;
+        exit(99999);
+    }
+   // if(czyUwzgledniacPotencjal)
+   // {
+
+   // }
+   // else
+    {  // gdy bez potencjalu jest jak bylo
+        // alggorytm adaptacji parametrow funkcji radialnych  procesie samoorganizacji str. 28.
+
+
+        for(int i = 0; i < odleglosci.size(); ++i)
+        {
+            for(int j = 0; j < iluSasiadomZmieniamy; ++j) // for(int j = 0; j < odleglosci[i].first.size(); ++j)
+            {
+                iloscZmianNeuronu[odleglosci[i].first[j]] += 1.0;
+                for(int k = 0; k < neuronyCentalne[0]->wagi.size(); ++k)
+                {
+                    neuronyCentalne[odleglosci[i].first[j]]-> wagi[k] +=
+                    eta * funkcjaSasiedztwaGazuNeuronowego(j,lambda)
+                            *(zadanePunkty[i] -> wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]);
+                }
+
+            }
+
+
+        }
+        /*
+        // jako ze offline dzielimy przes zume zmian chyba
+        for(int i = 0; i < iloscZmianNeuronu.size(); ++i)
+        {
+            for(int k = 0; k < neuronyCentalne[i]->wagi.size(); ++k)
+            {
+                if(iloscZmianNeuronu[i] != 0.0) neuronyCentalne[i]->wagi[k] /= iloscZmianNeuronu[i];
+            }
+        }
+         */
+
+    }
+}
+
+
 
 
 void SiecNeuronow::zapiszDoPliku(VEKTORDANYCH &dana, string nazwaPliku)

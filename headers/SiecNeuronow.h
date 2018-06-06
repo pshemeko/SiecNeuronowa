@@ -65,6 +65,7 @@ public:
 
     void adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, double eta, int iluSasiadomZmieniamy);// vector<double> wspolczynnikiNaukiSasiadow); // ONLINE
 
+    void aptacjaWagGazNeuronowyOFFLine(bool czyUwzgledniacPotencjal, double &lambda, double eta, int iluSasiadomZmieniamy);
 
     string zapiszWszystkoWPliku(int iloscCentrow, string nazwaPlikuCentrow, VEKTORDANYCH &dane); // musi byc posortowane
 

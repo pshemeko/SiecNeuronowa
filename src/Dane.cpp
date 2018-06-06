@@ -160,6 +160,6 @@ void Dane::wczytaj_wzorzec(vector<Neuron * > &wzorzec,char *nazwa){
         //wzorzec.pop_back();
     }
     else cout<<"plik nie zostal otwarty"<<endl;
-    cout <<"Koniec wczytywania...";
+    cout <<"Koniec wczytywania..."<<endl;
 }
 
