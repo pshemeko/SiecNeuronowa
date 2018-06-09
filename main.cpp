@@ -11,8 +11,8 @@
 #include "headers/StrukturyZestaw.h"
 #include "headers/SiecNeuronow.h"
 
-static int ILOSC_EPOK = 50;
-static int iloscCentrow = 19;
+static int ILOSC_EPOK = 30;
+static int iloscCentrow = 10;
 static double PMIN = 0.75;//0.75;  // minimalny potencjal neuronu wykorzystuje w 'martwych' neuronach/ wartosc z wkladu
 double LAMBDA;// zmienia sie co iteracje
 const double LambdaMIN = 0.0000005;
@@ -20,7 +20,7 @@ const double LambdaMAX = 2.0;
 /////////// LAMBDA NIE MOZE BYC < 0
 double ETA = 0.7; // wspolczynnik nauki
 //vector<double> ETA({1.0, 0.0, 0.0, 0.0, 0.0}); // TODO zobaczyc wartosci  // to jest WSPOLCZYNNIK NAUKI dla kolejnego sąsiada
-static int K_iluSasiadomZmieniamy = 1;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
+static int K_iluSasiadomZmieniamy = 10;//ETA.size();   // do gazu neuronowego ile neuronow najblizszych punktowi będzie tez adoptowalo wagi
 ////////// !!!!!! K_iluSasiadomZmieniamy musi być < iloscCentrow
 double WARTOSC_STOPU = 0.0;
 
@@ -68,15 +68,12 @@ int main() {
         siec.sortujOdleglosciDokladnie();
 
         if(i == 0) siec.rysujWykres(iloscCentrow, i, siec.zadanePunkty);
-        //siec.adapptacjaWagWersjaOFFLine(czyPotencjalUwgledniac);
+        siec.adapptacjaWagWersjaOFFLine(false);
         //siec.adaptacjaWagGazNeuronowy(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
 
         siec.aptacjaWagGazNeuronowyOFFLine(czyPotencjalUwgledniac, LAMBDA, ETA, K_iluSasiadomZmieniamy);
-        if(i < 5)siec.przesunMartweNeurony(LAMBDA,ETA);     //w pierwszych 10 iteracjach przesuwam martwe neurony
-    //siec.zapiszCentraZIlosciaZmian(i);
-        //siec.zapiszCetraZPotencjalem(i);
-//        cout << "WYPIUJE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
-//cout <<siec.wypiszOdleglosci();
+        //if(i < 5)siec.przesunMartweNeurony(LAMBDA,ETA);     //w pierwszych 10 iteracjach przesuwam martwe neurony
+ ;
         if (i < 9)   // na poczatek rysuje wszystkie 9 epok a potem co 10
         {
             siec.sortujOdleglosciDokladnie();
@@ -87,8 +84,6 @@ int main() {
                 siec.sortujOdleglosciDokladnie();
                 siec.rysujWykres(iloscCentrow, i+1, siec.zadanePunkty);
             }
-
-            //sprawdzam o ile zmienily sie wagi do warunku stopu
 
         }
 
@@ -114,8 +109,6 @@ int main() {
     }
     // zeby zobaczyc ostatni wyglad
     siec.sortujOdleglosci();
-    //cout <<endl<<endl;
-    //cout <<siec.wypiszOdleglosci();
 
     siec.rysujWykres(iloscCentrow, ILOSC_EPOK,siec.zadanePunkty);
 
@@ -138,22 +131,12 @@ int main() {
     komendaMozaiki += s1.str();
     komendaMozaiki += "plot '"+mozaik+".txt'"+" w points pt 7 ps 1\n";
 
-   // rysuj0(komendaMozaiki); // rysuje wszystkie punkty z wektora mozaiki tylko sprawdzam cz sa te punkty
-
 int nnn = 999999;
-//siec.zapiszWszystkoWPliku(iloscCentrow,)
 
     cout <<"jest..."<<endl;
     siec.rysujWykres(iloscCentrow,nnn, siec.mozaika, s1.str());
 
 
-// sprawdzam tylko
-    //siec.zapiszCetraZPotencjalem();
-
-
     cout << endl <<"\t KONIEC" <<endl;
-
-
-
 
 }

@@ -16,18 +16,12 @@
 #include "Neuron.h"
 #include "SiecNeuronow.h"
 
-//typedef std::vector< std::vector<double> > VEKTORDANYCH;
 
 using namespace std;
 
 class Dane {
 
 public:
-//    VEKTORDANYCH dane; // 50 pierwsszegych kwiatkow, potem 50 druich potem trzecich
-
-//    vector<double> maksima; // do normalizacji maksymalne wartosci danej zmiennej
-//    vector<double> minima;  // do normalizacji
-//    void normalizuj();
 
     Dane() = default;
     virtual ~Dane();
@@ -36,11 +30,6 @@ public:
 
     vector<int> wylosujKolejnoscPobierania(int ileLiczb); // losuje kolejnosc liczb z przedz. [0, ileliczb) bez ileLiczb
 
- //   void wczytajPlik(string nazwaPliku = "iris.data", int ilosclinii = 150); // wczytuje dane z pliku iris.data do wektora par
-
-
-
-  //  void wypiszWektor(VEKTORDANYCH wek);
 
 };
 

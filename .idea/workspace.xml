@@ -12,7 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df1f3455-89e4-437f-8243-805d2db475f1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/kwiatki.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/kwiatki.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/headers/Dane.h" beforeDir="false" afterPath="$PROJECT_DIR$/headers/Dane.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/headers/Gnuplot.h" beforeDir="false" afterPath="$PROJECT_DIR$/headers/Gnuplot.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/headers/Matematyka.h" beforeDir="false" afterPath="$PROJECT_DIR$/headers/Matematyka.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dane.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dane.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SiecNeuronow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/SiecNeuronow.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -26,11 +32,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
+            <state relative-caret-position="833">
+              <caret line="54" column="27" lean-forward="true" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
@@ -41,7 +47,7 @@
       <file leaf-file-name="Neuron.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Neuron.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="374">
               <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
             </state>
           </provider>
@@ -59,7 +65,7 @@
       <file leaf-file-name="SiecNeuronow.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/SiecNeuronow.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="510">
               <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="48" />
               <folding>
                 <element signature="e#159#176#0" expanded="true" />
@@ -71,16 +77,16 @@
       <file leaf-file-name="SiecNeuronow.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SiecNeuronow.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="522" column="3" selection-start-line="522" selection-start-column="3" selection-end-line="522" selection-end-column="3" />
+            <state relative-caret-position="-1564">
+              <caret line="420" selection-start-line="420" selection-end-line="420" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Neuron.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Neuron.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Neuron.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
+            <state relative-caret-position="391">
               <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
             </state>
           </provider>
@@ -89,8 +95,8 @@
       <file leaf-file-name="Dane.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Dane.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="527">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#86#103#0" expanded="true" />
               </folding>
@@ -101,8 +107,8 @@
       <file leaf-file-name="Dane.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Dane.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2805">
-              <caret line="165" selection-start-line="165" selection-end-line="165" />
+            <state>
+              <caret line="128" column="17" lean-forward="true" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -110,8 +116,8 @@
       <file leaf-file-name="Matematyka.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Matematyka.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -119,8 +125,8 @@
       <file leaf-file-name="Gnuplot.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/headers/Gnuplot.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="55" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
+            <state relative-caret-position="-272">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -176,15 +182,15 @@
         <option value="$PROJECT_DIR$/src/Gnuplot.cpp" />
         <option value="$PROJECT_DIR$/headers/Testy.h" />
         <option value="$PROJECT_DIR$/headers/StrukturyZestaw.h" />
-        <option value="$PROJECT_DIR$/headers/Dane.h" />
-        <option value="$PROJECT_DIR$/headers/Matematyka.h" />
-        <option value="$PROJECT_DIR$/headers/Gnuplot.h" />
-        <option value="$PROJECT_DIR$/src/Dane.cpp" />
         <option value="$PROJECT_DIR$/headers/Neuron.h" />
         <option value="$PROJECT_DIR$/src/Neuron.cpp" />
         <option value="$PROJECT_DIR$/headers/SiecNeuronow.h" />
-        <option value="$PROJECT_DIR$/src/SiecNeuronow.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/src/SiecNeuronow.cpp" />
+        <option value="$PROJECT_DIR$/headers/Dane.h" />
+        <option value="$PROJECT_DIR$/src/Dane.cpp" />
+        <option value="$PROJECT_DIR$/headers/Matematyka.h" />
+        <option value="$PROJECT_DIR$/headers/Gnuplot.h" />
       </list>
     </option>
   </component>
@@ -233,7 +239,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SiecNeuronowa/SiecNeuronowa" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -321,11 +327,14 @@
       <workItem from="1528242962761" duration="787000" />
       <workItem from="1528275958274" duration="11773000" />
       <workItem from="1528293447712" duration="2484000" />
+      <workItem from="1528486670753" duration="226000" />
+      <workItem from="1528490247899" duration="550000" />
+      <workItem from="1528524981610" duration="395000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236702000" />
+    <option name="totallyTimeSpent" value="237873000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -338,10 +347,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.123125" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32939634" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32677165" />
       <window_info anchor="bottom" id="CMake" order="11" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.500625" side_tool="true" weight="0.35564303" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -358,6 +367,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32677165" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -589,34 +599,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/headers/Gnuplot.h">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="55" selection-start-line="45" selection-start-column="55" selection-end-line="45" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/headers/Matematyka.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dane.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2805">
-          <caret line="165" selection-start-line="165" selection-end-line="165" />
+        <state relative-caret-position="833">
+          <caret line="54" column="27" lean-forward="true" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/headers/Dane.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="527">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#86#103#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dane.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="128" column="17" lean-forward="true" selection-start-line="128" selection-start-column="17" selection-end-line="128" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headers/Matematyka.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/headers/Gnuplot.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -629,21 +649,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/headers/Neuron.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="374">
           <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Neuron.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/headers/SiecNeuronow.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="510">
           <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="48" />
           <folding>
             <element signature="e#159#176#0" expanded="true" />
@@ -653,18 +666,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SiecNeuronow.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="522" column="3" selection-start-line="522" selection-start-column="3" selection-end-line="522" selection-end-column="3" />
+        <state relative-caret-position="-1564">
+          <caret line="420" selection-start-line="420" selection-end-line="420" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/src/Neuron.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
         </state>
       </provider>
     </entry>

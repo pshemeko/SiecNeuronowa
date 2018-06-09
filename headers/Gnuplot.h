@@ -30,8 +30,6 @@ static void rysuj(string str)
 {
     Gnuplot gnuplot;
 
-    //string a = "0.0";
-    //string b = "1.0";
 
     gnuplot("set term png truecolor\n"); //ustawienie terminala na png
     //gnuplot("set output \"plikStaryZLY.png\" \n");  //ustawienie pliku do którego maj¹ zostaæ zapisane dane

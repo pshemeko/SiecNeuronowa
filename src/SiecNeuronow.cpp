@@ -235,97 +235,7 @@ void SiecNeuronow::adapptacjaWagWersjaOFFLine(bool czyUwzgledniacPotencjal)
         }
     }
 }
-/*
-void SiecNeuronow::adaptacjaWagGazNeuronowy(bool czyUwzgledniacPotencjal, double &lambda, double eta, int K_iluSasiadomZmieniamy)//vector<double> wspolczynnikiNaukiSasiadow)
-{
-    ///////////////////////////// nieskonczone
-    //Dane dane;
-    //vector<int> kolejnosc = dane.wylosujKolejnoscPobierania(zadanePunkty.size());
-    odleglosci.clear();
-    int iluSasiadow = K_iluSasiadomZmieniamy;
-    if(iluSasiadow > neuronyCentalne.size())
-    {
-        cout <<endl<<endl<< "!!!!!!!!!!!!!!!!!! BLAD NIE MOZNA ADAPTOWAC WIECEJ SASIADOW NIZ JEST CENTROW" <<endl<<endl;
-        exit(99999);
-    }
-    //obliczOdleglosci();
-    //sortujOdleglosciDokladnie();
-    int ile = 0;
-    //vector<double> wspolrzedneNowe = neuronyCentalne[0]->wagi;  // aby mial ten sam rozmiar
-    //for(int i = 0; i < wspolrzedneNowe.size(); ++i) wspolrzedneNowe[i] = 0.0; // zerowanie
 
-    //vector<double> ileRazyZmienionoCentum;
-   //for (int i = 0; i < neuronyCentalne.size(); ++i) ileRazyZmienionoCentum.push_back(0.0); // zapisuje i;le razy modyfikowalem wagi danego centum
-
-    if(czyUwzgledniacPotencjal)
-    {
-
-    }
-    else
-    {
-
-            ///////////// wybierz kolejny punkt znajdz najblizsze mu centa i zmien ich wagi
-        for(int i = 0; i < zadanePunkty.size(); ++i)
-            {
-                //VEKTORPAR para;
-                vector<double> punkt;
-                vector<double> odlegly;
-                // zwyliczam odleglosci wszystkich neuronow od tego punktu
-                for(int j = 0; j <neuronyCentalne.size(); ++j)
-                {
-                    double odl = neuronyCentalne[j]->odlegloscEuklidesowa(zadanePunkty[i]);
-                    //double odl = zadanePunkty[i]->odlegloscEuklidesowa(neuronyCentalne[j]);
-
-                    punkt.push_back(j);
-                    odlegly.push_back(odl);
-                }
-                odleglosci.push_back(make_pair(punkt,odlegly));
-
-                // teraz sortuje odleglosci od najblizszego
-                for(int j = 0; j < odleglosci[i].first.size() - 1; ++j)
-                {
-                    for(int k = j+1; k < odleglosci[i].first.size(); ++k)
-                    {
-                        if( odleglosci[i].second[j] > odleglosci[i].second[k])
-                        {
-                            // zamieniamy
-                            swap(odleglosci[i].first[j], odleglosci[i].first[k]);
-                            swap(odleglosci[i].second[j], odleglosci[i].second[k]);
-
-                        }
-                    }
-                }
-
-             // modyfikuje wagi wszystkich neurony od najblizszego do zadanego punktu az do K-tego(z main) czyli iluSasiadow
-
-             for(int j = 0; j < iluSasiadow; ++j)    //TODO zmienic tak jak na wykladzie ze j< neuronyCentalne.size() bo zmieniac trzeba dla wszystkich tylko te sasiedstwo bedzie coraz mniejsza wartosc
-             {
-                 ostringstream os;
-                 // tu njpierw oblicz potencjal gdy wybrano
-                 for(int k = 0; k< neuronyCentalne[0]->wagi.size(); ++k)
-                 {
-                     os << "Waga:" <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
-                     // wzor z wykladu strona 39 oraz 42
-                     // TODO Wzur na sume jest zly
-                    neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]
-                            += eta * funkcjaSasiedztwaGazuNeuronowego(j,lambda)
-                               * (zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k]);
-
-                    os << " wsp. Nauki: " << eta << " Fcja sasiedstawa: " ;
-                    os << funkcjaSasiedztwaGazuNeuronowego(j,lambda) << " roznica wag" << zadanePunkty[i]->wagi[k] - neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
-                    os <<" Nowa waga: " <<neuronyCentalne[odleglosci[i].first[j]]-> wagi[k];
-
-                 }
-              //  if (0 == i) cout << os.str() << endl;
-
-             }
-
-            }
-
-        }
-    czyPosortowaneOdleglosci = true;
-}
-*/
 void SiecNeuronow::aptacjaWagGazNeuronowyOFFLine(bool czyUwzgledniacPotencjal, double &lambda, double eta, int iluSasiadomZmieniamy)
 {
     vector<double> iloscZmianNeuronu;
@@ -379,16 +289,6 @@ void SiecNeuronow::aptacjaWagGazNeuronowyOFFLine(bool czyUwzgledniacPotencjal, d
 
 
         }
-        /*
-        // jako ze offline dzielimy przes zume zmian chyba
-        for(int i = 0; i < iloscZmianNeuronu.size(); ++i)
-        {
-            for(int k = 0; k < neuronyCentalne[i]->wagi.size(); ++k)
-            {
-                if(iloscZmianNeuronu[i] != 0.0) neuronyCentalne[i]->wagi[k] /= iloscZmianNeuronu[i];
-            }
-        }
-         */
 
     }
 }
@@ -420,11 +320,8 @@ void SiecNeuronow::przesunMartweNeurony(double lambda, double eta)
                         eta * funkcjaSasiedztwaGazuNeuronowego(0,lambda)
                         *(zadanePunkty[numerPunktu] -> wagi[k] - neuronyCentalne[i]-> wagi[k]);
             }
-
         }
-
     }
-
 }
 
 
@@ -448,9 +345,6 @@ string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCent
 
     zapiszDoPliku(neuronyCentalne, nazwaPlikuCentrow);   // zapisuje neurony centralne do pliku by moc rysowac je
 
-    // musi byc posortowane
-    //if(!czyPosortowaneOdleglosci) sortujOdleglosci();
-
     string nazwa;
 
     //int l=0;
@@ -471,13 +365,7 @@ string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCent
             if(odleglosci[j].first[0] == i)
             {
                 p1.push_back(new Neuron(dane[j]->wagi[0], dane[j]->wagi[1]));
-                //p1.push_back(vector<double>());
-                //p1[l].push_back(wzorzec[j][0]);
-                //p1[l].push_back(wzorzec[j][1]);
-                //l++;
-
             }
-            // cout<<nazwa<<" ";
         }
         zapiszDoPliku(p1,nazwa1);
         p1.clear();
@@ -491,7 +379,6 @@ string SiecNeuronow::zapiszWszystkoWPliku(int iloscCentrow,string nazwaPlikuCent
 
 string SiecNeuronow::rysujWykres( int iloscCentrow, int numer, VEKTORDANYCH &dane, string komendaJest)
 {
-    //char *plikCentrow = "neuronyCentralne.txt";
     string nazwaPlikuCentrow = "neuronyCentralne.txt";
     string zwracany;
 
@@ -531,15 +418,7 @@ return zwracany;
 
 void SiecNeuronow::tworzMozaike()
 {
-/*
-    for(double i = zestaw.xmin; i < zestaw.xmax; i = i+0.1)
-    {
-        for(double j = zestaw.ymin; j < zestaw.ymax; j = j+0.1)
-        {
-            mozaika.push_back(new Neuron(i,j));
-        }
-    }
-*/
+
     //poniewaz zamiast 0 pokazuje -1.87905e-14 musze to rozbic na czeci
 
     for(double i = zestaw.xmin; i <= 0.1; i = i+0.1)

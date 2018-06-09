@@ -137,7 +137,7 @@ void Dane::wczytaj_wzorzec(vector<Neuron * > &wzorzec,char *nazwa){
     double liczba;
     int i=0;
     int j=0;
-    //wzorzec.push_back(vector<double>());
+
     vector<double> vv;
     if(dane.is_open()){
         cout<<"plik otwarty.."<<endl;
@@ -145,19 +145,18 @@ void Dane::wczytaj_wzorzec(vector<Neuron * > &wzorzec,char *nazwa){
             dane>>liczba;
             vv.push_back(liczba);
             j=vv.size();
-            // cout<<wzorzec[i][j-1]<<"d";
+
             if(j==2){
                 i++;
                 Neuron *nn = new Neuron(vv[0],vv[1]);
                 wzorzec.push_back(nn);
 
                 vv.clear();
-                //wzorzec.push_back(vector<double>());
-                // cout<<endl;
+
             }
         }
         dane.close();
-        //wzorzec.pop_back();
+
     }
     else cout<<"plik nie zostal otwarty"<<endl;
     cout <<"Koniec wczytywania..."<<endl;
